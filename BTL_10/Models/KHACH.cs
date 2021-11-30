@@ -12,7 +12,7 @@ namespace BTL_10.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KHACH()
         {
-            DANGKies = new HashSet<DANGKY>();
+            TOURs = new HashSet<TOUR>();
         }
 
         [Key]
@@ -34,6 +34,6 @@ namespace BTL_10.Models
         public decimal? SDT { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DANGKY> DANGKies { get; set; }
+        public virtual ICollection<TOUR> TOURs { get; set; }
     }
 }
