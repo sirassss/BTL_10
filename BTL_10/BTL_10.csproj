@@ -145,7 +145,6 @@
     </Compile>
     <Compile Include="Models\ADMIN.cs" />
     <Compile Include="Models\BLOG.cs" />
-    <Compile Include="Models\DANGKY.cs" />
     <Compile Include="Models\DANHMUCBLOG.cs" />
     <Compile Include="Models\DIEMTHAMQUAN.cs" />
     <Compile Include="Models\HUONGDANVIEN.cs" />
