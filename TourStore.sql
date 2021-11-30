@@ -60,7 +60,6 @@ Create table [PHUONGTIEN]
 (
 	[MAPHUONGTIEN] Char(10) NOT NULL,
 	[TENPHUONGTIEN] Nvarchar(100) NULL,
-	[SOCHO] Numeric(3,0) NULL,
 	[MATOUR] Char(10) NOT NULL, UNIQUE ([MATOUR]),
 Primary Key ([MAPHUONGTIEN],[MATOUR])
 ) 
@@ -80,7 +79,6 @@ Create table [DANGKY]
 (
 	[MATOUR] Char(10) NOT NULL,
 	[MAKHACH] Char(10) NOT NULL,
-	[SLVE] Numeric(3,0) NULL,
 Primary Key ([MATOUR],[MAKHACH])
 ) 
 go
