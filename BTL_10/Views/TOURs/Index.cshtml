@@ -1,6 +1,7 @@
-﻿
+﻿@model IEnumerable<BTL_10.Models.TOUR>
+
 @{
-    ViewBag.Title = "Hotels";
+    ViewBag.Title = "Index";
 }
 
 <div class="hero-wrap js-fullheight" style="background-image: url('../../Content/images/bg_1.jpg');">
@@ -8,8 +9,8 @@
     <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
             <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="@Url.Action("Index", "Home")">Home</a></span> <span>Hotel</span></p>
-                <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Hotels</h1>
+                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="@Url.Action("Index", "Home")">Home</a></span> <span>Places</span></p>
+                <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Destinations</h1>
             </div>
         </div>
     </div>
@@ -101,7 +102,7 @@
                 <div class="row">
                     <div class="col-sm col-md-6 col-lg-4 ftco-animate">
                         <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/hotel-1.jpg);">
+                            <a href="@Url.Action("Details", "TOURs")" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/destination-3.jpg);">
                                 <div class="icon d-flex justify-content-center align-items-center">
                                     <span class="icon-link"></span>
                                 </div>
@@ -109,7 +110,7 @@
                             <div class="text p-3">
                                 <div class="d-flex">
                                     <div class="one">
-                                        <h3><a href="#">New Orleans, LA</a></h3>
+                                        <h3><a href="#">Paris, Italy</a></h3>
                                         <p class="rate">
                                             <i class="icon-star"></i>
                                             <i class="icon-star"></i>
@@ -120,21 +121,22 @@
                                         </p>
                                     </div>
                                     <div class="two">
-                                        <span class="price per-price">$40<br><small>/night</small></span>
+                                        <span class="price">$200</span>
                                     </div>
                                 </div>
                                 <p>Far far away, behind the word mountains, far from the countries</p>
+                                <p class="days"><span>2 days 3 nights</span></p>
                                 <hr>
                                 <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> Miami, Fl</span>
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
+                                    <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                    <span class="ml-auto"><a href="@Url.Action("Details", "TOURs")">Discover</a></span>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm col-md-6 col-lg-4 ftco-animate">
                         <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/hotel-2.jpg);">
+                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/destination-4.jpg);">
                                 <div class="icon d-flex justify-content-center align-items-center">
                                     <span class="icon-link"></span>
                                 </div>
@@ -142,7 +144,7 @@
                             <div class="text p-3">
                                 <div class="d-flex">
                                     <div class="one">
-                                        <h3><a href="#">New Orleans, LA</a></h3>
+                                        <h3><a href="#">Paris, Italy</a></h3>
                                         <p class="rate">
                                             <i class="icon-star"></i>
                                             <i class="icon-star"></i>
@@ -153,21 +155,22 @@
                                         </p>
                                     </div>
                                     <div class="two">
-                                        <span class="price per-price">$40<br><small>/night</small></span>
+                                        <span class="price">$200</span>
                                     </div>
                                 </div>
                                 <p>Far far away, behind the word mountains, far from the countries</p>
+                                <p class="days"><span>2 days 3 nights</span></p>
                                 <hr>
                                 <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> Miami, Fl</span>
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
+                                    <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                    <span class="ml-auto"><a href="#">Discover</a></span>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm col-md-6 col-lg-4 ftco-animate">
                         <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/hotel-3.jpg);">
+                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/destination-1.jpg);">
                                 <div class="icon d-flex justify-content-center align-items-center">
                                     <span class="icon-link"></span>
                                 </div>
@@ -175,7 +178,7 @@
                             <div class="text p-3">
                                 <div class="d-flex">
                                     <div class="one">
-                                        <h3><a href="#">New Orleans, LA</a></h3>
+                                        <h3><a href="#">Paris, Italy</a></h3>
                                         <p class="rate">
                                             <i class="icon-star"></i>
                                             <i class="icon-star"></i>
@@ -186,21 +189,22 @@
                                         </p>
                                     </div>
                                     <div class="two">
-                                        <span class="price per-price">$40<br><small>/night</small></span>
+                                        <span class="price">$200</span>
                                     </div>
                                 </div>
                                 <p>Far far away, behind the word mountains, far from the countries</p>
+                                <p class="days"><span>2 days 3 nights</span></p>
                                 <hr>
                                 <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> Miami, Fl</span>
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
+                                    <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                    <span class="ml-auto"><a href="#">Discover</a></span>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm col-md-6 col-lg-4 ftco-animate">
                         <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/hotel-4.jpg);">
+                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/destination-2.jpg);">
                                 <div class="icon d-flex justify-content-center align-items-center">
                                     <span class="icon-link"></span>
                                 </div>
@@ -208,7 +212,7 @@
                             <div class="text p-3">
                                 <div class="d-flex">
                                     <div class="one">
-                                        <h3><a href="#">New Orleans, LA</a></h3>
+                                        <h3><a href="#">Paris, Italy</a></h3>
                                         <p class="rate">
                                             <i class="icon-star"></i>
                                             <i class="icon-star"></i>
@@ -219,21 +223,22 @@
                                         </p>
                                     </div>
                                     <div class="two">
-                                        <span class="price per-price">$40<br><small>/night</small></span>
+                                        <span class="price">$200</span>
                                     </div>
                                 </div>
                                 <p>Far far away, behind the word mountains, far from the countries</p>
+                                <p class="days"><span>2 days 3 nights</span></p>
                                 <hr>
                                 <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> Miami, Fl</span>
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
+                                    <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                    <span class="ml-auto"><a href="#">Discover</a></span>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm col-md-6 col-lg-4 ftco-animate">
                         <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/hotel-5.jpg);">
+                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/destination-5.jpg);">
                                 <div class="icon d-flex justify-content-center align-items-center">
                                     <span class="icon-link"></span>
                                 </div>
@@ -241,7 +246,7 @@
                             <div class="text p-3">
                                 <div class="d-flex">
                                     <div class="one">
-                                        <h3><a href="#">New Orleans, LA</a></h3>
+                                        <h3><a href="#">Paris, Italy</a></h3>
                                         <p class="rate">
                                             <i class="icon-star"></i>
                                             <i class="icon-star"></i>
@@ -252,21 +257,22 @@
                                         </p>
                                     </div>
                                     <div class="two">
-                                        <span class="price per-price">$40<br><small>/night</small></span>
+                                        <span class="price">$200</span>
                                     </div>
                                 </div>
                                 <p>Far far away, behind the word mountains, far from the countries</p>
+                                <p class="days"><span>2 days 3 nights</span></p>
                                 <hr>
                                 <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> Miami, Fl</span>
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
+                                    <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                    <span class="ml-auto"><a href="#">Discover</a></span>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm col-md-6 col-lg-4 ftco-animate">
                         <div class="destination">
-                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/hotel-5.jpg);">
+                            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/destination-6.jpg);">
                                 <div class="icon d-flex justify-content-center align-items-center">
                                     <span class="icon-link"></span>
                                 </div>
@@ -274,7 +280,7 @@
                             <div class="text p-3">
                                 <div class="d-flex">
                                     <div class="one">
-                                        <h3><a href="#">New Orleans, LA</a></h3>
+                                        <h3><a href="#">Paris, Italy</a></h3>
                                         <p class="rate">
                                             <i class="icon-star"></i>
                                             <i class="icon-star"></i>
@@ -285,20 +291,20 @@
                                         </p>
                                     </div>
                                     <div class="two">
-                                        <span class="price per-price">$40<br><small>/night</small></span>
+                                        <span class="price">$200</span>
                                     </div>
                                 </div>
                                 <p>Far far away, behind the word mountains, far from the countries</p>
+                                <p class="days"><span>2 days 3 nights</span></p>
                                 <hr>
                                 <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> Miami, Fl</span>
-                                    <span class="ml-auto"><a href="#">Book Now</a></span>
+                                    <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                    <span class="ml-auto"><a href="#">Discover</a></span>
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="row mt-5">
                     <div class="col text-center">
                         <div class="block-27">
