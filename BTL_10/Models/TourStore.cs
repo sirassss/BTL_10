@@ -14,7 +14,6 @@ namespace BTL_10.Models
 
         public virtual DbSet<ADMIN> ADMINs { get; set; }
         public virtual DbSet<BLOG> BLOGs { get; set; }
-        public virtual DbSet<DANGKY> DANGKies { get; set; }
         public virtual DbSet<DANHMUCBLOG> DANHMUCBLOGs { get; set; }
         public virtual DbSet<DIEMTHAMQUAN> DIEMTHAMQUANs { get; set; }
         public virtual DbSet<HUONGDANVIEN> HUONGDANVIENs { get; set; }
@@ -74,20 +73,6 @@ namespace BTL_10.Models
                 .Property(e => e.TOMTAT)
                 .IsFixedLength();
 
-            modelBuilder.Entity<DANGKY>()
-                .Property(e => e.MATOUR)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DANGKY>()
-                .Property(e => e.MAKHACH)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DANGKY>()
-                .Property(e => e.SLVE)
-                .HasPrecision(3, 0);
-
             modelBuilder.Entity<DANHMUCBLOG>()
                 .Property(e => e.MADANHMUCBLOG)
                 .IsFixedLength()
@@ -136,9 +121,9 @@ namespace BTL_10.Models
                 .HasPrecision(15, 0);
 
             modelBuilder.Entity<KHACH>()
-                .HasMany(e => e.DANGKies)
-                .WithRequired(e => e.KHACH)
-                .WillCascadeOnDelete(false);
+                .HasMany(e => e.TOURs)
+                .WithMany(e => e.KHACHes)
+                .Map(m => m.ToTable("DANGKY").MapLeftKey("MAKHACH").MapRightKey("MATOUR"));
 
             modelBuilder.Entity<KHACHSAN>()
                 .Property(e => e.MAKS)
@@ -154,10 +139,6 @@ namespace BTL_10.Models
                 .Property(e => e.MAPHUONGTIEN)
                 .IsFixedLength()
                 .IsUnicode(false);
-
-            modelBuilder.Entity<PHUONGTIEN>()
-                .Property(e => e.SOCHO)
-                .HasPrecision(3, 0);
 
             modelBuilder.Entity<PHUONGTIEN>()
                 .Property(e => e.MATOUR)
@@ -181,11 +162,6 @@ namespace BTL_10.Models
                 .Property(e => e.MAHDV)
                 .IsFixedLength()
                 .IsUnicode(false);
-
-            modelBuilder.Entity<TOUR>()
-                .HasMany(e => e.DANGKies)
-                .WithRequired(e => e.TOUR)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<TOUR>()
                 .HasMany(e => e.KHACHSANs)

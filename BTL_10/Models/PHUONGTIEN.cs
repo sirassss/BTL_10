@@ -17,9 +17,6 @@ namespace BTL_10.Models
         [StringLength(100)]
         public string TENPHUONGTIEN { get; set; }
 
-        [Column(TypeName = "numeric")]
-        public decimal? SOCHO { get; set; }
-
         [Key]
         [Column(Order = 1)]
         [StringLength(10)]
