@@ -526,6 +526,8 @@
     <Content Include="Areas\Admin\Content\images\logo-text.png" />
     <Content Include="Areas\Admin\Content\images\logo-white.png" />
     <Content Include="Areas\Admin\Content\images\logo.png" />
+    <Content Include="Areas\Admin\Content\images\logoreal.png" />
+    <Content Include="Areas\Admin\Content\images\logoreal2.png" />
     <Content Include="Areas\Admin\Content\images\media\media-1.png" />
     <Content Include="Areas\Admin\Content\images\media\media-2.png" />
     <Content Include="Areas\Admin\Content\images\media\media-3.png" />

@@ -46,11 +46,11 @@
             <div class="brand-logo">
                 <a href="index.html">
                     <b class="logo-abbr">
-                        <img src="~/Areas/Admin/Content/images/logo.png" alt="" />
+                        <img src="~/Areas/Admin/Content/images/logoreal.png" alt="" />
                     </b>
-                    <span class="logo-compact"><img src="~/Areas/Admin/Content/images/logo-compact.png" alt=""></span>
+                    <span class="logo-compact"><img src="~/Areas/Admin/Content/images/logoreal.png" alt=""></span>
                     <span class="brand-title">
-                        <img src="~/Areas/Admin/Content/images/logo-text.png" alt="">
+                        <img src="~/Areas/Admin/Content/images/logoreal.png" alt="">
                     </span>
                 </a>
             </div>
@@ -262,6 +262,12 @@
                             <i class="icon-note menu-icon"></i><span class="nav-text">Quản lý</span>
                         </a>
                         <ul aria-expanded="false">
+                            <li><a href="@Url.Action("Index", "TOURs")">Quản lý Tour</a></li>
+                            <li><a href="@Url.Action("Index", "DIEMTHAMQUANs")">Quản lý điểm tham quan</a></li>
+                            <li><a href="@Url.Action("Index", "KHACHSANs")">Quản lý khách sạn</a></li>
+                            <li><a href="@Url.Action("Index", "PHUONGTIENs")">Quản lý phương tiện</a></li>
+                            <li><a href="@Url.Action("Index", "HUONGDANVIENs")">Quản lý hướng dẫn viên</a></li>
+                            <li><a href="@Url.Action("Index", "KHACHes")">Quản lý khách</a></li>
                             <li><a href="@Url.Action("Index", "BLOGs")">Quản lý Blog</a></li>
                             <li><a href="@Url.Action("Index", "DANHMUCBLOGs")">Quản lý danh mục Blog</a></li>
                         </ul>
@@ -286,7 +292,7 @@
                             <li><a href="./app-calender.html">Calender</a></li>
                         </ul>
                     </li>
-                    <li>
+                    @*<li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-graph menu-icon"></i> <span class="nav-text">Charts</span>
                         </a>
@@ -298,15 +304,15 @@
                             <li><a href="./chart-sparkline.html">Sparkline</a></li>
                             <li><a href="./chart-peity.html">Peity</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-label">UI Components</li>
+                    </li>*@
+                    <!--<li class="nav-label">UI Components</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-grid menu-icon"></i><span class="nav-text">UI Components</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="./ui-accordion.html">Accordion</a></li>
-                            <li><a href="./ui-alert.html">Alert</a></li>
+                            <li><a href="./ui-alert.html">Alert</a></li>-->
                             <!-- </ul>
             </li>
             <li>
@@ -314,7 +320,7 @@
                     <i class="icon-layers menu-icon"></i><span class="nav-text">Components</span>
                 </a>
                 <ul aria-expanded="false"> -->
-                            <li><a href="./uc-nestedable.html">Nestedable</a></li>
+                            <!--<li><a href="./uc-nestedable.html">Nestedable</a></li>
                             <li><a href="./uc-noui-slider.html">Noui Slider</a></li>
                             <li><a href="./uc-sweetalert.html">Sweet Alert</a></li>
                             <li><a href="./uc-toastr.html">Toastr</a></li>
@@ -355,7 +361,7 @@
                                 </ul>
                             </li>
                         </ul>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </div>
