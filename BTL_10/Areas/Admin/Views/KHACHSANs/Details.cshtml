@@ -1,0 +1,42 @@
+﻿@model BTL_10.Models.KHACHSAN
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KHACHSAN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TOUR.TENTOUR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOUR.TENTOUR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TENKS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENKS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIACHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHI)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

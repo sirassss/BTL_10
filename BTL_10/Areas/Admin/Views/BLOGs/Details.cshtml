@@ -1,0 +1,74 @@
+﻿@model BTL_10.Models.BLOG
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BLOG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ADMIN.TENDN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADMIN.TENDN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DANHMUCBLOG.TENDANHMUCBLOG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DANHMUCBLOG.TENDANHMUCBLOG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TIEUDE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIEUDE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ANH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOMTAT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOMTAT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOIDUNG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIDUNG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYKHOITAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYKHOITAO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

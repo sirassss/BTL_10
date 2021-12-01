@@ -1,0 +1,58 @@
+﻿@model BTL_10.Models.KHACH
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KHACH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENKHACH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENKHACH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PHAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIACHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CMND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MAKHACH }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
