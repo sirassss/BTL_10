@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BTL_10.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace BTL_10.Controllers
 {
     public class TOURsController : Controller
     {
+        TourStore db = new TourStore();
         // GET: TOURs
         public ActionResult Index()
         {
-            return View();
+            var listtour = db.TOURs.ToList();
+            return View(listtour);
         }
 
         // GET: TOURs/Details/5

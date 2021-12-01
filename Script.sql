@@ -52,7 +52,7 @@ Create table [TOUR]
 	[GIA] Money NULL,
 	[MAHDV] Char(10) NOT NULL,
 	[CHITIETTOUR] Ntext NULL,
-    [ANH] Nvarchar NULL,
+    [ANH] Nvarchar(1000) NULL,
 Primary Key ([MATOUR])
 ) 
 go
