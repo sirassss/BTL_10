@@ -5244,7 +5244,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Content\plugins\jqvmap\js\maps\" />
     <Folder Include="Areas\Admin\Content\plugins\summernote\css\" />
-    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Data\Blog\" />
+    <Folder Include="Areas\Admin\Data\Tour\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
@@ -5540,11 +5541,6 @@
     <Content Include="Areas\Admin\Views\BLOGs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\BLOGs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\BLOGs\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\TOURs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\TOURs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\TOURs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\TOURs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\TOURs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Details.cshtml" />
@@ -5576,6 +5572,11 @@
     <Content Include="Areas\Admin\Views\HUONGDANVIENs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HUONGDANVIENs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TOURs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TOURs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\TOURs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\TOURs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TOURs\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\TOURs\Details.cshtml" />
     <Content Include="Views\TOURs\Index.cshtml" />

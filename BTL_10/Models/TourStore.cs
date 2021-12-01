@@ -8,7 +8,7 @@ namespace BTL_10.Models
     public partial class TourStore : DbContext
     {
         public TourStore()
-            : base("name=TourStore")
+            : base("name=TourStore1")
         {
         }
 

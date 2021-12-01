@@ -2,9 +2,10 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>DANH SÁCH TOUR</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -29,6 +30,9 @@
         <th>
             @Html.DisplayNameFor(model => model.CHITIETTOUR)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANH)
+        </th>
         <th></th>
     </tr>
 
@@ -51,6 +55,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CHITIETTOUR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ANH)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MATOUR }) |
