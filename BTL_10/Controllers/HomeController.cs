@@ -22,14 +22,7 @@ namespace BTL_10.Controllers
         {
             return View();
         }
-        public ActionResult Places()
-        {
-            return View();
-        }
-        public ActionResult Hotels()
-        {
-            return View();
-        }
+
         public ActionResult Blog()
         {
             return View();
