@@ -138,6 +138,7 @@
     <Compile Include="Areas\Admin\Controllers\HUONGDANVIENsController.cs" />
     <Compile Include="Areas\Admin\Controllers\KHACHesController.cs" />
     <Compile Include="Areas\Admin\Controllers\KHACHSANsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\PHUONGTIENsController.cs" />
     <Compile Include="Areas\Admin\Controllers\TOURsController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
@@ -522,10 +523,13 @@
     <Content Include="Areas\Admin\Content\images\l-dark.png" />
     <Content Include="Areas\Admin\Content\images\l-white.png" />
     <Content Include="Areas\Admin\Content\images\loader.gif" />
+    <Content Include="Areas\Admin\Content\images\login.jpg" />
     <Content Include="Areas\Admin\Content\images\logo-compact.png" />
     <Content Include="Areas\Admin\Content\images\logo-text.png" />
     <Content Include="Areas\Admin\Content\images\logo-white.png" />
     <Content Include="Areas\Admin\Content\images\logo.png" />
+    <Content Include="Areas\Admin\Content\images\logoreal.png" />
+    <Content Include="Areas\Admin\Content\images\logoreal2.png" />
     <Content Include="Areas\Admin\Content\images\media\media-1.png" />
     <Content Include="Areas\Admin\Content\images\media\media-2.png" />
     <Content Include="Areas\Admin\Content\images\media\media-3.png" />
@@ -5571,6 +5575,7 @@
     <Content Include="Areas\Admin\Views\HUONGDANVIENs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\HUONGDANVIENs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HUONGDANVIENs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\TOURs\Details.cshtml" />
     <Content Include="Views\TOURs\Index.cshtml" />
