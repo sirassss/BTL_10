@@ -28,6 +28,9 @@ namespace BTL_10.Models
         [StringLength(1000)]
         public string MOTADIEMDEN { get; set; }
 
+        [StringLength(1000)]
+        public string ANH { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TOUR> TOURs { get; set; }
     }

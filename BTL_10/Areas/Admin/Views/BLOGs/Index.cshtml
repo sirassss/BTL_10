@@ -1,0 +1,69 @@
+﻿@model IEnumerable<BTL_10.Models.BLOG>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ADMIN.TENDN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DANHMUCBLOG.TENDANHMUCBLOG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIEUDE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TOMTAT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOIDUNG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYKHOITAO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADMIN.TENDN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DANHMUCBLOG.TENDANHMUCBLOG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TIEUDE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ANH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TOMTAT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOIDUNG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYKHOITAO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

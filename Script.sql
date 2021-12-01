@@ -1,6 +1,6 @@
 /*
 Created		11/24/2021
-Modified		11/30/2021
+Modified		12/1/2021
 Project		
 Model			
 Company		
@@ -51,7 +51,7 @@ Create table [TOUR]
 	[NGAYKT] Datetime NULL,
 	[GIA] Money NULL,
 	[MAHDV] Char(10) NOT NULL,
-	[CHITIETTOUR] Nvarchar(10) NULL,
+	[CHITIETTOUR] Ntext NULL,
 Primary Key ([MATOUR])
 ) 
 go
@@ -71,6 +71,7 @@ Create table [DIEMTHAMQUAN]
 	[TENDD] Nvarchar(100) NULL,
 	[DIACHI] Nvarchar(100) NULL,
 	[MOTADIEMDEN] Nvarchar(1000) NULL,
+	[ANH] Nvarchar(1000) NULL,
 Primary Key ([MADD])
 ) 
 go
@@ -101,7 +102,7 @@ Create table [BLOG]
 	[ID] Char(10) NOT NULL,
 	[MADANHMUCBLOG] Char(10) NOT NULL,
 	[TIEUDE] Nvarchar(100) NULL,
-	[ANH] Image NULL,
+	[ANH] Nvarchar(1000) NULL,
 	[TOMTAT] Nchar(20) NULL,
 	[NOIDUNG] Nvarchar(1000) NULL,
 	[NGAYKHOITAO] Datetime NULL,

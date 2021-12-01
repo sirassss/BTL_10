@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BTL_10.Models.DIEMTHAMQUAN>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TENDD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIACHI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MOTADIEMDEN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENDD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIACHI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MOTADIEMDEN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MADD }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MADD }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MADD })
+        </td>
+    </tr>
+}
+
+</table>

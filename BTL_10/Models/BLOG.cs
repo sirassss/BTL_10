@@ -27,8 +27,8 @@ namespace BTL_10.Models
         [StringLength(100)]
         public string TIEUDE { get; set; }
 
-        [Column(TypeName = "image")]
-        public byte[] ANH { get; set; }
+        [StringLength(1000)]
+        public string ANH { get; set; }
 
         [StringLength(20)]
         public string TOMTAT { get; set; }

@@ -1,0 +1,42 @@
+﻿@model BTL_10.Models.DIEMTHAMQUAN
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DIEMTHAMQUAN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENDD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENDD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIACHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MOTADIEMDEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOTADIEMDEN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MADD }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

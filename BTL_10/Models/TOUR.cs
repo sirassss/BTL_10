@@ -36,7 +36,7 @@ namespace BTL_10.Models
         [StringLength(10)]
         public string MAHDV { get; set; }
 
-        [StringLength(10)]
+        [Column(TypeName = "ntext")]
         public string CHITIETTOUR { get; set; }
 
         public virtual HUONGDANVIEN HUONGDANVIEN { get; set; }
