@@ -6,15 +6,10 @@ using System.Web.Mvc;
 
 namespace BTL_10.Controllers
 {
-    public class BlogController : Controller
+    public class TourHanoiController : Controller
     {
-        // GET: Blog
+        // GET: TourHanoi
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult Detail()
         {
             return View();
         }
