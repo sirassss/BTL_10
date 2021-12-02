@@ -100,41 +100,45 @@
             </div><!-- END-->
             <div class="col-lg-9">
                 <div class="row">
-                    <div class="col-sm col-md-6 col-lg-4 ftco-animate">
-                        <div class="destination">
-                            <a href="@Url.Action("Details", "TOURs")" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/destination-3.jpg);">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="icon-link"></span>
-                                </div>
-                            </a>
-                            <div class="text p-3">
-                                <div class="d-flex">
-                                    <div class="one">
-                                        <h3><a href="#">Paris, Italy</a></h3>
-                                        <p class="rate">
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-o"></i>
-                                            <span>8 Rating</span>
-                                        </p>
+                    @foreach (var tour in Model)
+                    {
+                        <div class="col-sm col-md-6 col-lg-4 ftco-animate">
+                            <div class="destination">
+                                <a href="/TOURs/Details/@tour.MATOUR" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../@tour.ANH);">
+                                    <div class="icon d-flex justify-content-center align-items-center">
+                                        <span class="icon-link"></span>
                                     </div>
-                                    <div class="two">
-                                        <span class="price">$200</span>
+                                </a>
+                                <div class="text p-3">
+                                    <div class="d-flex">
+                                        <div class="one">
+                                            <h3><a href="#">@tour.TENTOUR</a></h3>
+                                            <p class="rate">
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star-o"></i>
+                                                <span>8 Rating</span>
+                                            </p>
+                                        </div>
+                                        <div class="two">
+                                            <span class="badge badge-pill badge-primary">@String.Format("{0:0,0đ}", tour.GIA)</span>
+                                        </div>
                                     </div>
+                                    <p>@tour.CHITIETTOUR</p>
+                                    <p class="days"><span>từ @tour.NGAYBD đến @tour.NGAYKT</span></p>
+                                    <hr>
+                                    <p class="bottom-area d-flex">
+                                        <span><i class="icon-map-o"></i> @tour.TENTOUR</span>
+                                        <span class="ml-auto"><a href="/TOURs/Details/@tour.MATOUR">Discover</a></span>
+                                    </p>
                                 </div>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                                <p class="days"><span>2 days 3 nights</span></p>
-                                <hr>
-                                <p class="bottom-area d-flex">
-                                    <span><i class="icon-map-o"></i> San Franciso, CA</span>
-                                    <span class="ml-auto"><a href="@Url.Action("Details", "TOURs")">Discover</a></span>
-                                </p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm col-md-6 col-lg-4 ftco-animate">
+                    }
+
+                    @*<div class="col-sm col-md-6 col-lg-4 ftco-animate">
                         <div class="destination">
                             <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/destination-4.jpg);">
                                 <div class="icon d-flex justify-content-center align-items-center">
@@ -303,7 +307,7 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
                 <div class="row mt-5">
                     <div class="col text-center">

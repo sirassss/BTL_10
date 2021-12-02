@@ -1,132 +1,92 @@
-﻿using System;
+﻿using BTL_10.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using BTL_10.Models;
 
 namespace BTL_10.Controllers
 {
     public class TOURsController : Controller
     {
-        private TourStore db = new TourStore();
-
+        TourStore db = new TourStore();
         // GET: TOURs
         public ActionResult Index()
         {
-            var tOURs = db.TOURs.Include(t => t.HUONGDANVIEN);
-            return View(tOURs.ToList());
+            var listtour = db.TOURs.ToList();
+            return View(listtour);
         }
 
         // GET: TOURs/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TOUR tOUR = db.TOURs.Find(id);
-            if (tOUR == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tOUR);
+            return View();
         }
 
         // GET: TOURs/Create
         public ActionResult Create()
         {
-            ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV");
             return View();
         }
 
         // POST: TOURs/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MATOUR,TENTOUR,NGAYBD,NGAYKT,GIA,MAHDV,CHITIETTOUR")] TOUR tOUR)
+        public ActionResult Create(FormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.TOURs.Add(tOUR);
-                db.SaveChanges();
+                // TODO: Add insert logic here
+
                 return RedirectToAction("Index");
             }
-
-            ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
-            return View(tOUR);
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: TOURs/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TOUR tOUR = db.TOURs.Find(id);
-            if (tOUR == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
-            return View(tOUR);
+            return View();
         }
 
         // POST: TOURs/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MATOUR,TENTOUR,NGAYBD,NGAYKT,GIA,MAHDV,CHITIETTOUR")] TOUR tOUR)
+        public ActionResult Edit(int id, FormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(tOUR).State = EntityState.Modified;
-                db.SaveChanges();
+                // TODO: Add update logic here
+
                 return RedirectToAction("Index");
             }
-            ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
-            return View(tOUR);
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: TOURs/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TOUR tOUR = db.TOURs.Find(id);
-            if (tOUR == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tOUR);
+            return View();
         }
 
         // POST: TOURs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
         {
-            TOUR tOUR = db.TOURs.Find(id);
-            db.TOURs.Remove(tOUR);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
+            try
             {
-                db.Dispose();
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
             }
-            base.Dispose(disposing);
+            catch
+            {
+                return View();
+            }
         }
     }
 }

@@ -39,6 +39,9 @@ namespace BTL_10.Models
         [Column(TypeName = "ntext")]
         public string CHITIETTOUR { get; set; }
 
+        [StringLength(1000)]
+        public string ANH { get; set; }
+
         public virtual HUONGDANVIEN HUONGDANVIEN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
