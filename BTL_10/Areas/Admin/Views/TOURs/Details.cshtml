@@ -22,7 +22,7 @@
                     <p><h6>Ngày bắt đầu: </h6> @Model.NGAYBD</p>
                     <p><h6>Ngày kết thúc: </h6>@Model.NGAYKT</p>
                     <h2 class="mt-5">
-                        Giá: @Model.GIA<small class="text-success">(36%off)</small>
+                        Giá: @String.Format("{0:0,0đ}", Model.GIA)<small class="text-success">(36%off)</small>
                     </h2>
                     <a href="/Admin/TOURs/Edit/@Model.MATOUR">
                         <button class="btn btn-outline-dark btn-rounded mr-1">Sửa</button>

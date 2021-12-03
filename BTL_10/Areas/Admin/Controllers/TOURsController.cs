@@ -95,6 +95,15 @@ namespace BTL_10.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                tOUR.ANH = "";
+                var f = Request.Files["Imagefile"];
+                if (f != null && f.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f.FileName);
+                    string UpLoadPath = Server.MapPath("~/Areas/Admin/Data/Tour/" + FileName);
+                    f.SaveAs(UpLoadPath);
+                    tOUR.ANH = FileName;
+                }
                 db.Entry(tOUR).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
