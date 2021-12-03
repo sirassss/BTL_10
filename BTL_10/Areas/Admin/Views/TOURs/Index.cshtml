@@ -5,66 +5,96 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Quản lý Tour</h2>
+<div class="modal-footer">
+    <div class="btn-group mb-1" style="margin-right:900px">
+        <button type="button" class="btn btn-info">Sắp xếp</button>
+        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Theo ID</a> <a class="dropdown-item" href="#">Theo tên</a> <a class="dropdown-item" href="#">Theo giá</a>
+            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+        </div>
+    </div>
+    <div class="text-right">
+        <a href="@Url.Action("Create")">
+            <button class="btn mb-1 btn-rounded btn-primary"><i class="zmdi zmdi-plus"></i> Thêm Tour</button>
+        </a>
+    </div>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.HUONGDANVIEN.TENHDV)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TENTOUR)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NGAYBD)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NGAYKT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GIA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CHITIETTOUR)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ANH)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.HUONGDANVIEN.TENHDV)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TENTOUR)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NGAYBD)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NGAYKT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GIA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CHITIETTOUR)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ANH)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MATOUR }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MATOUR }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MATOUR })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Các TOUR</h4>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered zero-configuration">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên Tour</th>
+                                <th>Tên HDV</th>
+                                <th>Giá</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Chi tiết</th>
+                                <th>Ảnh</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.MATOUR</td>
+                                    <td>@item.TENTOUR</td>
+                                    <td>@item.HUONGDANVIEN.TENHDV</td>
+                                    <td><span class="badge badge-pill badge-light">@String.Format("{0:0,0đ}", item.GIA)</span></td>
+                                    <td>@item.NGAYBD</td>
+                                    <td>@item.NGAYKT</td>
+                                    <td>@item.CHITIETTOUR</td>
+                                    <td>
+                                    @{ 
+                                        string imgpath = "~/Areas/Admin/Data/Tour/" + item.ANH;
+                                    }
+                                    <img src="@Url.Content(imgpath)" alt="Lỗi Ảnh" width="100" height="100" /></td>
+                                    <td>
+                                        <a href="/Admin/TOURs/Details/@item.MATOUR">
+                                            <button class="btn mb-1 btn-rounded btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Xem">
+                                                <i class="zmdi zmdi-eye"></i>
+                                            </button>
+                                        </a>
+                                        <a href="/Admin/TOURs/Edit/@item.MATOUR">
+                                            <button class="btn mb-1 btn-rounded btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Sửa">
+                                                <i class="zmdi zmdi-edit"></i>
+                                            </button>
+                                        </a>
+                                        <a href="/Admin/TOURs/Delete/@item.MATOUR">
+                                            <button class="btn mb-1 btn-rounded btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Xóa">
+                                                <i class="zmdi zmdi-delete"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên Tour</th>
+                                <th>Tên HDV</th>
+                                <th>Giá</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Chi tiết</th>
+                                <th>Ảnh</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
