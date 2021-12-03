@@ -54,7 +54,11 @@
                                     <td>@item.NGAYBD</td>
                                     <td>@item.NGAYKT</td>
                                     <td>@item.CHITIETTOUR</td>
-                                    <td><img src="@item.ANH" alt="Lỗi Ảnh" width="100" height="100" /></td>
+                                    <td>
+                                    @{ 
+                                        string imgpath = "~/Areas/Admin/Data/Tour/" + item.ANH;
+                                    }
+                                    <img src="@Url.Content(imgpath)" alt="Lỗi Ảnh" width="100" height="100" /></td>
                                     <td>
                                         <a href="/Admin/TOURs/Details/@item.MATOUR">
                                             <button class="btn mb-1 btn-rounded btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Xem">

@@ -445,6 +445,7 @@
     <Content Include="Areas\Admin\Content\icons\themify-icons\themify-icons.css" />
     <Content Include="Areas\Admin\Content\icons\weather-icons\css\weather-icons.min.css" />
     <Content Include="Areas\Admin\Content\icons\weather-icons\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="Areas\Admin\Content\images\noimage2.jpeg" />
     <Content Include="Areas\Admin\Content\images\user\admin.png" />
     <Content Include="Areas\Admin\Content\images\avatar\1.jpg" />
     <Content Include="Areas\Admin\Content\images\avatar\1.png" />
