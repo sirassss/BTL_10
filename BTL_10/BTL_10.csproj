@@ -5724,11 +5724,6 @@
     <Content Include="Areas\Admin\Views\KHACHSANs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHSANs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHSANs\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PHUONGTIENs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\PHUONGTIENs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\PHUONGTIENs\Details.cshtml" />
@@ -5776,6 +5771,11 @@
     <Content Include="Areas\Admin\Content\vendor\slick\slick-theme.scss" />
     <Content Include="Areas\Admin\Content\vendor\slick\slick.less" />
     <Content Include="Areas\Admin\Content\vendor\slick\slick.scss" />
+    <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\TOURs\Details.cshtml" />
     <Content Include="Views\TOURs\Index.cshtml" />
