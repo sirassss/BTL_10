@@ -50,14 +50,23 @@ namespace BTL_10.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MATOUR,TENTOUR,NGAYBD,NGAYKT,GIA,MAHDV,CHITIETTOUR,ANH")] TOUR tOUR)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
-                return View(tOUR);
+                tOUR.ANH = "";
+                var f = Request.Files["Imagefile"];
+                if (f != null && f.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f.FileName);
+                    string UpLoadPath = Server.MapPath("~/Areas/Admin/Data/Tour/" + FileName);
+                    f.SaveAs(UpLoadPath);
+                    tOUR.ANH = FileName;
+                }
+                db.TOURs.Add(tOUR);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            db.TOURs.Add(tOUR);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
+            return View(tOUR);
         }
 
         // GET: Admin/TOURs/Edit/5
@@ -85,6 +94,15 @@ namespace BTL_10.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                tOUR.ANH = "";
+                var f = Request.Files["Imagefile"];
+                if (f != null && f.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f.FileName);
+                    string UpLoadPath = Server.MapPath("~/Areas/Admin/Data/Tour/" + FileName);
+                    f.SaveAs(UpLoadPath);
+                    tOUR.ANH = FileName;
+                }
                 db.Entry(tOUR).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

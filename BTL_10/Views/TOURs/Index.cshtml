@@ -104,7 +104,10 @@
                     {
                         <div class="col-sm col-md-6 col-lg-4 ftco-animate">
                             <div class="destination">
-                                <a href="/TOURs/Details/@tour.MATOUR" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../@tour.ANH);">
+                                @{ 
+                                    string imgpath = "/Areas/Admin/Data/Tour/" + tour.ANH;
+                                }
+                                <a href="/TOURs/Details/@tour.MATOUR" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(@Url.Content(imgpath));">
                                     <div class="icon d-flex justify-content-center align-items-center">
                                         <span class="icon-link"></span>
                                     </div>
