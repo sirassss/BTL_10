@@ -10,33 +10,30 @@ namespace BTL_10.Models
     public partial class BLOG
     {
         [Key]
-        [Column(Order = 0)]
         [StringLength(10)]
         public string MABAIVIET { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(10)]
-        public string ID { get; set; }
-
-        [Key]
-        [Column(Order = 2)]
-        [StringLength(10)]
-        public string MADANHMUCBLOG { get; set; }
-
-        [StringLength(100)]
+        [StringLength(1000)]
         public string TIEUDE { get; set; }
 
         [StringLength(1000)]
         public string ANH { get; set; }
 
-        [StringLength(20)]
+        [StringLength(1000)]
         public string TOMTAT { get; set; }
 
-        [StringLength(1000)]
+        [Column(TypeName = "ntext")]
         public string NOIDUNG { get; set; }
 
         public DateTime? NGAYKHOITAO { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        public string MADANHMUCBLOG { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        public string ID { get; set; }
 
         public virtual ADMIN ADMIN { get; set; }
 

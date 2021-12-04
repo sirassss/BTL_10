@@ -1,6 +1,6 @@
 /*
 Created		11/24/2021
-Modified		12/1/2021
+Modified		12/4/2021
 Project		
 Model			
 Company		
@@ -36,10 +36,10 @@ go
 Create table [KHACHSAN]
 (
 	[MAKS] Char(10) NOT NULL,
+	[MATOUR] Char(10) NOT NULL, UNIQUE ([MATOUR]),
 	[TENKS] Nvarchar(100) NULL,
 	[DIACHI] Nvarchar(100) NULL,
-	[MATOUR] Char(10) NOT NULL, UNIQUE ([MATOUR]),
-Primary Key ([MAKS],[MATOUR])
+Primary Key ([MAKS])
 ) 
 go
 
@@ -52,7 +52,7 @@ Create table [TOUR]
 	[GIA] Money NULL,
 	[MAHDV] Char(10) NOT NULL,
 	[CHITIETTOUR] Ntext NULL,
-    [ANH] Nvarchar(1000) NULL,
+	[ANH] Nvarchar(1000) NULL,
 Primary Key ([MATOUR])
 ) 
 go
@@ -60,9 +60,9 @@ go
 Create table [PHUONGTIEN]
 (
 	[MAPHUONGTIEN] Char(10) NOT NULL,
-	[TENPHUONGTIEN] Nvarchar(100) NULL,
 	[MATOUR] Char(10) NOT NULL, UNIQUE ([MATOUR]),
-Primary Key ([MAPHUONGTIEN],[MATOUR])
+	[TENPHUONGTIEN] Nvarchar(100) NULL,
+Primary Key ([MAPHUONGTIEN])
 ) 
 go
 
@@ -97,20 +97,6 @@ Primary Key ([ID])
 ) 
 go
 
-Create table [BLOG]
-(
-	[MABAIVIET] Char(10) NOT NULL,
-	[ID] Char(10) NOT NULL,
-	[MADANHMUCBLOG] Char(10) NOT NULL,
-	[TIEUDE] Nvarchar(100) NULL,
-	[ANH] Nvarchar(1000) NULL,
-	[TOMTAT] Nchar(20) NULL,
-	[NOIDUNG] Nvarchar(1000) NULL,
-	[NGAYKHOITAO] Datetime NULL,
-Primary Key ([MABAIVIET],[ID],[MADANHMUCBLOG])
-) 
-go
-
 Create table [DANHMUCBLOG]
 (
 	[MADANHMUCBLOG] Char(10) NOT NULL,
@@ -127,6 +113,20 @@ Primary Key ([MATOUR],[MADD])
 ) 
 go
 
+Create table [BLOG]
+(
+	[MABAIVIET] Char(10) NOT NULL,
+	[TIEUDE] Nvarchar(1000) NULL,
+	[ANH] Nvarchar(1000) NULL,
+	[TOMTAT] Nvarchar(1000) NULL,
+	[NOIDUNG] Ntext NULL,
+	[NGAYKHOITAO] Datetime NULL,
+	[MADANHMUCBLOG] Char(10) NOT NULL,
+	[ID] Char(10) NOT NULL,
+Primary Key ([MABAIVIET])
+) 
+go
+
 
 Alter table [TOUR] add  foreign key([MAHDV]) references [HUONGDANVIEN] ([MAHDV])  on update no action on delete no action 
 go
@@ -134,11 +134,11 @@ Alter table [DANGKY] add  foreign key([MAKHACH]) references [KHACH] ([MAKHACH]) 
 go
 Alter table [DANGKY] add  foreign key([MATOUR]) references [TOUR] ([MATOUR])  on update no action on delete no action 
 go
+Alter table [DEN] add  foreign key([MATOUR]) references [TOUR] ([MATOUR])  on update no action on delete no action 
+go
 Alter table [PHUONGTIEN] add  foreign key([MATOUR]) references [TOUR] ([MATOUR])  on update no action on delete no action 
 go
 Alter table [KHACHSAN] add  foreign key([MATOUR]) references [TOUR] ([MATOUR])  on update no action on delete no action 
-go
-Alter table [DEN] add  foreign key([MATOUR]) references [TOUR] ([MATOUR])  on update no action on delete no action 
 go
 Alter table [DEN] add  foreign key([MADD]) references [DIEMTHAMQUAN] ([MADD])  on update no action on delete no action 
 go
