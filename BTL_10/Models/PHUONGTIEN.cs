@@ -10,17 +10,15 @@ namespace BTL_10.Models
     public partial class PHUONGTIEN
     {
         [Key]
-        [Column(Order = 0)]
         [StringLength(10)]
         public string MAPHUONGTIEN { get; set; }
 
-        [StringLength(100)]
-        public string TENPHUONGTIEN { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
+        [Required]
         [StringLength(10)]
         public string MATOUR { get; set; }
+
+        [StringLength(100)]
+        public string TENPHUONGTIEN { get; set; }
 
         public virtual TOUR TOUR { get; set; }
     }

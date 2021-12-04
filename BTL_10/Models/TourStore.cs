@@ -8,7 +8,7 @@ namespace BTL_10.Models
     public partial class TourStore : DbContext
     {
         public TourStore()
-            : base("name=TourStore1")
+            : base("name=TourStore")
         {
         }
 
@@ -60,18 +60,14 @@ namespace BTL_10.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<BLOG>()
-                .Property(e => e.ID)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<BLOG>()
                 .Property(e => e.MADANHMUCBLOG)
                 .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<BLOG>()
-                .Property(e => e.TOMTAT)
-                .IsFixedLength();
+                .Property(e => e.ID)
+                .IsFixedLength()
+                .IsUnicode(false);
 
             modelBuilder.Entity<DANHMUCBLOG>()
                 .Property(e => e.MADANHMUCBLOG)
