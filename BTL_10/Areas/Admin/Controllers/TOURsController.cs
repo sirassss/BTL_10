@@ -50,15 +50,14 @@ namespace BTL_10.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MATOUR,TENTOUR,NGAYBD,NGAYKT,GIA,MAHDV,CHITIETTOUR,ANH")] TOUR tOUR)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                db.TOURs.Add(tOUR);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
+                return View(tOUR);
             }
-
-            ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
-            return View(tOUR);
+            db.TOURs.Add(tOUR);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // GET: Admin/TOURs/Edit/5
