@@ -106,7 +106,8 @@
                         <div class="col-md-12 ftco-animate">
                             <div class="single-slider owl-carousel">
                                 <div class="item">
-                                    <div class="hotel-img" style="background-image: url(../../Content/images/@Model.ANH);"></div>
+                                    @{ string imgpath = "/Areas/Admin/Data/Tour/" + Model.ANH;}
+                                    <div class="hotel-img" style="background-image: url(@Url.Content(imgpath));"></div>
                                 </div>
                                 @*<div class="item">
             <div class="hotel-img" style="background-image: url(../../Content/images/hotel-3.jpg);"></div>
