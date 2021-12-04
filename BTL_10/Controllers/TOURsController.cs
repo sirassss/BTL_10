@@ -18,9 +18,12 @@ namespace BTL_10.Controllers
         }
 
         // GET: TOURs/Details/5
-        public ActionResult Details(int id)
+        
+        public ActionResult Details(string id)
         {
-            return View();
+            TOUR tour = db.TOURs.Where(x=>x.MATOUR==id).FirstOrDefault();
+            
+            return View(tour);
         }
 
         // GET: TOURs/Create

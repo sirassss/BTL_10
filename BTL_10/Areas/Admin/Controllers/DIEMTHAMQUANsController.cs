@@ -46,7 +46,7 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MADD,TENDD,DIACHI,MOTADIEMDEN")] DIEMTHAMQUAN dIEMTHAMQUAN)
+        public ActionResult Create([Bind(Include = "MADD,TENDD,DIACHI,MOTADIEMDEN,ANH")] DIEMTHAMQUAN dIEMTHAMQUAN)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MADD,TENDD,DIACHI,MOTADIEMDEN")] DIEMTHAMQUAN dIEMTHAMQUAN)
+        public ActionResult Edit([Bind(Include = "MADD,TENDD,DIACHI,MOTADIEMDEN,ANH")] DIEMTHAMQUAN dIEMTHAMQUAN)
         {
             if (ModelState.IsValid)
             {
