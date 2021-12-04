@@ -10,20 +10,18 @@ namespace BTL_10.Models
     public partial class KHACHSAN
     {
         [Key]
-        [Column(Order = 0)]
         [StringLength(10)]
         public string MAKS { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        public string MATOUR { get; set; }
 
         [StringLength(100)]
         public string TENKS { get; set; }
 
         [StringLength(100)]
         public string DIACHI { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(10)]
-        public string MATOUR { get; set; }
 
         public virtual TOUR TOUR { get; set; }
     }

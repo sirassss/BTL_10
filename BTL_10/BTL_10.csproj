@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -49,10 +48,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -5413,6 +5412,7 @@
     <Folder Include="Areas\Admin\Content\plugins\jqvmap\js\maps\" />
     <Folder Include="Areas\Admin\Content\plugins\summernote\css\" />
     <Folder Include="Areas\Admin\Data\Blog\" />
+    <Folder Include="Areas\Admin\Data\Diemthamquan\" />
     <Folder Include="Areas\Admin\Data\Tour\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
@@ -5704,11 +5704,6 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\BLOGs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\BLOGs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\BLOGs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\BLOGs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\BLOGs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Details.cshtml" />
@@ -5719,16 +5714,6 @@
     <Content Include="Areas\Admin\Views\KHACHes\Details.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHes\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHSANs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHSANs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHSANs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHSANs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHSANs\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\PHUONGTIENs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\PHUONGTIENs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\PHUONGTIENs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\PHUONGTIENs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\PHUONGTIENs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\HUONGDANVIENs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\HUONGDANVIENs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\HUONGDANVIENs\Details.cshtml" />
@@ -5776,6 +5761,21 @@
     <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BLOGs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\BLOGs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\BLOGs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\BLOGs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BLOGs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PHUONGTIENs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PHUONGTIENs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PHUONGTIENs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\PHUONGTIENs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\PHUONGTIENs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\KHACHSANs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\KHACHSANs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\KHACHSANs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\KHACHSANs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\KHACHSANs\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\TOURs\Details.cshtml" />
     <Content Include="Views\TOURs\Index.cshtml" />
@@ -5826,10 +5826,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -11,9 +11,9 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-row">
             <div class="col">
@@ -32,77 +32,77 @@
                 </div>
             </div>
         </div>
-    <br />
+        <br />
 
-    <div class="form-row">
-        <div class="col">
-            <div class="control-label col-md-10"><h5>Ngày bắt đầu</h5></div>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NGAYBD, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NGAYBD, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="control-label col-md-10"><h5>Ngày kết thúc</h5></div>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NGAYKT, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NGAYKT, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-    <br />
-
-    <div>
         <div class="form-row">
             <div class="col">
-                <div class="control-label col-md-10"><h5>Giá</h5></div>
+                <div class="control-label col-md-10"><h5>Ngày bắt đầu</h5></div>
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.GIA, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.GIA, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.NGAYBD, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NGAYBD, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="col">
-                <div class="control-label col-md-10"><h5>Tên hướng dẫn viên</h5></div>
+                <div class="control-label col-md-10"><h5>Ngày kết thúc</h5></div>
                 <div class="col-md-10">
-                    @Html.DropDownList("MAHDV", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.MAHDV, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.NGAYKT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NGAYKT, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
-    </div>
-    <br />
+        <br />
 
-    <div class="form-group">
-        <div class="control-label col-md-10"><h5>Ảnh</h5></div>
-        <div class="col-md-10">
-            <img id="output" class="img-rounded" width="1000" height="500" src="~/Areas/Admin/Content/images/noimage2.jpeg" alt="Ảnh" />
-            <br />
-            <br />
-            <div class="mb-3">
-                <label for="ufile" style="cursor:pointer" class="btn btn-outline-primary">Chọn Ảnh</label><br />
-                <input type="file" name="Imagefile" style="display:none" id="ufile" onchange="loadFile(event)" />
+        <div>
+            <div class="form-row">
+                <div class="col">
+                    <div class="control-label col-md-10"><h5>Giá</h5></div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.GIA, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.GIA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="control-label col-md-10"><h5>Tên hướng dẫn viên</h5></div>
+                    <div class="col-md-10">
+                        @Html.DropDownList("MAHDV", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MAHDV, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <div class="form-group">
+            <div class="control-label col-md-10"><h5>Ảnh</h5></div>
+            <div class="col-md-10">
+                <img id="output" class="img-rounded" width="1000" height="500" src="~/Areas/Admin/Content/images/noimage2.jpeg" alt="Ảnh" />
+                <br />
+                <br />
+                <div class="mb-3">
+                    <label for="ufile" style="cursor:pointer" class="btn btn-outline-primary">Chọn Ảnh</label><br />
+                    <input type="file" name="Imagefile" style="display:none" id="ufile" onchange="loadFile(event)" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-10"><h5>Chi tiết tour</h5></div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CHITIETTOUR, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CHITIETTOUR, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="modal-footer">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo Tour" class="btn btn-outline-success" style="margin-left:-212px" />
             </div>
         </div>
     </div>
-
-    <div class="form-group">
-        <div class="control-label col-md-10"><h5>Chi tiết tour</h5></div>
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.CHITIETTOUR, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.CHITIETTOUR, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-
-    <div class="modal-footer">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Tạo Tour" class="btn btn-outline-success" style="margin-left:-212px" />
-        </div>
-    </div>
-</div>
 }
 <div class="modal-footer">
     <a href="@Url.Action("Index")">

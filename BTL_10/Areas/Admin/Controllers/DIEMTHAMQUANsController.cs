@@ -50,6 +50,15 @@ namespace BTL_10.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                dIEMTHAMQUAN.ANH = "";
+                var f = Request.Files["Imagefile"];
+                if (f != null && f.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f.FileName);
+                    string UpLoadPath = Server.MapPath("~/Areas/Admin/Data/Diemthamquan/" + FileName);
+                    f.SaveAs(UpLoadPath);
+                    dIEMTHAMQUAN.ANH = FileName;
+                }
                 db.DIEMTHAMQUANs.Add(dIEMTHAMQUAN);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,6 +91,15 @@ namespace BTL_10.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                dIEMTHAMQUAN.ANH = "";
+                var f = Request.Files["Imagefile"];
+                if (f != null && f.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f.FileName);
+                    string UpLoadPath = Server.MapPath("~/Areas/Admin/Data/Diemthamquan/" + FileName);
+                    f.SaveAs(UpLoadPath);
+                    dIEMTHAMQUAN.ANH = FileName;
+                }
                 db.Entry(dIEMTHAMQUAN).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
