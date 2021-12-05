@@ -6,23 +6,23 @@
 }
 
 
-<h2>Bạn có chắc chắn muốn xóa điểm đến</h2>
+<h2>Bạn có chắc chắn muốn xóa điểm tham quan?</h2>
 
 
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h3 class="card-title">Tên TOUR: @Model.TENDD</h3>
-            <h6 class="card-subtitle">Mã TOUR: @Model.MADD</h6><br />
+            <h3 class="card-title">Tên điểm tham quan: @Model.TENDD</h3>
+            <h6 class="card-subtitle">Mã mã điểm tham quan: @Model.MADD</h6><br />
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-6">
                     @{ string imgpath = "~/Areas/Admin/Data/Diemthamquan/" + Model.ANH;}
                     <div class="white-box text-center"><img src="@Url.Content(imgpath)" class="img-responsive"></div>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-6">
-                    <h4 class="box-title mt-5">Chi tiết Tour</h4>
+                    <h4 class="box-title mt-5">Chi tiết điểm tham quan</h4>
                     <p>@Model.MOTADIEMDEN</p>
-                    <p>Tên hướng dẫn viên: @Model.DIACHI</p>
+                    <p>Địa chỉ: @Model.DIACHI</p>
                     @using (Html.BeginForm())
                     {
                         @Html.AntiForgeryToken()
@@ -32,7 +32,7 @@
                         </div>
                     }
                     <a href="@Url.Action("Index")">
-                        <button class="btn btn-primary btn-rounded">Quay về danh sách điểm đến</button>
+                        <button class="btn btn-primary btn-rounded">Quay về danh sách điểm tham quan</button>
                     </a>
                 </div>
             </div>

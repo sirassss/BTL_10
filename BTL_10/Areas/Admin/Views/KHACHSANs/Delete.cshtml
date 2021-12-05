@@ -6,19 +6,18 @@
 }
 
 
-<h2>Bạn có chắc chắn muốn xóa khách sạn</h2>
+<h2>Bạn có chắc chắn muốn xóa khách sạn?</h2>
 
 
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h3 class="card-title">Tên TOUR: @Model.TENKS</h3>
-            <h6 class="card-subtitle">Mã TOUR: @Model.MAKS</h6><br />
+            <h3 class="card-title">Tên khách sạn: @Model.TENKS</h3>
+            <h6 class="card-subtitle">Mã khách sạn: @Model.MAKS</h6><br />
             <div class="row">
 
                 <div class="col-lg-7 col-md-7 col-sm-6">
                     <p>Tên tour: @Model.TOUR.TENTOUR</p>
-                    <p>Tên khách sạn: @Model.TENKS</p>
                     <p>Địa chỉ: @Model.DIACHI</p>
                     @using (Html.BeginForm())
                     {

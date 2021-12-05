@@ -5,7 +5,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Tạo điểm tham quan</h2>
+<h2>Thêm điểm tham quan</h2>
 
 @using (Html.BeginForm("Create", "DIEMTHAMQUANs", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -58,7 +58,7 @@
         <br />
 
         <div class="form-group">
-            <div class="control-label col-md-10"><h5>Mô tả tham quan</h5></div>
+            <div class="control-label col-md-10"><h5>Mô tả điểm tham quan</h5></div>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MOTADIEMDEN, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MOTADIEMDEN, "", new { @class = "text-danger" })
@@ -68,7 +68,7 @@
 
         <div class="modal-footer">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Tạo điểm tham quan" class="btn btn-outline-success" style="margin-left:-212px" />
+                <input type="submit" value="Thêm điểm tham quan" class="btn btn-outline-success" style="margin-left:-212px" />
             </div>
         </div>
     </div>

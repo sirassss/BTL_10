@@ -5,36 +5,47 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Sửa phương tiện</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "PHUONGTIENs", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>PHUONGTIEN</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.MAPHUONGTIEN)
+
 
         @Html.HiddenFor(model => model.MATOUR)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TENPHUONGTIEN, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TENPHUONGTIEN, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TENPHUONGTIEN, "", new { @class = "text-danger" })
+        <div>
+            <div class="form-group">
+                <div class="control-label col-md-10"><h5>Mã phương tiện</h5></div>
+                <div class="col-md-10">
+                    <input class="form-control" type="text" name="mapt" value="@Model.MAPHUONGTIEN" disabled />
+                    @Html.HiddenFor(model => model.MAPHUONGTIEN)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-10"><h5>Tên phương tiện</h5></div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TENPHUONGTIEN, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TENPHUONGTIEN, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
-        <div class="form-group">
+
+        <div class="modal-footer">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Đồng ý sửa" class="btn btn-outline-success" style="margin-left:-212px" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="modal-footer">
+    <a href="@Url.Action("Index")">
+        <button class="btn btn-outline-primary" style="margin-right:202px">Trở về danh sách phương tiện</button>
+    </a>
 </div>
