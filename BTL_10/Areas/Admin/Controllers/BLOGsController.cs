@@ -53,6 +53,15 @@ namespace BTL_10.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                bLOG.ANH = "";
+                var f = Request.Files["Imagefile"];
+                if (f != null && f.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f.FileName);
+                    string UpLoadPath = Server.MapPath("~/Areas/Admin/Data/Blog/" + FileName);
+                    f.SaveAs(UpLoadPath);
+                    bLOG.ANH = FileName;
+                }
                 db.BLOGs.Add(bLOG);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -89,6 +98,15 @@ namespace BTL_10.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                bLOG.ANH = "";
+                var f = Request.Files["Imagefile"];
+                if (f != null && f.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f.FileName);
+                    string UpLoadPath = Server.MapPath("~/Areas/Admin/Data/Blog/" + FileName);
+                    f.SaveAs(UpLoadPath);
+                    bLOG.ANH = FileName;
+                }
                 db.Entry(bLOG).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

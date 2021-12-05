@@ -5,77 +5,39 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Bạn có chắc chắn muốn xóa bài viết này?</h2>
+<br />
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>BLOG</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ADMIN.TENDN)
-        </dt>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Tiêu đề: @Model.TIEUDE</h3>
+            <h6 class="card-subtitle">Mã blog: @Model.MABAIVIET</h6><br />
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-6">
+                    @{ string imgpath = "~/Areas/Admin/Data/Blog/" + Model.ANH;}
+                    <div class="white-box text-center"><img src="@Url.Content(imgpath)" class="img-responsive"></div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-6">
+                    <h4 class="box-title mt-5">Chi tiết Blog</h4>
+                    <p>Tóm tắt: @Model.TOMTAT</p>
+                    <p>@Model.NOIDUNG</p>
+                    <p>Tên người viết: @Model.ADMIN.HOTEN</p>
+                    <p>Tên danh mục: @Model.DANHMUCBLOG.TENDANHMUCBLOG</p>
+                    <p><h6>Ngày khởi tạo: </h6> @Model.NGAYKHOITAO</p>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.ADMIN.TENDN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DANHMUCBLOG.TENDANHMUCBLOG)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DANHMUCBLOG.TENDANHMUCBLOG)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TIEUDE)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TIEUDE)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ANH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ANH)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TOMTAT)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TOMTAT)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NOIDUNG)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NOIDUNG)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NGAYKHOITAO)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NGAYKHOITAO)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                        <div class="form-actions no-color">
+                            <button type="submit" class="btn btn-outline-dark btn-rounded mr-1">Xóa</button>
+                        </div>
+                    }
+                    <a href="@Url.Action("Index")">
+                        <button class="btn btn-primary btn-rounded">Quay về danh sách blog</button>
+                    </a>
+                </div>
+            </div>
         </div>
-    }
-</div>
+    </div>
+    </di

@@ -4,23 +4,23 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>DANHMUCBLOG</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TENDANHMUCBLOG)
-        </dt>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Tên danh mục blog: @Model.TENDANHMUCBLOG</h3>
+            <h6 class="card-subtitle">Mã danh mục: @Model.MADANHMUCBLOG</h6><br />
+            <div class="row">
 
-        <dd>
-            @Html.DisplayFor(model => model.TENDANHMUCBLOG)
-        </dd>
-
-    </dl>
+                <div class="col-lg-7 col-md-7 col-sm-6">
+                    <a href="/Admin/DANHMUCBLOGs/Edit/@Model.MADANHMUCBLOG">
+                        <button class="btn btn-outline-dark btn-rounded mr-1">Sửa</button>
+                    </a>
+                    <a href="@Url.Action("Index")">
+                        <button class="btn btn-primary btn-rounded">Quay về danh sách danh mục blog</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MADANHMUCBLOG }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
