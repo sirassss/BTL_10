@@ -95,7 +95,6 @@ namespace BTL_10.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                tOUR.ANH = "";
                 var f = Request.Files["Imagefile"];
                 if (f != null && f.ContentLength > 0)
                 {
