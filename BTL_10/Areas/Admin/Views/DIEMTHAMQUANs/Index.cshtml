@@ -28,14 +28,14 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Các TOUR</h4>
+                <h4 class="card-title">Các điểm tham quan</h4>
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered zero-configuration">
                         <thead>
                             <tr>
-                                <th>Tên điểm đên</th>
+                                <th>Tên điểm tham quan</th>
                                 <th>Địa chỉ</th>
-                                <th>Mô tả điểm đến</th>
+                                <th>Mô tả điểm tham quan</th>
                                 <th>Ảnh</th>
                                 <th></th>
                             </tr>
@@ -49,7 +49,7 @@
                                     <td>@item.MOTADIEMDEN</td>
                                     <td>
                                         @{
-                                            string imgpath = "~/Areas/Admin/Data/Tour/" + item.ANH;
+                                            string imgpath = "~/Areas/Admin/Data/Diemthamquan/" + item.ANH;
                                         }
                                         <img src="@Url.Content(imgpath)" alt="Lỗi Ảnh" width="100" height="100" />
                                     </td>
@@ -75,9 +75,9 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Tên điểm đên</th>
+                                <th>Tên điểm tham quan</th>
                                 <th>Địa chỉ</th>
-                                <th>Mô tả điểm đến</th>
+                                <th>Mô tả điểm tham quan</th>
                                 <th>Ảnh</th>
                                 <th></th>
                             </tr>

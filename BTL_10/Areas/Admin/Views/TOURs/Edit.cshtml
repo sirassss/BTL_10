@@ -82,7 +82,7 @@
                 <br />
                 <div class="mb-3">
                     <label for="ufile" style="cursor:pointer" class="btn btn-outline-primary">Chọn Ảnh</label><br />
-                    <input type="file" name="Imagefile"  accept="Tour/*" style="display:none" id="ufile" onchange="loadFile(event)" />
+                    <input type="file" name="Imagefile"  accept="Tour/*" style="display:none" id="ufile" value="@Model.ANH" onchange="loadFile(event)" />
                 </div>
             </div>
         </div>
@@ -110,6 +110,7 @@
     </a>
 </div>
 
+<script>document.foo.submit();</script>
 
 <script>
     var loadFile = function (event) {
