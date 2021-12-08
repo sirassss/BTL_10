@@ -216,3 +216,15 @@ INSERT INTO DIEMTHAMQUAN(MADD, TENDD, DIACHI, MOTADIEMDEN, ANH) VALUES (N'DTQ23'
 INSERT INTO DIEMTHAMQUAN(MADD, TENDD, DIACHI, MOTADIEMDEN, ANH) VALUES (N'DTQ24',N'Nhà hát tuồng Việt Nam - Rạp Hồng Hà',N'Số 51A Đường Thành, Cửa Đông, Hoàn Kiếm Phường Cửa Đông , Quận Hoàn Kiếm',N'Nhà hát Tuồng Việt Nam, tiền thân là Đoàn Tuồng Bắc vốn đã có từ lâu đời và biểu diễn phổ biến khá rộng rãi chẳng những ở các vùng nông thôn  mà ở các đô thị lớn ở phái bắc như:  Hà Nội, Bắc Ninh, Hải Phòng, Nam Định,Vinh ...Và những rạp Tuồng có tên tuổi như: Quảng Lạc, Sán Nhiên Đài quanh năm diễn Tuồng.',N'd24.jpg')
 INSERT INTO DIEMTHAMQUAN(MADD, TENDD, DIACHI, MOTADIEMDEN, ANH) VALUES (N'DTQ25',N'Ca Trù Thăng Long - Đền Quan Đế',N'Số 28 Hàng Buồm, Hoàn Kiếm Phường Hàng Trống , Quận Hoàn Kiếm',N'Ca trù là một bộ môn nghệ thuật truyền thống lâu đời, hết sức độc đáo và có ý nghĩa đặc biệt trong kho tàng âm nhạc Việt Nam, gắn liền với lễ hội, phong tục, tín ngưỡng, văn chương, âm nhạc, mang tư tưởng và triết lý sống của người Việt sâu sắc.',N'd25.jpg')
 go
+
+--Thêm dữ liệu bảng PHUONGTIEN
+
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, MATOUR, TENPHUONGTIEN) VALUES (N'PT1',N'T1',N'Máy bay')
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, MATOUR, TENPHUONGTIEN) VALUES (N'PT2',N'T2',N'Ôtô')
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, MATOUR, TENPHUONGTIEN) VALUES (N'PT3',N'T3',N'Ôtô')
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, MATOUR, TENPHUONGTIEN) VALUES (N'PT4',N'T4',N'Thuyền')
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, MATOUR, TENPHUONGTIEN) VALUES (N'PT5',N'T5',N'Ôtô')
+
+--Thêm dữ liệu bảng BLOG
+
+INSERT INTO
