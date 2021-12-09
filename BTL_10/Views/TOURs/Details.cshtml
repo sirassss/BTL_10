@@ -106,7 +106,7 @@
                         <div class="col-md-12 ftco-animate">
                             <div class="single-slider owl-carousel">
                                 <div class="item">
-                                    @{ string imgpath = "/Areas/Admin/Data/Tour/" + Model.ANH;}
+                                    @{ string imgpath = "~/Areas/Admin/Data/Tour/" + Model.ANH;}
                                     <div class="hotel-img" style="background-image: url(@Url.Content(imgpath));"></div>
                                 </div>
                                 @*<div class="item">
@@ -121,7 +121,7 @@
                             <h2>@Model.TENTOUR</h2>
                             <span>@Model.NGAYBD- @Model.NGAYKT</span>
                             <p class="rate mb-5">
-                                <span class="loc"><h3>Giá tour:@String.Format("{0:0,0đ}",Model.GIA)</h3></span>
+                                <span class="loc"><h3>Giá tour:@String.Format("{0:0,0đ}", Model.GIA)</h3></span>
                                 @*<span class="star">
                 <i class="icon-star"></i>
                 <i class="icon-star"></i>
@@ -152,54 +152,56 @@
         </div>
         <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
 
-        </div>*@
-                            @foreach (var item in Model.DIEMTHAMQUANs)
-                            {
-                                string diemtq = "/Areas/Admin/Data/Tour/" + item.ANH; 
+        </div>
                                 <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
-                                    <h4 class="mb-4">@item.TENDD</h4>
-                                    <p>Địa chỉ: @item.DIACHI</p>
+                                    <h4 class="mb-4"></h4>
+                                    <p>Địa chỉ: </p>
                                     <div class="block-16">
                                         <figure>
-                                            <div class="hotel-img" style="background-image: url(@Url.Content(imgpath));"></div>
-                                            @*<div class="hotel-img" style="background-image: url(@Url.Content(diemtq));"></div>*@
+                                            <div class="hotel-img" style="background-image: url();"></div>
+                                            <div class="hotel-img" style="background-image: url();"></div>
                                         </figure>
                                     </div>
-                                    <p>@item.MOTADIEMDEN</p>
-                                </div>
-                            }
-                            @*<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
-            <h4 class="mb-4">Our Rooms</h4>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="destination">
-                        <a href="hotel-single.html" class="img img-2" style="background-image: url(../../Content/images/room-4.jpg);"></a>
-                        <div class="text p-3">
-                            <div class="d-flex">
-                                <div class="one">
-                                    <h3><a href="hotel-single.html">Hotel, Italy</a></h3>
-                                    <p class="rate">
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star-o"></i>
-                                        <span>8 Rating</span>
-                                    </p>
-                                </div>
-                                <div class="two">
-                                    <span class="price per-price">$40<br><small>/night</small></span>
-                                </div>
-                            </div>
-                            <p>Far far away, behind the word mountains, far from the countries</p>
-                            <hr>
-                            <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> Miami, Fl</span>
-                                <span class="ml-auto"><a href="#">Book Now</a></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                                    <p></p>
+                                </div>*@
+                            
+                            <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
+                                <h4 class="mb-4">Địa điểm nổi bật</h4>
+                                <div class="row">
+                                    @foreach (var dd in ViewBag.diadiem)
+                                    {
+                                        <div class="col-md-4">
+                                            <div class="destination">
+                                                @{string linkanh = "~/Areas/Admin/Data/Diemthamquan/" + dd.ANH;}
+                                                <a href="hotel-single.html" class="img img-2" style="background-image: url(@Url.Content(linkanh));"></a>
+                                                <div class="text p-3">
+                                                    <h3><a href="#"></a> @dd.TENDD</h3>
+                                                    @*<div class="d-flex">
+            <div class="one">
+
+                <p class="rate">
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star-o"></i>
+                    <span>8 Rating</span>
+                </p>
+            </div>
+            <div class="two">
+                <span class="price per-price">$40<br><small>/night</small></span>
+            </div>
+        </div>
+                                                    <p>Far far away, behind the word mountains, far from the countries</p>*@
+                                                    <hr>
+                                                    <p class="bottom-area d-flex">
+                                                        <span><i class="icon-map-o"></i>@dd.DIACHI </span>
+                                                        @*<span class="ml-auto"><a href="#">Book Now</a></span>*@
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>}
+                                    @*
                 <div class="col-md-4">
                     <div class="destination">
                         <a href="hotel-single.html" class="img img-2" style="background-image: url(../../Content/images/room-5.jpg);"></a>
@@ -257,10 +259,10 @@
                             </p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
+                </div>*@
+                                </div>
+                            </div>
+                            @*<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
             <h4 class="mb-5">Check Availability &amp; Booking</h4>
             <div class="fields">
                 <div class="row">
@@ -451,7 +453,7 @@
                 </div>
             </div>
         </div>*@
-        </div>
+                        </div>
 
                         </div>
                 </div> <!-- .col-md-8 -->
