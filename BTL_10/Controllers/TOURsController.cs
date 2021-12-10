@@ -22,7 +22,7 @@ namespace BTL_10.Controllers
         public ActionResult Details(string id)
         {
             TOUR tour = db.TOURs.Where(x=>x.MATOUR==id).FirstOrDefault();
-            
+            ViewBag.diadiem = db.DIEMTHAMQUANs.Take(3).ToList();
             return View(tour);
         }
 
