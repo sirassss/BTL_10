@@ -49,6 +49,8 @@ namespace BTL_10.Controllers
         public ActionResult Details(string id)
         {
             TOUR tour = db.TOURs.Where(x=>x.MATOUR==id).FirstOrDefault();
+            ViewBag.phuongtien = db.PHUONGTIENs.Where(x => x.MATOUR == tour.MATOUR).FirstOrDefault();
+            ViewBag.khachsan = db.KHACHSANs.Where(x => x.MATOUR == tour.MATOUR).FirstOrDefault();
             ViewBag.diadiem = db.DIEMTHAMQUANs.Take(3).ToList();
             return View(tour);
         }

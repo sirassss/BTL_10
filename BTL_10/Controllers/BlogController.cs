@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace BTL_10.Controllers
 {
@@ -11,10 +12,12 @@ namespace BTL_10.Controllers
     {
         TourStore db = new TourStore();
         // GET: Blog
-        public ActionResult Index()
+        public ActionResult Index(int ? page)
         {
             var listBlog = db.BLOGs.ToList();
-            return View(listBlog);
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(listBlog.ToPagedList(pageNumber, pageSize));
         }
         // GET: Blog/Details/5
         public ActionResult Detail(string id)

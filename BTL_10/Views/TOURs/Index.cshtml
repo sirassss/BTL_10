@@ -156,7 +156,7 @@
                                             <span class="badge badge-pill badge-primary">@String.Format("{0:0,0đ}", tour.GIA)</span>
                                         </div>
                                     </div>
-                                    <p class="days"><span>từ @tour.NGAYBD đến @tour.NGAYKT</span></p>
+                                    <p class="days"><span>Từ @String.Format("{0:dd/MM/yyyy}", tour.NGAYBD) đến @String.Format("{0:dd/MM/yyyy}", tour.NGAYKT)</span></p>
                                     <hr>
                                     <p class="bottom-area d-flex">
                                         <span><i class="icon-map-o"></i> @tour.TENTOUR</span>
