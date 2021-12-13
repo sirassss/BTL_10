@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+
 
 namespace BTL_10.Controllers
 {
@@ -11,10 +13,35 @@ namespace BTL_10.Controllers
     {
         TourStore db = new TourStore();
         // GET: TOURs
-        public ActionResult Index()
+        public ActionResult Index(int? page,string sortOrder)
         {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.SapTheoTenAZ = "ten_asc";
+            ViewBag.SapTheoTenZA = "ten_desc";
+            ViewBag.GiaTangDan = "gia_asc";
+            ViewBag.GiaGiamDan = "gia_desc";
             var listtour = db.TOURs.ToList();
-            return View(listtour);
+            switch (sortOrder)
+            {
+                case "ten_asc":
+                    listtour = listtour.OrderByDescending(s => s.TENTOUR).ToList();
+                    break;
+                case "ten_desc":
+                    listtour = listtour.OrderBy(s => s.TENTOUR).ToList();
+                    break;
+                case "gia_asc":
+                    listtour = listtour.OrderBy(s => s.GIA).ToList();
+                    break;
+                case "gia_desc":
+                    listtour = listtour.OrderByDescending(s => s.GIA).ToList();
+                    break;
+                default:
+                    listtour = listtour.OrderBy(s => s.TENTOUR).ToList();
+                    break;
+            }
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(listtour.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: TOURs/Details/5
@@ -22,7 +49,9 @@ namespace BTL_10.Controllers
         public ActionResult Details(string id)
         {
             TOUR tour = db.TOURs.Where(x=>x.MATOUR==id).FirstOrDefault();
-            
+            ViewBag.phuongtien = db.PHUONGTIENs.Where(x => x.MATOUR == tour.MATOUR).FirstOrDefault();
+            ViewBag.khachsan = db.KHACHSANs.Where(x => x.MATOUR == tour.MATOUR).FirstOrDefault();
+            ViewBag.diadiem = db.DIEMTHAMQUANs.Take(3).ToList();
             return View(tour);
         }
 

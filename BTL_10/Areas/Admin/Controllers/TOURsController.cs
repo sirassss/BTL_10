@@ -65,7 +65,6 @@ namespace BTL_10.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
             return View(tOUR);
         }

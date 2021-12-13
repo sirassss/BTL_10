@@ -1,22 +1,30 @@
-﻿using System;
+﻿using BTL_10.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace BTL_10.Controllers
 {
     public class BlogController : Controller
     {
+        TourStore db = new TourStore();
         // GET: Blog
-        public ActionResult Index()
+        public ActionResult Index(int ? page)
         {
-            return View();
+            var listBlog = db.BLOGs.ToList();
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(listBlog.ToPagedList(pageNumber, pageSize));
         }
-
-        public ActionResult Detail()
+        // GET: Blog/Details/5
+        public ActionResult Detail(string id)
         {
-            return View();
+            BLOG blog = db.BLOGs.Where(s => s.MABAIVIET == id).FirstOrDefault();
+            ViewBag.blogLQ = db.BLOGs.Where(s => s.MADANHMUCBLOG == blog.MADANHMUCBLOG).Take(3).ToList();
+            return View(blog);
         }
     }
 }
