@@ -12,6 +12,7 @@ namespace BTL_10.Controllers
         TourStore db = new TourStore();
         public ActionResult Index()
         {
+            ViewBag.tourNew= db.TOURs.OrderByDescending(t => t.NGAYBD).Take(5);
             ViewBag.tour = db.TOURs.OrderBy(t => t.GIA).Take(5);
             return View();
         }
