@@ -9,13 +9,15 @@ namespace BTL_10.Models
     [Table("KHACHSAN")]
     public partial class KHACHSAN
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public KHACHSAN()
+        {
+            TOURs = new HashSet<TOUR>();
+        }
+
         [Key]
         [StringLength(10)]
         public string MAKS { get; set; }
-
-        [Required]
-        [StringLength(10)]
-        public string MATOUR { get; set; }
 
         [StringLength(100)]
         public string TENKS { get; set; }
@@ -23,6 +25,7 @@ namespace BTL_10.Models
         [StringLength(100)]
         public string DIACHI { get; set; }
 
-        public virtual TOUR TOUR { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TOUR> TOURs { get; set; }
     }
 }

@@ -74,6 +74,27 @@
         </div>
         <br />
 
+        <div>
+            <div class="form-row">
+                <div class="col">
+                    <div class="control-label col-md-10"><h5>Khách sạn</h5></div>
+                    <div class="col-md-10">
+                        @Html.DropDownList("MAKS", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MAKS, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="control-label col-md-10"><h5>Phương tiện</h5></div>
+                    <div class="col-md-10">
+                        @Html.DropDownList("MAPHUONGTIEN", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MAPHUONGTIEN, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
         <div class="form-group">
             <div class="control-label col-md-10"><h5>Ảnh</h5></div>
             <div class="col-md-10">

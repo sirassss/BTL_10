@@ -12,8 +12,6 @@ namespace BTL_10.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TOUR()
         {
-            KHACHSANs = new HashSet<KHACHSAN>();
-            PHUONGTIENs = new HashSet<PHUONGTIEN>();
             KHACHes = new HashSet<KHACH>();
             DIEMTHAMQUANs = new HashSet<DIEMTHAMQUAN>();
         }
@@ -42,13 +40,19 @@ namespace BTL_10.Models
         [StringLength(1000)]
         public string ANH { get; set; }
 
+        [Required]
+        [StringLength(10)]
+        public string MAKS { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        public string MAPHUONGTIEN { get; set; }
+
         public virtual HUONGDANVIEN HUONGDANVIEN { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KHACHSAN> KHACHSANs { get; set; }
+        public virtual KHACHSAN KHACHSAN { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHUONGTIEN> PHUONGTIENs { get; set; }
+        public virtual PHUONGTIEN PHUONGTIEN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KHACH> KHACHes { get; set; }

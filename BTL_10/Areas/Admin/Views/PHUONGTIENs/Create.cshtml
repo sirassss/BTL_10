@@ -33,15 +33,6 @@
             </div>
         </div>
 
-
-        <div class="form-group">
-            <div class="control-label col-md-10"><h5>Chọn Tour</h5></div>
-            <div class="col-md-10">
-                @Html.DropDownList("MATOUR", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.MATOUR, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
         <div class="modal-footer">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Thêm phương tiện" class="btn btn-outline-success" style="margin-left:-212px" />

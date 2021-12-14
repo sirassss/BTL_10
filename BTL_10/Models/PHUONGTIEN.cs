@@ -9,17 +9,20 @@ namespace BTL_10.Models
     [Table("PHUONGTIEN")]
     public partial class PHUONGTIEN
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PHUONGTIEN()
+        {
+            TOURs = new HashSet<TOUR>();
+        }
+
         [Key]
         [StringLength(10)]
         public string MAPHUONGTIEN { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string MATOUR { get; set; }
-
         [StringLength(100)]
         public string TENPHUONGTIEN { get; set; }
 
-        public virtual TOUR TOUR { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TOUR> TOURs { get; set; }
     }
 }

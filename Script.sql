@@ -1,6 +1,6 @@
 /*
 Created		11/24/2021
-Modified		12/4/2021
+Modified		12/13/2021
 Project		
 Model			
 Company		
@@ -8,8 +8,6 @@ Author
 Version		
 Database		MS SQL 2000 
 */
-use TourStore
-go
 
 
 Create table [HUONGDANVIEN]
@@ -38,7 +36,6 @@ go
 Create table [KHACHSAN]
 (
 	[MAKS] Char(10) NOT NULL,
-	[MATOUR] Char(10) NOT NULL, UNIQUE ([MATOUR]),
 	[TENKS] Nvarchar(100) NULL,
 	[DIACHI] Nvarchar(100) NULL,
 Primary Key ([MAKS])
@@ -55,6 +52,8 @@ Create table [TOUR]
 	[MAHDV] Char(10) NOT NULL,
 	[CHITIETTOUR] Ntext NULL,
 	[ANH] Nvarchar(1000) NULL,
+	[MAKS] Char(10) NOT NULL,
+	[MAPHUONGTIEN] Char(10) NOT NULL,
 Primary Key ([MATOUR])
 ) 
 go
@@ -62,7 +61,6 @@ go
 Create table [PHUONGTIEN]
 (
 	[MAPHUONGTIEN] Char(10) NOT NULL,
-	[MATOUR] Char(10) NOT NULL, UNIQUE ([MATOUR]),
 	[TENPHUONGTIEN] Nvarchar(100) NULL,
 Primary Key ([MAPHUONGTIEN])
 ) 
@@ -134,13 +132,13 @@ Alter table [TOUR] add  foreign key([MAHDV]) references [HUONGDANVIEN] ([MAHDV])
 go
 Alter table [DANGKY] add  foreign key([MAKHACH]) references [KHACH] ([MAKHACH])  on update no action on delete no action 
 go
+Alter table [TOUR] add  foreign key([MAKS]) references [KHACHSAN] ([MAKS])  on update no action on delete no action 
+go
 Alter table [DANGKY] add  foreign key([MATOUR]) references [TOUR] ([MATOUR])  on update no action on delete no action 
 go
 Alter table [DEN] add  foreign key([MATOUR]) references [TOUR] ([MATOUR])  on update no action on delete no action 
 go
-Alter table [PHUONGTIEN] add  foreign key([MATOUR]) references [TOUR] ([MATOUR])  on update no action on delete no action 
-go
-Alter table [KHACHSAN] add  foreign key([MATOUR]) references [TOUR] ([MATOUR])  on update no action on delete no action 
+Alter table [TOUR] add  foreign key([MAPHUONGTIEN]) references [PHUONGTIEN] ([MAPHUONGTIEN])  on update no action on delete no action 
 go
 Alter table [DEN] add  foreign key([MADD]) references [DIEMTHAMQUAN] ([MADD])  on update no action on delete no action 
 go
@@ -167,25 +165,25 @@ go
 
 --Thêm dữ liệu bảng TOUR
 
-Insert Into [TOUR](MATOUR, TENTOUR, NGAYBD, NGAYKT, GIA, MAHDV, CHITIETTOUR, ANH)
-VALUES (N'T1',N'DU LỊCH DI SẢN - DI TÍCH','2021-12-6','2021-12-10',7000000,'HD1',N'Hà Nội là thành phố cổ với lịch sử gần 1000 năm văn hiến. Hiện nay, Hà Nội có trên 300 di tích được công nhận là di tích lịch sử văn hoá. Bên cạnh đó, còn có nhiều công trình mới được xây dựng như Lăng Chủ Tịch Hồ Chí Minh, Cung Văn hoá hữu nghị Việt Xô… cùng hệ thống các viện bảo tàng, nhà hát',N'003.jpg')
-Insert Into [TOUR](MATOUR, TENTOUR, NGAYBD, NGAYKT, GIA, MAHDV, CHITIETTOUR, ANH)
-VALUES(N'T2',N'DU LỊCH LÀNG NGHỀ ','2021-12-6','2021-12-12',6000000,'HD2',N'Du lịch Hà Nội nổi tiếng với rất nhiều làng nghề truyền thống Hà Nội, mỗi làng nghề có một nét đặc trưng riêng. Nếu du khách đang có dự định tham quan và tìm hiểu về những giá trị văn hóa – nghệ thuật và mua những món quà lưu niệm đậm chất dân tộc thì những làng nghề truyền thống nằm trong bán kính 30km quanh Hà Nội chính là sự lựa chọn tuyệt vời dành cho du khách.',N'001.jpg')
-Insert Into [TOUR](MATOUR, TENTOUR, NGAYBD, NGAYKT, GIA, MAHDV, CHITIETTOUR, ANH)
-VALUES(N'T3',N'DU LỊCH SINH THÁI - NGHỈ DƯỠNG','2021-12-6','2021-12-11',15000000,'HD3',N'Du lịch sinh thái tại Hà Nội là một trong những trải nghiệm được nhiều du khách yêu thích. Tại đây, du khách hoàn toàn có thể thư giãn thoải mái giữa khung cảnh thiên nhiên sau một tuần làm việc và học tập căng thẳng. Hãy cùng Vinpearl khám phá chi tiết 15 địa điểm du lịch gần Hà Nội nổi tiếng nhất hiện nay nhé!',N'004.jpg')
-Insert Into [TOUR](MATOUR, TENTOUR, NGAYBD, NGAYKT, GIA, MAHDV, CHITIETTOUR, ANH)
-VALUES(N'T4',N'DU LỊCH NÔNG NGHIỆP','2021-12-6','2021-12-9',5000000,'HD2',N'Hiện nay, các sản phẩm du lịch nông nghiệp tại Hà Nội chú trọng khai thác yếu tố văn hóa, văn minh lúa nước của vùng đồng bằng Bắc Bộ; du lịch nông nghiệp kết hợp với tham quan di sản văn hóa, làng nghề; khai thác mô hình trang trại đồng quê phục vụ hoạt động du lịch học đường, du lịch nghỉ dưỡng cuối tuần tại khu vực ngoại thành Hà Nội và các vùng phụ cận','002.jpg')
-Insert Into [TOUR](MATOUR, TENTOUR, NGAYBD, NGAYKT, GIA, MAHDV, CHITIETTOUR, ANH)
-VALUES(N'T5',N'DU LỊCH THỂ THAO - VUI CHƠI GIẢI TRÍ','2021-12-6','2021-12-20',3000000,'HD1',N'Lần đầu đến Hà Nội, bạn muốn tìm đến những địa điểm vui chơi cuối tuần mà người Hà thành hay lui tới nhưng lại không có người hướng dẫn. Vậy thì hãy xem qua ngay các địa điểm vui chơi cuối tuần Hà Nội do chúng tôi gợi ý cho bạn nhé.Các địa điểm vui chơi cuối tuần này đa phần đều rất quen thuộc với giới trẻ Hà Nội nhưng với khách du lịch thì không phải ai cũng biết. Còn chần chờ gì nữa mà không đi ngay để khám phá đời sống cuối tuần ở Thủ đô nào!',N'005.jpg')
+Insert Into [TOUR](MATOUR, TENTOUR, NGAYBD, NGAYKT, GIA, MAHDV, CHITIETTOUR, ANH, MAKS, MAPHUONGTIEN)
+VALUES (N'T1',N'DU LỊCH DI SẢN - DI TÍCH','2021-12-6','2021-12-10',7000000,'HD1',N'Hà Nội là thành phố cổ với lịch sử gần 1000 năm văn hiến. Hiện nay, Hà Nội có trên 300 di tích được công nhận là di tích lịch sử văn hoá. Bên cạnh đó, còn có nhiều công trình mới được xây dựng như Lăng Chủ Tịch Hồ Chí Minh, Cung Văn hoá hữu nghị Việt Xô… cùng hệ thống các viện bảo tàng, nhà hát',N'003.jpg',N'KS1',N'PT1')
+Insert Into [TOUR](MATOUR, TENTOUR, NGAYBD, NGAYKT, GIA, MAHDV, CHITIETTOUR, ANH, MAKS, MAPHUONGTIEN)
+VALUES(N'T2',N'DU LỊCH LÀNG NGHỀ ','2021-12-6','2021-12-12',6000000,'HD2',N'Du lịch Hà Nội nổi tiếng với rất nhiều làng nghề truyền thống Hà Nội, mỗi làng nghề có một nét đặc trưng riêng. Nếu du khách đang có dự định tham quan và tìm hiểu về những giá trị văn hóa – nghệ thuật và mua những món quà lưu niệm đậm chất dân tộc thì những làng nghề truyền thống nằm trong bán kính 30km quanh Hà Nội chính là sự lựa chọn tuyệt vời dành cho du khách.',N'001.jpg',N'KS2',N'PT2')
+Insert Into [TOUR](MATOUR, TENTOUR, NGAYBD, NGAYKT, GIA, MAHDV, CHITIETTOUR, ANH, MAKS, MAPHUONGTIEN)
+VALUES(N'T3',N'DU LỊCH SINH THÁI - NGHỈ DƯỠNG','2021-12-6','2021-12-11',15000000,'HD3',N'Du lịch sinh thái tại Hà Nội là một trong những trải nghiệm được nhiều du khách yêu thích. Tại đây, du khách hoàn toàn có thể thư giãn thoải mái giữa khung cảnh thiên nhiên sau một tuần làm việc và học tập căng thẳng. Hãy cùng Vinpearl khám phá chi tiết 15 địa điểm du lịch gần Hà Nội nổi tiếng nhất hiện nay nhé!',N'004.jpg',N'KS3',N'PT3')
+Insert Into [TOUR](MATOUR, TENTOUR, NGAYBD, NGAYKT, GIA, MAHDV, CHITIETTOUR, ANH, MAKS, MAPHUONGTIEN)
+VALUES(N'T4',N'DU LỊCH NÔNG NGHIỆP','2021-12-6','2021-12-9',5000000,'HD2',N'Hiện nay, các sản phẩm du lịch nông nghiệp tại Hà Nội chú trọng khai thác yếu tố văn hóa, văn minh lúa nước của vùng đồng bằng Bắc Bộ; du lịch nông nghiệp kết hợp với tham quan di sản văn hóa, làng nghề; khai thác mô hình trang trại đồng quê phục vụ hoạt động du lịch học đường, du lịch nghỉ dưỡng cuối tuần tại khu vực ngoại thành Hà Nội và các vùng phụ cận','002.jpg',N'KS4',N'PT4')
+Insert Into [TOUR](MATOUR, TENTOUR, NGAYBD, NGAYKT, GIA, MAHDV, CHITIETTOUR, ANH, MAKS, MAPHUONGTIEN)
+VALUES(N'T5',N'DU LỊCH THỂ THAO - VUI CHƠI GIẢI TRÍ','2021-12-6','2021-12-20',3000000,'HD1',N'Lần đầu đến Hà Nội, bạn muốn tìm đến những địa điểm vui chơi cuối tuần mà người Hà thành hay lui tới nhưng lại không có người hướng dẫn. Vậy thì hãy xem qua ngay các địa điểm vui chơi cuối tuần Hà Nội do chúng tôi gợi ý cho bạn nhé.Các địa điểm vui chơi cuối tuần này đa phần đều rất quen thuộc với giới trẻ Hà Nội nhưng với khách du lịch thì không phải ai cũng biết. Còn chần chờ gì nữa mà không đi ngay để khám phá đời sống cuối tuần ở Thủ đô nào!',N'005.jpg',N'KS5',N'PT5')
 go
 
 --Thêm dữ liệu bảng KHACHSAN
 
-INSERT INTO KHACHSAN(MAKS, MATOUR, TENKS, DIACHI) VALUES (N'KS1',N'T1',N'Khách sạn Boutique Hà Nội (Hanoi Boutique Hotel)',N'30/6 Lo Su, Quận Hoàn Kiếm, Hà Nội, Việt Nam')
-INSERT INTO KHACHSAN(MAKS, MATOUR, TENKS, DIACHI) VALUES (N'KS2',N'T2',N'Lotte Hotel Hanoi',N'54 Liễu Giai, Quận Ba Đình, Hà Nội, Việt Nam')
-INSERT INTO KHACHSAN(MAKS, MATOUR, TENKS, DIACHI) VALUES (N'KS3',N'T3',N'Khách Sạn & Spa Acoustic (Acoustic Hotel & Spa)',N'39 Tho Nhuom,Hoan Kiem, Quận Hoàn Kiếm, Hà Nội, Việt Nam')
-INSERT INTO KHACHSAN(MAKS, MATOUR, TENKS, DIACHI) VALUES (N'KS4',N'T4',N'22housing Westlake Hotel & Residence',N'Quận Tây Hồ, Hà Nội, Việt Nam')
-INSERT INTO KHACHSAN(MAKS, MATOUR, TENKS, DIACHI) VALUES (N'KS5',N'T5',N'Khách sạn Sofitel Legend Metropole Hà Nội (Sofitel Legend Metropole Hanoi Hotel)',N'Số 15, Phố Ngô Quyền, Quận Hoàn Kiếm, Quận Hoàn Kiếm, Hà Nội, Việt Nam')
+INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS1',N'Khách sạn Boutique Hà Nội (Hanoi Boutique Hotel)',N'30/6 Lo Su, Quận Hoàn Kiếm, Hà Nội, Việt Nam')
+INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS2',N'Lotte Hotel Hanoi',N'54 Liễu Giai, Quận Ba Đình, Hà Nội, Việt Nam')
+INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS3',N'Khách Sạn & Spa Acoustic (Acoustic Hotel & Spa)',N'39 Tho Nhuom,Hoan Kiem, Quận Hoàn Kiếm, Hà Nội, Việt Nam')
+INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS4',N'22housing Westlake Hotel & Residence',N'Quận Tây Hồ, Hà Nội, Việt Nam')
+INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS5',N'Khách sạn Sofitel Legend Metropole Hà Nội (Sofitel Legend Metropole Hanoi Hotel)',N'Số 15, Phố Ngô Quyền, Quận Hoàn Kiếm, Quận Hoàn Kiếm, Hà Nội, Việt Nam')
 go
 
 --Thêm dữ liệu bảng DIEMTHAMQUAN
@@ -219,12 +217,8 @@ go
 
 --Thêm dữ liệu bảng PHUONGTIEN
 
-INSERT INTO PHUONGTIEN(MAPHUONGTIEN, MATOUR, TENPHUONGTIEN) VALUES (N'PT1',N'T1',N'Máy bay')
-INSERT INTO PHUONGTIEN(MAPHUONGTIEN, MATOUR, TENPHUONGTIEN) VALUES (N'PT2',N'T2',N'Ôtô')
-INSERT INTO PHUONGTIEN(MAPHUONGTIEN, MATOUR, TENPHUONGTIEN) VALUES (N'PT3',N'T3',N'Ôtô')
-INSERT INTO PHUONGTIEN(MAPHUONGTIEN, MATOUR, TENPHUONGTIEN) VALUES (N'PT4',N'T4',N'Thuyền')
-INSERT INTO PHUONGTIEN(MAPHUONGTIEN, MATOUR, TENPHUONGTIEN) VALUES (N'PT5',N'T5',N'Ôtô')
-
---Thêm dữ liệu bảng BLOG
-
-INSERT INTO
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT1',N'Máy bay')
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT2',N'Ôtô')
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT3',N'Ôtô')
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT4',N'Thuyền')
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT5',N'Ôtô')

@@ -32,21 +32,12 @@
                 </div>
             </div>
         </div>
-        <div class="form-row">
-            <div class="col">
-                <div class="control-label col-md-10"><h5>Tên tour</h5></div>
-                <div class="col-md-10">
-                    @Html.DropDownList("MATOUR", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.MATOUR, "", new { @class = "text-danger" })
-                </div>
-            </div>
 
-            <div class="col">
-                <div class="control-label col-md-10"><h5>Địa chỉ</h5></div>
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DIACHI, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.DIACHI, "", new { @class = "text-danger" })
-                </div>
+        <div class="form-row">
+            <div class="control-label col-md-10"><h5>Địa chỉ</h5></div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DIACHI, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DIACHI, "", new { @class = "text-danger" })
             </div>
         </div>
 

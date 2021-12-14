@@ -35,9 +35,12 @@
                                 <th>ID</th>
                                 <th>Tên Tour</th>
                                 <th>Tên HDV</th>
+                                <th>Tên phương tiện</th>
+                                <th>Tên khách sạn</th>
                                 <th>Giá</th>
                                 <th>Ngày bắt đầu</th>
                                 <th>Ngày kết thúc</th>
+                                <th>Điểm tham quan</th>
                                 <th>Chi tiết</th>
                                 <th>Ảnh</th>
                                 <th></th>
@@ -50,15 +53,19 @@
                                     <td>@item.MATOUR</td>
                                     <td>@item.TENTOUR</td>
                                     <td>@item.HUONGDANVIEN.TENHDV</td>
+                                    <td>@item.PHUONGTIEN.TENPHUONGTIEN</td>
+                                    <td>@item.KHACHSAN.TENKS</td>
                                     <td><span class="badge badge-pill badge-light">@String.Format("{0:0,0đ}", item.GIA)</span></td>
                                     <td>@item.NGAYBD</td>
                                     <td>@item.NGAYKT</td>
+                                    <td>@*@item.DIEMTHAMQUANs*@</td>
                                     <td>@item.CHITIETTOUR</td>
                                     <td>
-                                    @{ 
-                                        string imgpath = "~/Areas/Admin/Data/Tour/" + item.ANH;
-                                    }
-                                    <img src="@Url.Content(imgpath)" alt="Lỗi Ảnh" width="100" height="100" /></td>
+                                        @{
+                                            string imgpath = "~/Areas/Admin/Data/Tour/" + item.ANH;
+                                        }
+                                        <img src="@Url.Content(imgpath)" alt="Lỗi Ảnh" width="100" height="100" />
+                                    </td>
                                     <td>
                                         <a href="/Admin/TOURs/Details/@item.MATOUR">
                                             <button class="btn mb-1 btn-rounded btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Xem">
@@ -84,9 +91,12 @@
                                 <th>ID</th>
                                 <th>Tên Tour</th>
                                 <th>Tên HDV</th>
+                                <th>Tên phương tiện</th>
+                                <th>Tên khách sạn</th>
                                 <th>Giá</th>
                                 <th>Ngày bắt đầu</th>
                                 <th>Ngày kết thúc</th>
+                                <th>Điểm tham quan</th>
                                 <th>Chi tiết</th>
                                 <th>Ảnh</th>
                                 <th></th>

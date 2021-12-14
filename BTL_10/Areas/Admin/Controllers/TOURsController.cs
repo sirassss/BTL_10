@@ -17,7 +17,7 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/TOURs
         public ActionResult Index()
         {
-            var tOURs = db.TOURs.Include(t => t.HUONGDANVIEN);
+            var tOURs = db.TOURs.Include(t => t.HUONGDANVIEN).Include(t => t.KHACHSAN).Include(t => t.PHUONGTIEN).Include(t => t.DIEMTHAMQUANs) ;
             return View(tOURs.ToList());
         }
 
@@ -40,6 +40,9 @@ namespace BTL_10.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV");
+            ViewBag.MAKS = new SelectList(db.KHACHSANs, "MAKS", "TENKS");
+            ViewBag.MAPHUONGTIEN = new SelectList(db.PHUONGTIENs, "MAPHUONGTIEN", "TENPHUONGTIEN");
+            ViewBag.DIEMTHAMQUAN = new SelectList(db.DIEMTHAMQUANs, "MADD", "TENDD");
             return View();
         }
 
@@ -48,24 +51,19 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MATOUR,TENTOUR,NGAYBD,NGAYKT,GIA,MAHDV,CHITIETTOUR,ANH")] TOUR tOUR)
+        public ActionResult Create([Bind(Include = "MATOUR,TENTOUR,NGAYBD,NGAYKT,GIA,MAHDV,CHITIETTOUR,ANH,MAKS,MAPHUONGTIEN,DIEMTHAMQUAN")] TOUR tOUR)
         {
             if (ModelState.IsValid)
             {
-                tOUR.ANH = "";
-                var f = Request.Files["Imagefile"];
-                if (f != null && f.ContentLength > 0)
-                {
-                    string FileName = System.IO.Path.GetFileName(f.FileName);
-                    string UpLoadPath = Server.MapPath("~/Areas/Admin/Data/Tour/" + FileName);
-                    f.SaveAs(UpLoadPath);
-                    tOUR.ANH = FileName;
-                }
                 db.TOURs.Add(tOUR);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
+            ViewBag.MAKS = new SelectList(db.KHACHSANs, "MAKS", "TENKS", tOUR.MAKS);
+            ViewBag.MAPHUONGTIEN = new SelectList(db.PHUONGTIENs, "MAPHUONGTIEN", "TENPHUONGTIEN", tOUR.MAPHUONGTIEN);
+            ViewBag.DIEMTHAMQUAN = new SelectList(db.DIEMTHAMQUANs, "MADD", "TENDD", tOUR.DIEMTHAMQUANs);
             return View(tOUR);
         }
 
@@ -82,6 +80,9 @@ namespace BTL_10.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
+            ViewBag.MAKS = new SelectList(db.KHACHSANs, "MAKS", "TENKS", tOUR.MAKS);
+            ViewBag.MAPHUONGTIEN = new SelectList(db.PHUONGTIENs, "MAPHUONGTIEN", "TENPHUONGTIEN", tOUR.MAPHUONGTIEN);
+            ViewBag.DIEMTHAMQUAN = new SelectList(db.DIEMTHAMQUANs, "MADD", "TENDD", tOUR.DIEMTHAMQUANs);
             return View(tOUR);
         }
 
@@ -90,23 +91,18 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MATOUR,TENTOUR,NGAYBD,NGAYKT,GIA,MAHDV,CHITIETTOUR,ANH")] TOUR tOUR)
+        public ActionResult Edit([Bind(Include = "MATOUR,TENTOUR,NGAYBD,NGAYKT,GIA,MAHDV,CHITIETTOUR,ANH,MAKS,MAPHUONGTIEN,DIEMTHAMQUAN")] TOUR tOUR)
         {
             if (ModelState.IsValid)
             {
-                var f = Request.Files["Imagefile"];
-                if (f != null && f.ContentLength > 0)
-                {
-                    string FileName = System.IO.Path.GetFileName(f.FileName);
-                    string UpLoadPath = Server.MapPath("~/Areas/Admin/Data/Tour/" + FileName);
-                    f.SaveAs(UpLoadPath);
-                    tOUR.ANH = FileName;
-                }
                 db.Entry(tOUR).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
+            ViewBag.MAKS = new SelectList(db.KHACHSANs, "MAKS", "TENKS", tOUR.MAKS);
+            ViewBag.MAPHUONGTIEN = new SelectList(db.PHUONGTIENs, "MAPHUONGTIEN", "TENPHUONGTIEN", tOUR.MAPHUONGTIEN);
+            ViewBag.DIEMTHAMQUAN = new SelectList(db.DIEMTHAMQUANs, "MADD", "TENDD", tOUR.DIEMTHAMQUANs);
             return View(tOUR);
         }
 
