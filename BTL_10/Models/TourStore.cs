@@ -127,9 +127,9 @@ namespace BTL_10.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<KHACHSAN>()
-                .Property(e => e.MATOUR)
-                .IsFixedLength()
-                .IsUnicode(false);
+                .HasMany(e => e.TOURs)
+                .WithRequired(e => e.KHACHSAN)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PHUONGTIEN>()
                 .Property(e => e.MAPHUONGTIEN)
@@ -137,9 +137,9 @@ namespace BTL_10.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHUONGTIEN>()
-                .Property(e => e.MATOUR)
-                .IsFixedLength()
-                .IsUnicode(false);
+                .HasMany(e => e.TOURs)
+                .WithRequired(e => e.PHUONGTIEN)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<TOUR>()
                 .Property(e => e.MATOUR)
@@ -160,14 +160,14 @@ namespace BTL_10.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<TOUR>()
-                .HasMany(e => e.KHACHSANs)
-                .WithRequired(e => e.TOUR)
-                .WillCascadeOnDelete(false);
+                .Property(e => e.MAKS)
+                .IsFixedLength()
+                .IsUnicode(false);
 
             modelBuilder.Entity<TOUR>()
-                .HasMany(e => e.PHUONGTIENs)
-                .WithRequired(e => e.TOUR)
-                .WillCascadeOnDelete(false);
+                .Property(e => e.MAPHUONGTIEN)
+                .IsFixedLength()
+                .IsUnicode(false);
         }
     }
 }

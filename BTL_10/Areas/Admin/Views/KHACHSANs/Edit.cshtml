@@ -10,20 +10,26 @@
 @using (Html.BeginForm("Edit", "KHACHSANs", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.MAKS)
 
-        @Html.HiddenFor(model => model.MATOUR)
+        <div class="form-row">
+            <div class="col">
+                <div class="control-label col-md-10"><h5>Mã khách sạn</h5></div>
+                <div class="col-md-10">
+                    <input class="form-control" type="text" name="matour" value="@Model.MAKS" disabled />
+                    @Html.HiddenFor(model => model.MAKS)
+                </div>
+            </div>
 
-    <div>
-        <div class="form-group">
-            <div class="control-label col-md-10"><h5>Tên khách sạn</h5></div>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TENKS, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TENKS, "", new { @class = "text-danger" })
+            <div class="col">
+                <div class="control-label col-md-10"><h5>Tên khách sạn</h5></div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TENKS, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TENKS, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
@@ -34,14 +40,12 @@
                 @Html.ValidationMessageFor(model => model.DIACHI, "", new { @class = "text-danger" })
             </div>
         </div>
-    </div>
 
-
-    <div class="modal-footer">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Đồng ý sửa" class="btn btn-outline-success" style="margin-left:-212px" />
+        <div class="modal-footer">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đồng ý sửa" class="btn btn-outline-success" style="margin-left:-212px" />
+            </div>
         </div>
-    </div>
     </div>
 }
 

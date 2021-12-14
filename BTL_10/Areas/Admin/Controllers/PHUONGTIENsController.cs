@@ -17,8 +17,7 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/PHUONGTIENs
         public ActionResult Index()
         {
-            var pHUONGTIENs = db.PHUONGTIENs.Include(p => p.TOUR);
-            return View(pHUONGTIENs.ToList());
+            return View(db.PHUONGTIENs.ToList());
         }
 
         // GET: Admin/PHUONGTIENs/Details/5
@@ -39,7 +38,6 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/PHUONGTIENs/Create
         public ActionResult Create()
         {
-            ViewBag.MATOUR = new SelectList(db.TOURs, "MATOUR", "TENTOUR");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAPHUONGTIEN,MATOUR,TENPHUONGTIEN")] PHUONGTIEN pHUONGTIEN)
+        public ActionResult Create([Bind(Include = "MAPHUONGTIEN,TENPHUONGTIEN")] PHUONGTIEN pHUONGTIEN)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace BTL_10.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MATOUR = new SelectList(db.TOURs, "MATOUR", "TENTOUR", pHUONGTIEN.MATOUR);
             return View(pHUONGTIEN);
         }
 
@@ -73,7 +70,6 @@ namespace BTL_10.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MATOUR = new SelectList(db.TOURs, "MATOUR", "TENTOUR", pHUONGTIEN.MATOUR);
             return View(pHUONGTIEN);
         }
 
@@ -82,7 +78,7 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MAPHUONGTIEN,MATOUR,TENPHUONGTIEN")] PHUONGTIEN pHUONGTIEN)
+        public ActionResult Edit([Bind(Include = "MAPHUONGTIEN,TENPHUONGTIEN")] PHUONGTIEN pHUONGTIEN)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace BTL_10.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MATOUR = new SelectList(db.TOURs, "MATOUR", "TENTOUR", pHUONGTIEN.MATOUR);
             return View(pHUONGTIEN);
         }
 

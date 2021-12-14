@@ -17,8 +17,7 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/KHACHSANs
         public ActionResult Index()
         {
-            var kHACHSANs = db.KHACHSANs.Include(k => k.TOUR);
-            return View(kHACHSANs.ToList());
+            return View(db.KHACHSANs.ToList());
         }
 
         // GET: Admin/KHACHSANs/Details/5
@@ -39,7 +38,6 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/KHACHSANs/Create
         public ActionResult Create()
         {
-            ViewBag.MATOUR = new SelectList(db.TOURs, "MATOUR", "TENTOUR");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAKS,MATOUR,TENKS,DIACHI")] KHACHSAN kHACHSAN)
+        public ActionResult Create([Bind(Include = "MAKS,TENKS,DIACHI")] KHACHSAN kHACHSAN)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace BTL_10.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MATOUR = new SelectList(db.TOURs, "MATOUR", "TENTOUR", kHACHSAN.MATOUR);
             return View(kHACHSAN);
         }
 
@@ -73,7 +70,6 @@ namespace BTL_10.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MATOUR = new SelectList(db.TOURs, "MATOUR", "TENTOUR", kHACHSAN.MATOUR);
             return View(kHACHSAN);
         }
 
@@ -82,7 +78,7 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MAKS,MATOUR,TENKS,DIACHI")] KHACHSAN kHACHSAN)
+        public ActionResult Edit([Bind(Include = "MAKS,TENKS,DIACHI")] KHACHSAN kHACHSAN)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace BTL_10.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MATOUR = new SelectList(db.TOURs, "MATOUR", "TENTOUR", kHACHSAN.MATOUR);
             return View(kHACHSAN);
         }
 
