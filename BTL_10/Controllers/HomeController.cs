@@ -14,6 +14,7 @@ namespace BTL_10.Controllers
         {
             ViewBag.tourNew= db.TOURs.OrderByDescending(t => t.NGAYBD).Take(5);
             ViewBag.tour = db.TOURs.OrderBy(t => t.GIA).Take(5);
+            ViewBag.blog = db.BLOGs.ToList().Take(3);
             return View();
         }
 
