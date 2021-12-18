@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "XacNhan";
+}
+<style>
+    .xacnhan{
+        height:600px;
+        display:block;
+        align-items:center;
+        text-align:center;
+        padding-top:50px;
+    }
+    .back{
+        height:50px;
+        width:150px;
+        border-radius:15px;
+        background-color:#ff6a00;
+        display:block;
+        margin-left:auto;
+        margin-right:auto;  
+    }
+    .text1{
+        color:white;
+        font-weight:300;
+    }
+</style>
+<div class="hero-wrap js-fullheight" style="background-image: url('../../Content/images/bg_1.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="@Url.Action("Index", "Home")">Home</a></span> <span>Tour</span></p>
+                <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Tour</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="xacnhan">
+    <h3>Quý khách đã đặt tour thành công</h3>
+    <h3>Vui lòng chờ đợi nhân viên của chúng tôi gọi điện xác nhận</h3>
+    <div class="back" ><a href="/TOURs/Index"><span class="text1">Trở về tour</span></a></div>
+</div>
+
+
+    
+
+
