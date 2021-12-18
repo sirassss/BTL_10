@@ -49,10 +49,46 @@ namespace BTL_10.Controllers
         public ActionResult Details(string id)
         {
             TOUR tour = db.TOURs.Where(x=>x.MATOUR==id).FirstOrDefault();
-            ViewBag.phuongtien = db.TOURs.Where(x => x.MATOUR == tour.MATOUR).FirstOrDefault();
-            ViewBag.khachsan = db.TOURs.Where(x => x.MATOUR == tour.MATOUR).FirstOrDefault();
+            //ViewBag.phuongtien = db.TOURs.Where(x => x.MATOUR == tour.MATOUR).FirstOrDefault();
+            //ViewBag.khachsan = db.TOURs.Where(x => x.MATOUR == tour.MATOUR).FirstOrDefault();
             ViewBag.diadiem = db.DIEMTHAMQUANs.Take(3).ToList();
             return View(tour);
+        }
+        public ActionResult DatTour(string id)
+        {
+            TOUR tour = db.TOURs.Where(x => x.MATOUR == id).FirstOrDefault();
+            ViewBag.tour = tour;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DatTour(string id, [Bind(Include = "MAKHACH,TENKHACH,PHAI,DIACHI,CMND,SDT")] KHACH kHACH)
+        {
+            KHACH s = new KHACH();
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[8];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+            s.MAKHACH = new String(stringChars);
+            s.TENKHACH = kHACH.TENKHACH;
+            s.PHAI = kHACH.PHAI;
+            s.DIACHI = kHACH.DIACHI;
+            s.CMND = kHACH.CMND;
+            s.SDT = kHACH.SDT;
+            db.KHACHes.Add(s);
+            db.SaveChanges();
+            TOUR tour = db.TOURs.Where(x => x.MATOUR == id).FirstOrDefault();
+            ViewBag.tour = tour;
+            return RedirectToAction("XacNhan");
+
+        }
+        public ActionResult XacNhan()
+        {
+            return View();
         }
 
         // GET: TOURs/Create

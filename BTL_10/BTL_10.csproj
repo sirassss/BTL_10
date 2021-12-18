@@ -5789,6 +5789,8 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\TourHanoi\Index.cshtml" />
     <Content Include="Views\Blog\Detail.cshtml" />
+    <Content Include="Views\TOURs\DatTour.cshtml" />
+    <Content Include="Views\TOURs\XacNhan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
