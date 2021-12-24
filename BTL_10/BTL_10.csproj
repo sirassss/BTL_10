@@ -156,7 +156,9 @@
     </Compile>
     <Compile Include="Models\ADMIN.cs" />
     <Compile Include="Models\BLOG.cs" />
+    <Compile Include="Models\DANGKY.cs" />
     <Compile Include="Models\DANHMUCBLOG.cs" />
+    <Compile Include="Models\DEN.cs" />
     <Compile Include="Models\DIEMTHAMQUAN.cs" />
     <Compile Include="Models\HUONGDANVIEN.cs" />
     <Compile Include="Models\KHACH.cs" />
@@ -172,6 +174,28 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-grid.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-grid.min.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-reboot.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-reboot.min.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-utilities.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-utilities.min.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap.rtl.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap.rtl.min.css" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\js\bootstrap.bundle.js" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\js\bootstrap.bundle.min.js" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\js\bootstrap.esm.js" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\js\bootstrap.esm.min.js" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\js\bootstrap.js" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\js\bootstrap.min.js" />
     <Content Include="Areas\Admin\Content\css\style.css" />
     <Content Include="Areas\Admin\Content\icons\cryptocoins\css\cryptocoins-colors.css" />
     <Content Include="Areas\Admin\Content\icons\cryptocoins\css\cryptocoins.css" />
@@ -590,6 +614,9 @@
     <Content Include="Areas\Admin\Content\images\user\7.jpg" />
     <Content Include="Areas\Admin\Content\images\user\8.png" />
     <Content Include="Areas\Admin\Content\images\user\form-user.png" />
+    <Content Include="Areas\Admin\Content\js\anhlam\add.js" />
+    <Content Include="Areas\Admin\Content\js\anhlam\jquery-3.2.1.min.js" />
+    <Content Include="Areas\Admin\Content\js\anhlam\jquery.unobtrusive-ajax.js" />
     <Content Include="Areas\Admin\Content\js\custom.min.js" />
     <Content Include="Areas\Admin\Content\js\dashboard\dashboard-1.js" />
     <Content Include="Areas\Admin\Content\js\gleek.js" />
@@ -5783,6 +5810,28 @@
     <Content Include="Areas\Admin\Views\PHUONGTIENs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\PHUONGTIENs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PHUONGTIENs\Index.cshtml" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-grid.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-reboot.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-utilities.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap.min.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap.rtl.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\js\bootstrap.bundle.js.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\js\bootstrap.esm.js.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\js\bootstrap.esm.min.js.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\js\bootstrap.js.map" />
+    <Content Include="Areas\Admin\Content\bootstrap-5.0.2-dist\js\bootstrap.min.js.map" />
     <None Include="packages.config" />
     <Content Include="Views\TOURs\Details.cshtml" />
     <Content Include="Views\TOURs\Index.cshtml" />

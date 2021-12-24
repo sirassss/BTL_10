@@ -17,8 +17,15 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/TOURs
         public ActionResult Index()
         {
-            var tOURs = db.TOURs.Include(t => t.HUONGDANVIEN).Include(t => t.KHACHSAN).Include(t => t.PHUONGTIEN).Include(t => t.DIEMTHAMQUANs) ;
-            return View(tOURs.ToList());
+            IQueryable<TOUR> tOURs = (from TOUR in db.TOURs
+                                      select TOUR).Include("HUONGDANVIEN").Include("KHACHSAN").Include("PHUONGTIEN");
+            //db.TOURs.Include("HUONGDANVIEN").Include("KHACHSAN").Include("PHUONGTIEN").Include("DEN").ToList();
+            return View(tOURs);
+            //return Json(new
+            //{
+            //    data = tOURs.ToList(),
+            //    status = true
+            //}, JsonRequestBehavior.AllowGet) ;
         }
 
         // GET: Admin/TOURs/Details/5
@@ -42,7 +49,7 @@ namespace BTL_10.Areas.Admin.Controllers
             ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV");
             ViewBag.MAKS = new SelectList(db.KHACHSANs, "MAKS", "TENKS");
             ViewBag.MAPHUONGTIEN = new SelectList(db.PHUONGTIENs, "MAPHUONGTIEN", "TENPHUONGTIEN");
-            ViewBag.DIEMTHAMQUAN = new SelectList(db.DIEMTHAMQUANs, "MADD", "TENDD");
+            ViewBag.DIEMTHAMQUAN = db.DIEMTHAMQUANs.Take(4).ToList();
             return View();
         }
 
@@ -51,10 +58,23 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MATOUR,TENTOUR,NGAYBD,NGAYKT,GIA,MAHDV,CHITIETTOUR,ANH,MAKS,MAPHUONGTIEN,DIEMTHAMQUAN")] TOUR tOUR)
+        public ActionResult Create([Bind(Include = "MATOUR,TENTOUR,NGAYBD,NGAYKT,GIA,MAHDV,CHITIETTOUR,ANH,MAKS,MAPHUONGTIEN,DIEMTHAMQUAN")] TOUR tOUR, List<string> listid)
         {
             if (ModelState.IsValid)
             {
+                foreach (string item in listid)
+                {
+                    tOUR.DENs.Add(new DEN() { MADD= item, MATOUR= tOUR.MATOUR });
+                }
+                tOUR.ANH = "";
+                var f = Request.Files["Imagefile"];
+                if (f != null && f.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f.FileName);
+                    string UpLoadPath = Server.MapPath("~/Areas/Admin/Data/Tour/" + FileName);
+                    f.SaveAs(UpLoadPath);
+                    tOUR.ANH = FileName;
+                }
                 db.TOURs.Add(tOUR);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -63,7 +83,7 @@ namespace BTL_10.Areas.Admin.Controllers
             ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
             ViewBag.MAKS = new SelectList(db.KHACHSANs, "MAKS", "TENKS", tOUR.MAKS);
             ViewBag.MAPHUONGTIEN = new SelectList(db.PHUONGTIENs, "MAPHUONGTIEN", "TENPHUONGTIEN", tOUR.MAPHUONGTIEN);
-            ViewBag.DIEMTHAMQUAN = new SelectList(db.DIEMTHAMQUANs, "MADD", "TENDD", tOUR.DIEMTHAMQUANs);
+            ViewBag.DIEMTHAMQUAN = db.DIEMTHAMQUANs.Take(4).ToList();
             return View(tOUR);
         }
 
@@ -82,7 +102,6 @@ namespace BTL_10.Areas.Admin.Controllers
             ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
             ViewBag.MAKS = new SelectList(db.KHACHSANs, "MAKS", "TENKS", tOUR.MAKS);
             ViewBag.MAPHUONGTIEN = new SelectList(db.PHUONGTIENs, "MAPHUONGTIEN", "TENPHUONGTIEN", tOUR.MAPHUONGTIEN);
-            ViewBag.DIEMTHAMQUAN = new SelectList(db.DIEMTHAMQUANs, "MADD", "TENDD", tOUR.DIEMTHAMQUANs);
             return View(tOUR);
         }
 
@@ -95,6 +114,14 @@ namespace BTL_10.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var f = Request.Files["Imagefile"];
+                if (f != null && f.ContentLength > 0)
+                {
+                    string FileName = System.IO.Path.GetFileName(f.FileName);
+                    string UpLoadPath = Server.MapPath("~/Areas/Admin/Data/Tour/" + FileName);
+                    f.SaveAs(UpLoadPath);
+                    tOUR.ANH = FileName;
+                }
                 db.Entry(tOUR).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -102,7 +129,6 @@ namespace BTL_10.Areas.Admin.Controllers
             ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV", tOUR.MAHDV);
             ViewBag.MAKS = new SelectList(db.KHACHSANs, "MAKS", "TENKS", tOUR.MAKS);
             ViewBag.MAPHUONGTIEN = new SelectList(db.PHUONGTIENs, "MAPHUONGTIEN", "TENPHUONGTIEN", tOUR.MAPHUONGTIEN);
-            ViewBag.DIEMTHAMQUAN = new SelectList(db.DIEMTHAMQUANs, "MADD", "TENDD", tOUR.DIEMTHAMQUANs);
             return View(tOUR);
         }
 
@@ -122,15 +148,27 @@ namespace BTL_10.Areas.Admin.Controllers
         }
 
         // POST: Admin/TOURs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        [HttpPost]
+        public JsonResult DeleteConfirmed(string id)
         {
             TOUR tOUR = db.TOURs.Find(id);
+            List<DEN> dens = db.DENs.Where(s => s.MATOUR == id).ToList();
+            for (var i = 0; i < dens.Count; i++)
+            {
+                DEN x = db.DENs.Where(s => s.MATOUR == id).FirstOrDefault();
+                db.DENs.Remove(x);
+                db.SaveChanges();
+            }
             db.TOURs.Remove(tOUR);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
+
+        //public ActionResult DeleteConfirme(string id)
+        //{
+
+        //    return View();
+        //}
 
         protected override void Dispose(bool disposing)
         {

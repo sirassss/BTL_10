@@ -21,6 +21,7 @@ namespace BTL_10.Models
         public virtual DbSet<KHACHSAN> KHACHSANs { get; set; }
         public virtual DbSet<PHUONGTIEN> PHUONGTIENs { get; set; }
         public virtual DbSet<TOUR> TOURs { get; set; }
+        public virtual DbSet<DEN> DENs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -85,9 +86,9 @@ namespace BTL_10.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<DIEMTHAMQUAN>()
-                .HasMany(e => e.TOURs)
-                .WithMany(e => e.DIEMTHAMQUANs)
-                .Map(m => m.ToTable("DEN").MapLeftKey("MADD").MapRightKey("MATOUR"));
+                .HasMany(e => e.DENs)
+                .WithRequired(e => e.DIEMTHAMQUAN)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<HUONGDANVIEN>()
                 .Property(e => e.MAHDV)
@@ -168,6 +169,12 @@ namespace BTL_10.Models
                 .Property(e => e.MAPHUONGTIEN)
                 .IsFixedLength()
                 .IsUnicode(false);
+
+            modelBuilder.Entity<TOUR>()
+                .HasMany(e => e.DENs)
+                .WithRequired(e => e.TOUR)
+                .WillCascadeOnDelete(false);
+
         }
     }
 }
