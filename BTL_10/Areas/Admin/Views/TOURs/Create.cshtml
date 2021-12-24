@@ -1,6 +1,4 @@
 ﻿@model BTL_10.Models.TOUR
-
-
 @{
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -114,6 +112,7 @@
             <div class="basic-list-group">
                 <ul class="list-group">
                     <li class="list-group-item active">Chọn điểm tham quan</li>
+                    <br />
 
                     @foreach (var item in ViewBag.DIEMTHAMQUAN)
                     {
@@ -121,16 +120,19 @@
                             <input class="form-check-input listDd" type="checkbox" id="@item.MADD" name="listid" value="@item.MADD">
                             <label class="form-check-label" for="@item.MADD">@item.TENDD</label>
                         </div>
+                        <br />
                     }
 
                 </ul>
             </div>
         </div>
+        <br />
+        <br />
 
         <div class="form-group">
             <div class="control-label col-md-10"><h5>Chi tiết tour</h5></div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CHITIETTOUR, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.CHITIETTOUR, new { htmlAttributes = new { @class = "form-control" }, id = "detailtour" })
                 @Html.ValidationMessageFor(model => model.CHITIETTOUR, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -162,5 +164,7 @@
             time: false
         });
     })
-    
+
+    CKEDITOR.replace('detailtour');
+
 </script>

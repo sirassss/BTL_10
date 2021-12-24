@@ -31,7 +31,6 @@
                     <table class="table table-striped table-bordered zero-configuration">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Tên Tour</th>
                                 <th>Tên HDV</th>
                                 <th>Tên phương tiện</th>
@@ -49,7 +48,6 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td class="hidden">@item.MATOUR</td>
                                     <td>@item.TENTOUR</td>
                                     <td>@item.HUONGDANVIEN.TENHDV</td>
                                     <td>@item.PHUONGTIEN.TENPHUONGTIEN</td>
@@ -58,12 +56,48 @@
                                     <td>@item.NGAYBD</td>
                                     <td>@item.NGAYKT</td>
                                     <td>
-                                        @foreach (var ia in item.DENs)
-                                        {
-                                            <li>@ia.DIEMTHAMQUAN.TENDD,</li>
-                                        }
+                                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#getdd">More</button>
+                                        <div class="modal fade" id="getdd">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Các điểm đến</h5>
+                                                        <button type="button" class="close" data-dismiss="modal">
+                                                            <span>&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @foreach (var ia in item.DENs)
+                                                        {
+                                                            <li>@ia.DIEMTHAMQUAN.TENDD,</li>
+                                                        }
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </td>
-                                    <td>@item.CHITIETTOUR</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#getdetailtour">Details</button>
+                                        <div class="modal fade" id="getdetailtour">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Chi tiết TOUR</h5>
+                                                        <button type="button" class="close" data-dismiss="modal">
+                                                            <span>&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>@item.CHITIETTOUR</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>
                                         @{
                                             string imgpath = "~/Areas/Admin/Data/Tour/" + item.ANH;
@@ -94,7 +128,6 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>ID</th>
                                 <th>Tên Tour</th>
                                 <th>Tên HDV</th>
                                 <th>Tên phương tiện</th>
@@ -114,6 +147,7 @@
         </div>
     </div>
 </div>
+
 
 
 <script src="~/Areas/Admin/Content/js/anhlam/add.js"></script>
