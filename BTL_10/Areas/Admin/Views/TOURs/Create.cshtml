@@ -36,23 +36,24 @@
         <br />
 
         <div class="form-row">
-            <div class="col">
+            <div class="col form-materia">
                 <div class="control-label col-md-10"><h5>Ngày bắt đầu</h5></div>
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.NGAYBD, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.NGAYBD, new { htmlAttributes = new { @class = "form-control", @id = "mdate", @placeholder = "2017-06-04" } })
                     @Html.ValidationMessageFor(model => model.NGAYBD, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <div class="col">
+            <div class="col form-materia">
                 <div class="control-label col-md-10"><h5>Ngày kết thúc</h5></div>
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.NGAYKT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.NGAYKT, new { htmlAttributes = new { @class = "form-control", @id = "anhlam", @placeholder = "2017-06-04" } })
                     @Html.ValidationMessageFor(model => model.NGAYKT, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
         <br />
+
 
         <div>
             <div class="form-row">
@@ -155,16 +156,11 @@
         var image = document.getElementById('output');
         image.src = URL.createObjectURL(event.target.files[0]);
     }
-
-    @*function guiDD() {
-        var listelement = $('.listDd');
-        var listid = [];
-        for (var item of listelement) {
-            if (item.checked = 'checked') {
-                listid.push(item.id);
-            }
-        }
-        @ViewBag.listdd = listid;
-}*@
-
+    $(document).ready(function () {
+        $('#anhlam').bootstrapMaterialDatePicker({
+            weekStart: 0,
+            time: false
+        });
+    })
+    
 </script>

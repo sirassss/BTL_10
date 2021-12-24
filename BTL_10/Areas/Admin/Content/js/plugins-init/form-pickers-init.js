@@ -2,7 +2,7 @@
     "use strict"
 
 
-    // MAterial Date picker
+     MAterial Date picker
     $('#mdate').bootstrapMaterialDatePicker({
         weekStart: 0,
         time: false
