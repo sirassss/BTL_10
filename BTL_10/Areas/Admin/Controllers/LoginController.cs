@@ -1,4 +1,5 @@
 ﻿using BTL_10.Models;
+using BTL_10.Session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace BTL_10.Areas.Admin.Controllers
             ADMIN ad = db.ADMINs.SingleOrDefault(x => x.TENDN == username && x.MK == password);
             if (ad != null)
             {
+                Session[Account.ADMIN_SESSION] = ad;
                 return RedirectToAction("Index", "Home");
             }
             ViewBag.Error = "Sai tên đăng nhập hoặc mật khẩu!";

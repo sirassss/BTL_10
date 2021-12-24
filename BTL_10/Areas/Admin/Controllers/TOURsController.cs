@@ -58,6 +58,7 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "MATOUR,TENTOUR,NGAYBD,NGAYKT,GIA,MAHDV,CHITIETTOUR,ANH,MAKS,MAPHUONGTIEN,DIEMTHAMQUAN")] TOUR tOUR, List<string> listid)
         {
             if (ModelState.IsValid)
