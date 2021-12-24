@@ -13,7 +13,7 @@ namespace BTL_10.Models
         public TOUR()
         {
             KHACHes = new HashSet<KHACH>();
-            DIEMTHAMQUANs = new HashSet<DIEMTHAMQUAN>();
+            DENs = new HashSet<DEN>();
         }
 
         [Key]
@@ -58,6 +58,6 @@ namespace BTL_10.Models
         public virtual ICollection<KHACH> KHACHes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DIEMTHAMQUAN> DIEMTHAMQUANs { get; set; }
+        public virtual ICollection<DEN> DENs { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿@model BTL_10.Models.TOUR
 
+
 @{
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -109,6 +110,23 @@
         </div>
 
         <div class="form-group">
+            <div class="basic-list-group">
+                <ul class="list-group">
+                    <li class="list-group-item active">Chọn điểm tham quan</li>
+
+                    @foreach (var item in ViewBag.DIEMTHAMQUAN)
+                    {
+                        <div class="form-check form-switch">
+                            <input class="form-check-input listDd" type="checkbox" id="@item.MADD" name="listid" value="@item.MADD">
+                            <label class="form-check-label" for="@item.MADD">@item.TENDD</label>
+                        </div>
+                    }
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="control-label col-md-10"><h5>Chi tiết tour</h5></div>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CHITIETTOUR, new { htmlAttributes = new { @class = "form-control" } })
@@ -120,7 +138,7 @@
 
         <div class="modal-footer">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Tạo Tour" class="btn btn-outline-success" style="margin-left:-212px" />
+                <input type="submit" value="Tạo Tour" class="btn btn-outline-success" onclick="guiDD()" style="margin-left:-212px" />
             </div>
         </div>
     </div>
@@ -137,4 +155,16 @@
         var image = document.getElementById('output');
         image.src = URL.createObjectURL(event.target.files[0]);
     }
+
+    @*function guiDD() {
+        var listelement = $('.listDd');
+        var listid = [];
+        for (var item of listelement) {
+            if (item.checked = 'checked') {
+                listid.push(item.id);
+            }
+        }
+        @ViewBag.listdd = listid;
+}*@
+
 </script>

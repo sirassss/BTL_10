@@ -4,7 +4,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
 <h2>Quản lý Tour</h2>
 <div class="modal-footer">
     <div class="btn-group mb-1" style="margin-right:900px">
@@ -50,7 +49,7 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td>@item.MATOUR</td>
+                                    <td class="hidden">@item.MATOUR</td>
                                     <td>@item.TENTOUR</td>
                                     <td>@item.HUONGDANVIEN.TENHDV</td>
                                     <td>@item.PHUONGTIEN.TENPHUONGTIEN</td>
@@ -58,7 +57,12 @@
                                     <td><span class="badge badge-pill badge-light">@String.Format("{0:0,0đ}", item.GIA)</span></td>
                                     <td>@item.NGAYBD</td>
                                     <td>@item.NGAYKT</td>
-                                    <td>@*@item.DIEMTHAMQUANs*@</td>
+                                    <td>
+                                        @foreach (var ia in item.DENs)
+                                        {
+                                            <li>@ia.DIEMTHAMQUAN.TENDD,</li>
+                                        }
+                                    </td>
                                     <td>@item.CHITIETTOUR</td>
                                     <td>
                                         @{
@@ -77,11 +81,13 @@
                                                 <i class="zmdi zmdi-edit"></i>
                                             </button>
                                         </a>
-                                        <a href="/Admin/TOURs/Delete/@item.MATOUR">
-                                            <button class="btn mb-1 btn-rounded btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Xóa">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                        </a>
+
+
+                                        <button class="btn mb-1 btn-rounded btn-outline-dark sweet-confirm" id="@item.MATOUR" onclick="deletetour(id)" data-toggle="tooltip" data-placement="top" title="Xóa">
+                                            <i class="zmdi zmdi-delete"></i>
+                                        </button>
+
+
                                     </td>
                                 </tr>
                             }
@@ -108,3 +114,6 @@
         </div>
     </div>
 </div>
+
+
+<script src="~/Areas/Admin/Content/js/anhlam/add.js"></script>

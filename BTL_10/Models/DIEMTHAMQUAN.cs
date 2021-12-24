@@ -12,7 +12,7 @@ namespace BTL_10.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DIEMTHAMQUAN()
         {
-            TOURs = new HashSet<TOUR>();
+            DENs = new HashSet<DEN>();
         }
 
         [Key]
@@ -32,6 +32,6 @@ namespace BTL_10.Models
         public string ANH { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TOUR> TOURs { get; set; }
+        public virtual ICollection<DEN> DENs { get; set; }
     }
 }
