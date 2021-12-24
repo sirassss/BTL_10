@@ -141,6 +141,168 @@
     </div>
 </section>
 
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4">
+                    Tour sắp khởi hành
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row mr-0">
+
+            @foreach (var item in ViewBag.tourNew)
+            {
+
+                <div class="col-sm col-md-6 col-lg ftco-animate">
+                    <div class="destination">
+                        @{ string imgpath = "~/Areas/Admin/Data/Tour/" + item.ANH;}
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(@Url.Content(imgpath));">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-link"></span>
+                            </div>
+                        </a>
+                        <div class="text p-3">
+                            <div class="d-flex">
+                                <div class="one">
+                                    <h3><a href="/TOURs/Details/@item.MATOUR">@item.TENTOUR</a></h3>
+                                    <p class="rate">
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star-o"></i>
+                                        <span>8 Rating</span>
+                                    </p>
+                                </div>
+                                <div class="two">
+                                    <span class="price">@String.Format("{0:0,0đ}", item.GIA)</span>
+                                </div>
+                            </div>
+
+                            <p class="days"><span>@String.Format("{0:dd/MM/yyyy}", item.NGAYBD) - @String.Format("{0:dd/MM/yyyy}", item.NGAYKT)</span></p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+
+                                <span class="ml-auto"><a href="/TOURs/Details/@item.MATOUR">Discover</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+            @*<div class="col-sm col-md-6 col-lg ftco-animate">
+                    <div class="destination d-md-flex flex-column-reverse">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/destination-2.jpg);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-link"></span>
+                            </div>
+                        </a>
+                        <div class="text p-3">
+                            <div class="d-flex">
+                                <div class="one">
+                                    <h3><a href="#">Paris, Italy</a></h3>
+                                    <p class="rate">
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star-o"></i>
+                                        <span>8 Rating</span>
+                                    </p>
+                                </div>
+                                <div class="two">
+                                    <span class="price">$200</span>
+                                </div>
+                            </div>
+                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <p class="days"><span>2 days 3 nights</span></p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                <span class="ml-auto"><a href="#">Discover</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm col-md-6 col-lg ftco-animate">
+                    <div class="destination">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/destination-3.jpg);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-link"></span>
+                            </div>
+                        </a>
+                        <div class="text p-3">
+                            <div class="d-flex">
+                                <div class="one">
+                                    <h3><a href="#">Paris, Italy</a></h3>
+                                    <p class="rate">
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star-o"></i>
+                                        <span>8 Rating</span>
+                                    </p>
+                                </div>
+                                <div class="two">
+                                    <span class="price">$200</span>
+                                </div>
+                            </div>
+                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <p class="days"><span>2 days 3 nights</span></p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                <span class="ml-auto"><a href="#">Discover</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm col-md-6 col-lg ftco-animate">
+                    <div class="destination d-md-flex flex-column-reverse">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../../Content/images/destination-4.jpg);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-link"></span>
+                            </div>
+                        </a>
+                        <div class="text p-3">
+                            <div class="d-flex">
+                                <div class="one">
+                                    <h3><a href="#">Paris, Italy</a></h3>
+                                    <p class="rate">
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star-o"></i>
+                                        <span>8 Rating</span>
+                                    </p>
+                                </div>
+                                <div class="two">
+                                    <span class="price">$200</span>
+                                </div>
+                            </div>
+                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <p class="days"><span>2 days 3 nights</span></p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                <span class="ml-auto"><a href="#">Discover</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+</section>
+
+
 <section class="ftco-about d-md-flex">
     <div class="one-half img" style="background-image: url(Content/images/about.jpg);"></div>
     <div class="one-half ftco-animate">
@@ -241,7 +403,7 @@
                             <p class="days"><span>@String.Format("{0:dd/MM/yyyy}", item.NGAYBD) - @String.Format("{0:dd/MM/yyyy}", item.NGAYKT)</span></p>
                             <hr>
                             <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i>@item.MATOUR</span>
+                                
                                 <span class="ml-auto"><a href="/TOURs/Details/@item.MATOUR">Discover</a></span>
                             </p>
                         </div>
@@ -787,55 +949,60 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 heading-section text-center ftco-animate">
-                <h2><strong>Tips</strong> &amp; Articles</h2>
+                @*<h2><strong>Tips</strong> &amp; Articles</h2>*@
+                <h2>Blogs</h2>
             </div>
         </div>
         <div class="row d-flex">
+            @foreach (var item3 in ViewBag.blog)
+            {
             <div class="col-md-4 d-flex ftco-animate">
+                @{string imgpath3 = "~/Areas/Admin/Data/Blog/" + item3.ANH;}
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('../../Content/images/image_1.jpg');">
+                    <a href="/Blog/Detail/@item3.MABAIVIET" class="block-20" style="background-image: url(@Url.Content(imgpath3));">
                     </a>
                     <div class="text">
-                        <span class="tag">Tips, Travel</span>
-                        <h3 class="heading mt-3"><a href="#">8 Best homestay in Philippines that you don't miss out</a></h3>
+                        <span class="tag">Blog</span>
+                        <h3 class="heading mt-3"><a href="/Blog/Detail/@item3.MABAIVIET">@item3.TIEUDE</a></h3>
                         <div class="meta mb-3">
-                            <div><a href="#">October 3, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                            <div><a href="#">@String.Format("{0:dd/MM/yyyy}", @item3.NGAYKHOITAO)</a></div>
+                            <div><a href="#">@item3.ADMIN.HOTEN</a></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('../../Content/images/image_2.jpg');">
-                    </a>
-                    <div class="text">
-                        <span class="tag">Culture</span>
-                        <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                        <div class="meta mb-3">
-                            <div><a href="#">October 3, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
+            }
+            @*
+        <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">
+                <a href="blog-single.html" class="block-20" style="background-image: url('../../Content/images/image_2.jpg');">
+                </a>
+                <div class="text">
+                    <span class="tag">Culture</span>
+                    <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                    <div class="meta mb-3">
+                        <div><a href="#">October 3, 2018</a></div>
+                        <div><a href="#">Admin</a></div>
+                        <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('../../Content/images/image_3.jpg');">
-                    </a>
-                    <div class="text">
-                        <span class="tag">Tips, Travel</span>
-                        <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                        <div class="meta mb-3">
-                            <div><a href="#">October 3, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
+        </div>
+        <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">
+                <a href="blog-single.html" class="block-20" style="background-image: url('../../Content/images/image_3.jpg');">
+                </a>
+                <div class="text">
+                    <span class="tag">Tips, Travel</span>
+                    <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                    <div class="meta mb-3">
+                        <div><a href="#">October 3, 2018</a></div>
+                        <div><a href="#">Admin</a></div>
+                        <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                     </div>
                 </div>
             </div>
+        </div>*@
         </div>
     </div>
 </section>

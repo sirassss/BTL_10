@@ -1,0 +1,128 @@
+﻿
+@model BTL_10.Models.KHACH
+@{
+    ViewBag.Title = "DatTour";
+    BTL_10.Models.TOUR tour = (BTL_10.Models.TOUR)Session["tour"];
+}
+
+<style>
+    .anh_tour{
+        height:350px;
+        width:500px
+    }
+    .thongbao{
+        text-align:center;
+        padding-top: 15px;
+    }
+    .bang{
+        padding:15px 0px 15px 30px;
+    }
+    .btn:hover{
+        color:white;
+        background-color:#ffd800;
+    }
+</style>
+<div class="hero-wrap js-fullheight" style="background-image: url('../../Content/images/bg_1.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="@Url.Action("Index", "Home")">Home</a></span> <span>Tour</span></p>
+                <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Tour</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<h4 class="thongbao" style="color:#f80707">Quý khách vui lòng điền đầy đủ thông tin để nhân viên của chúng tôi có thể liên hệ để xác nhận tour</h4>
+<div class="bang">
+    <table style="width:fit-content">
+        <tr>
+            <td style="width:900px"><h5 style="color:black">Thông tin khách hàng</h5></td>
+            <td style="width:500px"><h5 style="color:black">Thông tin tour</h5></td>
+        </tr>
+        <tr>
+            <td style="width:900px">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div style="display:none">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MAKHACH, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.MAKHACH, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MAKHACH, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TENKHACH, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.TENKHACH, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TENKHACH, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="display:none">
+                            @Html.LabelFor(model => model.PHAI, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <div class="checkbox">
+                                    @Html.EditorFor(model => model.PHAI)
+                                    @Html.ValidationMessageFor(model => model.PHAI, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DIACHI, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.DIACHI, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DIACHI, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CMND, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CMND, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SDT, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10 ">
+                                <input type="submit" value="Xác nhận" class="btn btn-default" onclick="" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </td>
+            <td style="width:500px" class="top">
+                <div>
+                    @{ string imgpath = "~/Areas/Admin/Data/Tour/" + tour.ANH;}
+
+                    <img class="anh_tour" src="@Url.Content(imgpath)" />
+                </div>
+                <div>Tên tour: @tour.TENTOUR</div>
+                <div>Ngày khởi hành: @String.Format("{0:dd/MM/yyyy}", tour.NGAYBD)</div>
+                <div>Ngày kết thúc: @String.Format("{0:dd/MM/yyyy}", tour.NGAYKT)</div>
+                <div>Giá: @String.Format("{0:0,0đ}", tour.GIA)</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+

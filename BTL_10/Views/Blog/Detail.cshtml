@@ -21,8 +21,8 @@
         <div class="row">
             <div class="col-md-8 ftco-animate">
                 <h2 class="mb-3">@Model.TIEUDE</h2>
-                <h4 class="mb-3">@Model.NGAYKHOITAO</h4>
-                <h4 class="mb-3">@Model.ADMIN.HOTEN</h4>
+                <h4 class="mb-3"><span class="icon-calendar mr-3"></span>@String.Format("{0:dd/MM/yyyy}", Model.NGAYKHOITAO)</h4>
+                <h4 class="mb-3"><span class="icon-person mr-3"></span>@Model.ADMIN.HOTEN</h4>
                 @{ string imgpath = "/Areas/Admin/Data/Blog/" + Model.ANH;}
                
                 <div class="hotel-img" style="background-image: url(@Url.Content(imgpath));"></div>
@@ -183,12 +183,11 @@
                 <div class="sidebar-box ftco-animate">
                     <div class="categories">
                         <h3>Categories</h3>
-                        <li><a href="#">Tour <span>(12)</span></a></li>
-                        <li><a href="#">Hotel <span>(22)</span></a></li>
-                        <li><a href="#">Coffee <span>(37)</span></a></li>
-                        <li><a href="#">Drinks <span>(42)</span></a></li>
-                        <li><a href="#">Foods <span>(14)</span></a></li>
-                        <li><a href="#">Travel <span>(140)</span></a></li>
+                        <li><a href="/TOURs/Index">Tour <span></span></a></li>
+                        <li><a href="/Blog/Index">Blog <span></span></a></li>
+                        <li><a href="/Home/Index">Home <span></span></a></li>
+                        <li><a href="/Home/About">About <span></span></a></li>
+                        <li><a href="/Home/Contact">Contact <span></span></a></li>
                     </div>
                 </div>
 
@@ -202,8 +201,8 @@
                     <div class="text">
                         <h3 class="heading"><a href="/Blog/Detail/@bl.MABAIVIET">@bl.TIEUDE</a></h3>
                         <div class="meta">
-                            <div><a href="/Blog/Detail/@bl.MABAIVIET"><span class="icon-calendar"></span> @bl.NGAYKHOITAO</a></div>
-                            <div><a href="/Blog/Detail/@bl.MABAIVIET"><span class="icon-person"></span>@bl.ADMIN.HOTEN</a></div>
+                            <div><a href="/Blog/Detail/@bl.MABAIVIET"><span class="icon-calendar mr-1"></span>@String.Format("{0:dd/MM/yyyy}", bl.NGAYKHOITAO) </a></div>
+                            <div><a href="/Blog/Detail/@bl.MABAIVIET"><span class="icon-person mr-1"></span>@bl.ADMIN.HOTEN</a></div>
                             @*<div><a href="#"><span class="icon-chat"></span> 19</a></div>*@
                         </div>
                     </div>

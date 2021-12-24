@@ -15,6 +15,10 @@ namespace BTL_10.Models
             KHACHes = new HashSet<KHACH>();
             DENs = new HashSet<DEN>();
         }
+        public TOUR(string MATOUR)
+        {
+            this.MATOUR = MATOUR;
+        }
 
         [Key]
         [StringLength(10)]
@@ -60,4 +64,5 @@ namespace BTL_10.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DEN> DENs { get; set; }
     }
+    
 }
