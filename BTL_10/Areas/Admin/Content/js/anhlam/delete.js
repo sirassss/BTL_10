@@ -129,6 +129,40 @@ function deletept(id) {
         })
 }
 
+
+function deletehdv(id) {
+    var jsData = "{Id : '" + id + "'}";
+    swal({
+        title: "Bạn có chắc muốn xóa ?",
+        text: "Sẽ không thể khôi phục lại !!",
+        type: "warning",
+        showCancelButton: true,
+        cancelButtonText: "Hủy",
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Xóa !!",
+        closeOnConfirm: !1
+    },
+        function (isconfirm) {
+            if (isconfirm) {
+                $.ajax({
+                    type: "POST",
+                    url: '/Admin/HUONGDANVIENs/DeleteConfirmed',
+                    contentType: "application/json; charset=utf-8",
+                    data: jsData,
+                    dataType: "json",
+                    success: function (result) {
+                        if (result == true) {
+                            window.location = "/Admin/HUONGDANVIENs/Index";
+                        }
+                    }
+                });
+            } else {
+                swal("Đã có lỗi xảy ra")
+            }
+        })
+}
+}
+
 function deletekh(id) {
     var jsData = "{Id : '" + id + "'}";
     swal({
