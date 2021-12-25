@@ -11,17 +11,13 @@ using BTL_10.Session;
 
 namespace BTL_10.Areas.Admin.Controllers
 {
-    public class TOURsController : Controller
+    public class TOURsController : BaseController
     {
         private TourStore db = new TourStore();
 
         // GET: Admin/TOURs
         public ActionResult Index()
         {
-            if (Session[Account.ADMIN_SESSION] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
             IQueryable<TOUR> tOURs = (from TOUR in db.TOURs
                                       select TOUR).Include("HUONGDANVIEN").Include("KHACHSAN").Include("PHUONGTIEN");
             //db.TOURs.Include("HUONGDANVIEN").Include("KHACHSAN").Include("PHUONGTIEN").Include("DEN").ToList();
@@ -46,10 +42,6 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/TOURs/Create
         public ActionResult Create()
         {
-            if (Session[Account.ADMIN_SESSION] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
             ViewBag.MAHDV = new SelectList(db.HUONGDANVIENs, "MAHDV", "TENHDV");
             ViewBag.MAKS = new SelectList(db.KHACHSANs, "MAKS", "TENKS");
             ViewBag.MAPHUONGTIEN = new SelectList(db.PHUONGTIENs, "MAPHUONGTIEN", "TENPHUONGTIEN");
@@ -165,6 +157,12 @@ namespace BTL_10.Areas.Admin.Controllers
                 if (x != null)
                 {
                     db.DENs.Remove(x);
+                    db.SaveChanges();
+                }
+                DANGKY dk = db.DANGKies.Where(s => s.MATOUR == id).FirstOrDefault();
+                if (dk != null)
+                {
+                    db.DANGKies.Remove(dk);
                     db.SaveChanges();
                 }
             }

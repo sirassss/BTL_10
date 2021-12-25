@@ -4,7 +4,6 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 <div class="container">
     <div class="card">
         <div class="card-body">
@@ -13,7 +12,19 @@
                 <div class="col-lg-7 col-md-7 col-sm-6">
                     <h4 class="box-title mt-5">Chi tiết hướng dẫn viên</h4>
                     <div>
-                        <p><strong>Giới tính:  </strong>@Model.PHAI</p>
+                        <p><strong>Giới tính:  </strong>
+                        @if (Model.PHAI == true)
+                        {
+                            <span>Nam</span>
+                        }else if (Model.PHAI == false)
+                        {
+                            <span>Nữ</span>
+                        }
+                        else
+                        {
+                            <span>Không xác định</span>
+                        }
+                        </p>
                         
                         <p><strong>Số điện thoại: </strong>@Model.SDT</p>
                         <p><strong>Địa chỉ: </strong>@Model.DIACHI</p>

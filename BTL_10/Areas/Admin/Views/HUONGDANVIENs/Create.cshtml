@@ -10,51 +10,67 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-row">
-        <div class="col">
-            <div class="control-label col-md-10"><h5>Mã hướng dẫn viên</h5></div>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MAHDV, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MAHDV, "", new { @class = "text-danger" })
+        <div class="form-row">
+            <div class="col">
+                <div class="control-label col-md-10"><h5>Mã hướng dẫn viên</h5></div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MAHDV, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MAHDV, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="control-label col-md-10"><h5>Tên hướng dẫn viên</h5></div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TENHDV, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TENHDV, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="form-row">
+            <div class="col">
+                <div class="control-label col-md-10"><h5>Giới tính</h5></div>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        <select class="form-control" name="gioitinh">
+                            <option value="true">Nam</option>
+                            <option value="false">Nữ</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.PHAI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="control-label col-md-10"><h5>SĐT</h5></div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
-        <div class="col">
-            <div class="control-label col-md-10"><h5>Tên hướng dẫn viên</h5></div>
+        <br />
+        <div class="form-group">
+            <div class="control-label col-md-10"><h5>Địa chỉ</h5></div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TENHDV, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TENHDV, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.DIACHI, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DIACHI, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+
+        <div class="modal-footer">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm hướng dẫn viên" class="btn btn-outline-success" style="margin-left:-212px" />
             </div>
         </div>
     </div>
-    <br />
-    <div class="form-group">
-        <div class="control-label col-md-10"><h5>SĐT</h5></div>
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <br />
-    <div class="form-group">
-        <div class="control-label col-md-10"><h5>Địa chỉ</h5></div>
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DIACHI, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.DIACHI, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <br />
-
-    <div class="modal-footer">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Thêm hướng dẫn viên" class="btn btn-outline-success" style="margin-left:-212px" />
-        </div>
-    </div>
-</div>
 }
 
 <div class="modal-footer">

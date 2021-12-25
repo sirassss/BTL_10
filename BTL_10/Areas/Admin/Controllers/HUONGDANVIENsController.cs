@@ -11,17 +11,13 @@ using BTL_10.Session;
 
 namespace BTL_10.Areas.Admin.Controllers
 {
-    public class HUONGDANVIENsController : Controller
+    public class HUONGDANVIENsController : BaseController
     {
         private TourStore db = new TourStore();
 
         // GET: Admin/HUONGDANVIENs
         public ActionResult Index()
         {
-            if (Session[Account.ADMIN_SESSION] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
             return View(db.HUONGDANVIENs.ToList());
         }
 
@@ -43,10 +39,6 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/HUONGDANVIENs/Create
         public ActionResult Create()
         {
-            if (Session[Account.ADMIN_SESSION] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
             return View();
         }
 
@@ -55,10 +47,11 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAHDV,TENHDV,PHAI,DIACHI,SDT")] HUONGDANVIEN hUONGDANVIEN)
+        public ActionResult Create([Bind(Include = "MAHDV,TENHDV,PHAI,DIACHI,SDT")] HUONGDANVIEN hUONGDANVIEN, bool gioitinh)
         {
             if (ModelState.IsValid)
             {
+                hUONGDANVIEN.PHAI = gioitinh;
                 db.HUONGDANVIENs.Add(hUONGDANVIEN);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -87,10 +80,11 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MAHDV,TENHDV,PHAI,DIACHI,SDT")] HUONGDANVIEN hUONGDANVIEN)
+        public ActionResult Edit([Bind(Include = "MAHDV,TENHDV,PHAI,DIACHI,SDT")] HUONGDANVIEN hUONGDANVIEN, bool gioitinh)
         {
             if (ModelState.IsValid)
             {
+                hUONGDANVIEN.PHAI = gioitinh;
                 db.Entry(hUONGDANVIEN).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -117,9 +111,18 @@ namespace BTL_10.Areas.Admin.Controllers
                         db.DENs.Remove(d);
                         db.SaveChanges();
                     }
+                    DANGKY dk = db.DANGKies.Where(s => s.MATOUR == id).FirstOrDefault();
+                    if (dk != null)
+                    {
+                        db.DANGKies.Remove(dk);
+                        db.SaveChanges();
+                    }
                 }
-                db.TOURs.Remove(t);
-                db.SaveChanges();
+                if (t != null)
+                {
+                    db.TOURs.Remove(t);
+                    db.SaveChanges();
+                }
             }
             db.HUONGDANVIENs.Remove(hUONGDANVIEN);
             db.SaveChanges();

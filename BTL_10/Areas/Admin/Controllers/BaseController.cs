@@ -13,8 +13,9 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/Base
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var session = Session[Account.ADMIN_SESSION];
-            if (session == null)
+            var admin = Session[Account.ADMIN_SESSION];
+            var nhanvien = Session[Account.NV_SESSION];
+            if (admin == null && nhanvien == null)
             {
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new
                 {

@@ -11,17 +11,13 @@ using BTL_10.Session;
 
 namespace BTL_10.Areas.Admin.Controllers
 {
-    public class BLOGsController : Controller
+    public class BLOGsController : BaseController
     {
         private TourStore db = new TourStore();
 
         // GET: Admin/BLOGs
         public ActionResult Index()
         {
-            if (Session[Account.ADMIN_SESSION] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
             var bLOGs = db.BLOGs.Include(b => b.ADMIN).Include(b => b.DANHMUCBLOG);
             return View(bLOGs.ToList());
         }
@@ -44,10 +40,6 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/BLOGs/Create
         public ActionResult Create()
         {
-            if (Session[Account.ADMIN_SESSION] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
             ViewBag.ID = new SelectList(db.ADMINs, "ID", "TENDN");
             ViewBag.MADANHMUCBLOG = new SelectList(db.DANHMUCBLOGs, "MADANHMUCBLOG", "TENDANHMUCBLOG");
             return View();

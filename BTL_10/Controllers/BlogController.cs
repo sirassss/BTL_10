@@ -8,7 +8,7 @@ using PagedList;
 
 namespace BTL_10.Controllers
 {
-    public class BlogController : Controller
+    public class BlogController : DefaultController
     {
         TourStore db = new TourStore();
         // GET: Blog

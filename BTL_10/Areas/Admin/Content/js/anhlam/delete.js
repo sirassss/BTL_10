@@ -161,7 +161,7 @@ function deletehdv(id) {
             }
         })
 }
-}
+
 
 function deletekh(id) {
     var jsData = "{Id : '" + id + "'}";
