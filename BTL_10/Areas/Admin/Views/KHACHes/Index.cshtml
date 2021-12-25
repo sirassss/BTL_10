@@ -4,54 +4,97 @@
     ViewBag.Title = "Index";
 }
 
-<h2>QUẢN LÝ KHÁCH</h2>
+<h2>Quản lý khách hàng</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TENKHACH)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PHAI)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DIACHI)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CMND)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SDT)
-        </th>
-        <th></th>
-    </tr>
+<div class="modal-footer">
+    <div class="btn-group mb-1" style="margin-right:900px">
+        <button type="button" class="btn btn-info">Sắp xếp</button>
+        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Theo ID</a> <a class="dropdown-item" href="#">Theo tên</a> <a class="dropdown-item" href="#">Theo giá</a>
+            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
+        </div>
+    </div>
+    <div class="text-right">
+        <a href="@Url.Action("Create")">
+            <button class="btn mb-1 btn-rounded btn-primary"><i class="zmdi zmdi-plus"></i> Thêm phương tiện</button>
+        </a>
+    </div>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TENKHACH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PHAI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DIACHI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CMND)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SDT)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MAKHACH }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MAKHACH }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MAKHACH })
-        </td>
-    </tr>
-}
 
-</table>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Các khách sạn</h4>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered zero-configuration">
+                        <thead>
+                            <tr>
+                                <th>Tên khách hàng</th>
+                                <th>Giới tính</th>
+                                <th>Chứng minh nhân dân</th>
+                                <th>Số điện thoại</th>
+                                <th>Địa chỉ</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.TENKHACH</td>
+                                    <td>
+                                        @if (item.PHAI == true)
+                                        {
+                                            <span>Nam</span>
+                                        }
+                                        else if (item.PHAI == false)
+                                        {
+                                            <span>Nữ</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Không xác định</span>
+                                        }
+                                    </td>
+                                    <td>@item.CMND</td>
+                                    <td>@item.SDT</td>
+                                    <td>@item.DIACHI</td>
+                                    <td>
+                                        <a href="/Admin/KHACHes/Details/@item.MAKHACH">
+                                            <button class="btn mb-1 btn-rounded btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Xem">
+                                                <i class="zmdi zmdi-eye"></i>
+                                            </button>
+                                        </a>
+                                        <a href="/Admin/KHACHes/Edit/@item.MAKHACH">
+                                            <button class="btn mb-1 btn-rounded btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Sửa">
+                                                <i class="zmdi zmdi-edit"></i>
+                                            </button>
+                                        </a>
+                                        <a href="/Admin/KHACHes/Delete/@item.MAKHACH">
+                                            <button class="btn mb-1 btn-rounded btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Xóa">
+                                                <i class="zmdi zmdi-delete"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Tên khách hàng</th>
+                                <th>Giới tính</th>
+                                <th>Chứng minh nhân dân</th>
+                                <th>Số điện thoại</th>
+                                <th>Địa chỉ</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

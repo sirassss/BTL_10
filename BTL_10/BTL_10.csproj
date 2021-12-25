@@ -979,7 +979,7 @@
     <Content Include="Areas\Admin\Content\images\user\7.jpg" />
     <Content Include="Areas\Admin\Content\images\user\8.png" />
     <Content Include="Areas\Admin\Content\images\user\form-user.png" />
-    <Content Include="Areas\Admin\Content\js\anhlam\add.js" />
+    <Content Include="Areas\Admin\Content\js\anhlam\delete.js" />
     <Content Include="Areas\Admin\Content\js\anhlam\jquery-3.2.1.min.js" />
     <Content Include="Areas\Admin\Content\js\anhlam\jquery.unobtrusive-ajax.js" />
     <Content Include="Areas\Admin\Content\js\custom.min.js" />
@@ -6109,8 +6109,6 @@
     <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHes\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHes\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHes\Details.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHes\Index.cshtml" />

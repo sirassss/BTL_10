@@ -95,11 +95,11 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "MABAIVIET,ID,MADANHMUCBLOG,TIEUDE,ANH,TOMTAT,NOIDUNG,NGAYKHOITAO")] BLOG bLOG)
         {
             if (ModelState.IsValid)
             {
-                bLOG.ANH = "";
                 var f = Request.Files["Imagefile"];
                 if (f != null && f.ContentLength > 0)
                 {

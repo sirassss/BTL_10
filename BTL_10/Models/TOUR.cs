@@ -12,8 +12,8 @@ namespace BTL_10.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TOUR()
         {
-            KHACHes = new HashSet<KHACH>();
             DENs = new HashSet<DEN>();
+            DANGKies = new HashSet<DANGKY>();
         }
         public TOUR(string MATOUR)
         {
@@ -59,10 +59,10 @@ namespace BTL_10.Models
         public virtual PHUONGTIEN PHUONGTIEN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KHACH> KHACHes { get; set; }
+        public virtual ICollection<DEN> DENs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DEN> DENs { get; set; }
+        public virtual ICollection<DANGKY> DANGKies { get; set; }
     }
     
 }

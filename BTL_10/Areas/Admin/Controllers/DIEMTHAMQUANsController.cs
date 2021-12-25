@@ -46,6 +46,7 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "MADD,TENDD,DIACHI,MOTADIEMDEN,ANH")] DIEMTHAMQUAN dIEMTHAMQUAN)
         {
             if (ModelState.IsValid)
@@ -87,11 +88,11 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "MADD,TENDD,DIACHI,MOTADIEMDEN,ANH")] DIEMTHAMQUAN dIEMTHAMQUAN)
         {
             if (ModelState.IsValid)
             {
-                dIEMTHAMQUAN.ANH = "";
                 var f = Request.Files["Imagefile"];
                 if (f != null && f.ContentLength > 0)
                 {
@@ -123,14 +124,20 @@ namespace BTL_10.Areas.Admin.Controllers
         }
 
         // POST: Admin/DIEMTHAMQUANs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        [HttpPost]
+        public JsonResult DeleteConfirmed(string id)
         {
             DIEMTHAMQUAN dIEMTHAMQUAN = db.DIEMTHAMQUANs.Find(id);
+            List<DEN> dens = db.DENs.Where(s => s.MADD == id).ToList();
+            for (var i = 0; i < dens.Count; i++)
+            {
+                DEN x = db.DENs.Where(s => s.MADD == id).FirstOrDefault();
+                db.DENs.Remove(x);
+                db.SaveChanges();
+            }
             db.DIEMTHAMQUANs.Remove(dIEMTHAMQUAN);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)
