@@ -162,6 +162,22 @@ INSERT INTO HUONGDANVIEN(MAHDV, TENHDV, PHAI, DIACHI, SDT) VALUES (N'HD2',N'Thá
 INSERT INTO HUONGDANVIEN(MAHDV, TENHDV, PHAI, DIACHI, SDT) VALUES (N'HD3',N'Vũ Đình Đoàn','TRUE',N'Hải Dương','0393343456')
 go
 
+--Thêm dữ liệu bảng PHUONGTIEN
+
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT1',N'Máy bay')
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT2',N'Ôtô')
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT3',N'Ôtô')
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT4',N'Thuyền')
+INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT5',N'Ôtô')
+
+--Thêm dữ liệu bảng KHACHSAN
+
+INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS1',N'Khách sạn Boutique Hà Nội (Hanoi Boutique Hotel)',N'30/6 Lo Su, Quận Hoàn Kiếm, Hà Nội, Việt Nam')
+INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS2',N'Lotte Hotel Hanoi',N'54 Liễu Giai, Quận Ba Đình, Hà Nội, Việt Nam')
+INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS3',N'Khách Sạn & Spa Acoustic (Acoustic Hotel & Spa)',N'39 Tho Nhuom,Hoan Kiem, Quận Hoàn Kiếm, Hà Nội, Việt Nam')
+INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS4',N'22housing Westlake Hotel & Residence',N'Quận Tây Hồ, Hà Nội, Việt Nam')
+INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS5',N'Khách sạn Sofitel Legend Metropole Hà Nội (Sofitel Legend Metropole Hanoi Hotel)',N'Số 15, Phố Ngô Quyền, Quận Hoàn Kiếm, Quận Hoàn Kiếm, Hà Nội, Việt Nam')
+go
 
 --Thêm dữ liệu bảng TOUR
 
@@ -177,14 +193,7 @@ Insert Into [TOUR](MATOUR, TENTOUR, NGAYBD, NGAYKT, GIA, MAHDV, CHITIETTOUR, ANH
 VALUES(N'T5',N'DU LỊCH THỂ THAO - VUI CHƠI GIẢI TRÍ','2021-12-6','2021-12-20',3000000,'HD1',N'Lần đầu đến Hà Nội, bạn muốn tìm đến những địa điểm vui chơi cuối tuần mà người Hà thành hay lui tới nhưng lại không có người hướng dẫn. Vậy thì hãy xem qua ngay các địa điểm vui chơi cuối tuần Hà Nội do chúng tôi gợi ý cho bạn nhé.Các địa điểm vui chơi cuối tuần này đa phần đều rất quen thuộc với giới trẻ Hà Nội nhưng với khách du lịch thì không phải ai cũng biết. Còn chần chờ gì nữa mà không đi ngay để khám phá đời sống cuối tuần ở Thủ đô nào!',N'005.jpg',N'KS5',N'PT5')
 go
 
---Thêm dữ liệu bảng KHACHSAN
 
-INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS1',N'Khách sạn Boutique Hà Nội (Hanoi Boutique Hotel)',N'30/6 Lo Su, Quận Hoàn Kiếm, Hà Nội, Việt Nam')
-INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS2',N'Lotte Hotel Hanoi',N'54 Liễu Giai, Quận Ba Đình, Hà Nội, Việt Nam')
-INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS3',N'Khách Sạn & Spa Acoustic (Acoustic Hotel & Spa)',N'39 Tho Nhuom,Hoan Kiem, Quận Hoàn Kiếm, Hà Nội, Việt Nam')
-INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS4',N'22housing Westlake Hotel & Residence',N'Quận Tây Hồ, Hà Nội, Việt Nam')
-INSERT INTO KHACHSAN(MAKS, TENKS, DIACHI) VALUES (N'KS5',N'Khách sạn Sofitel Legend Metropole Hà Nội (Sofitel Legend Metropole Hanoi Hotel)',N'Số 15, Phố Ngô Quyền, Quận Hoàn Kiếm, Quận Hoàn Kiếm, Hà Nội, Việt Nam')
-go
 
 --Thêm dữ liệu bảng DIEMTHAMQUAN
 
@@ -215,10 +224,4 @@ INSERT INTO DIEMTHAMQUAN(MADD, TENDD, DIACHI, MOTADIEMDEN, ANH) VALUES (N'DTQ24'
 INSERT INTO DIEMTHAMQUAN(MADD, TENDD, DIACHI, MOTADIEMDEN, ANH) VALUES (N'DTQ25',N'Ca Trù Thăng Long - Đền Quan Đế',N'Số 28 Hàng Buồm, Hoàn Kiếm Phường Hàng Trống , Quận Hoàn Kiếm',N'Ca trù là một bộ môn nghệ thuật truyền thống lâu đời, hết sức độc đáo và có ý nghĩa đặc biệt trong kho tàng âm nhạc Việt Nam, gắn liền với lễ hội, phong tục, tín ngưỡng, văn chương, âm nhạc, mang tư tưởng và triết lý sống của người Việt sâu sắc.',N'd25.jpg')
 go
 
---Thêm dữ liệu bảng PHUONGTIEN
 
-INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT1',N'Máy bay')
-INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT2',N'Ôtô')
-INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT3',N'Ôtô')
-INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT4',N'Thuyền')
-INSERT INTO PHUONGTIEN(MAPHUONGTIEN, TENPHUONGTIEN) VALUES (N'PT5',N'Ôtô')
