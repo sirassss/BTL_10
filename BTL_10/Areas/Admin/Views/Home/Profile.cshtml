@@ -1,0 +1,49 @@
+﻿@model BTL_10.Models.ADMIN
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="media align-items-center mb-4">
+            <img class="mr-3" src="~/Areas/Admin/Data/AnhLam/meo6.gif" width="80" height="80" alt="">
+            <div class="media-body">
+                <h3 class="mb-0">@Model.HOTEN</h3>
+                <p class="text-muted mb-0">Việt Nam</p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col">
+                <div class="card card-profile text-center">
+                    <span class="mb-1 text-primary"><i class="icon-people"></i></span>
+                    <h3 class="mb-0">1</h3>
+                    <p class="text-muted px-4">Đang theo dõi</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card-profile text-center">
+                    <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
+                    <h3 class="mb-0">9999</h3>
+                    <p class="text-muted">Người theo dõi</p>
+                </div>
+            </div>
+            <div class="col-12 text-center">
+                <button class="btn btn-danger px-5">Bấm để bị ngu</button>
+            </div>
+        </div>
+
+        <h4>Tiểu sử</h4>
+        <p class="text-muted">Làm bài tập lớn ASP.NET mệt vcl.</p>
+        <ul class="card-profile__info">
+            <li class="mb-1">
+                <strong class="text-dark mr-4">Loại tài khoản</strong> @if (Model.LOAITK.Trim() == "admin")
+                {<span>Tài khoản quản trị</span>}
+                else { <span>Tài khoản nhân viên</span>}
+            </li>
+            <li><strong class="text-dark mr-4">Trạng thái</strong> @if (Model.TRANGTHAI.Trim() == "on")
+            {<span>Đang hoạt động</span>}</li>
+        </ul>
+    </div>
+</div>  

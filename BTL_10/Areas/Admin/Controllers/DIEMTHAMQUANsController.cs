@@ -11,17 +11,13 @@ using BTL_10.Session;
 
 namespace BTL_10.Areas.Admin.Controllers
 {
-    public class DIEMTHAMQUANsController : Controller
+    public class DIEMTHAMQUANsController : BaseController
     {
         private TourStore db = new TourStore();
 
         // GET: Admin/DIEMTHAMQUANs
         public ActionResult Index()
         {
-            if (Session[Account.ADMIN_SESSION] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
             return View(db.DIEMTHAMQUANs.ToList());
         }
 
@@ -43,10 +39,6 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/DIEMTHAMQUANs/Create
         public ActionResult Create()
         {
-            if (Session[Account.ADMIN_SESSION] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
             return View();
         }
 

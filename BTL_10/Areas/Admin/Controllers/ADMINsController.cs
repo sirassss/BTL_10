@@ -7,111 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BTL_10.Models;
-using BTL_10.Session;
 
 namespace BTL_10.Areas.Admin.Controllers
 {
-    public class DANHMUCBLOGsController : BaseController
+    public class ADMINsController : Controller
     {
         private TourStore db = new TourStore();
 
-        // GET: Admin/DANHMUCBLOGs
+        // GET: Admin/ADMINs
         public ActionResult Index()
         {
-            return View(db.DANHMUCBLOGs.ToList());
+            return View(db.ADMINs.ToList());
         }
 
-        // GET: Admin/DANHMUCBLOGs/Details/5
+        // GET: Admin/ADMINs/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DANHMUCBLOG dANHMUCBLOG = db.DANHMUCBLOGs.Find(id);
-            if (dANHMUCBLOG == null)
+            ADMIN aDMIN = db.ADMINs.Find(id);
+            if (aDMIN == null)
             {
                 return HttpNotFound();
             }
-            return View(dANHMUCBLOG);
+            return View(aDMIN);
         }
 
-        // GET: Admin/DANHMUCBLOGs/Create
+        // GET: Admin/ADMINs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/DANHMUCBLOGs/Create
+        // POST: Admin/ADMINs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MADANHMUCBLOG,TENDANHMUCBLOG")] DANHMUCBLOG dANHMUCBLOG)
+        public ActionResult Create([Bind(Include = "ID,TENDN,MK,LOAITK,HOTEN,TRANGTHAI")] ADMIN aDMIN)
         {
             if (ModelState.IsValid)
             {
-                db.DANHMUCBLOGs.Add(dANHMUCBLOG);
+                db.ADMINs.Add(aDMIN);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(dANHMUCBLOG);
+            return View(aDMIN);
         }
 
-        // GET: Admin/DANHMUCBLOGs/Edit/5
+        // GET: Admin/ADMINs/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DANHMUCBLOG dANHMUCBLOG = db.DANHMUCBLOGs.Find(id);
-            if (dANHMUCBLOG == null)
+            ADMIN aDMIN = db.ADMINs.Find(id);
+            if (aDMIN == null)
             {
                 return HttpNotFound();
             }
-            return View(dANHMUCBLOG);
+            return View(aDMIN);
         }
 
-        // POST: Admin/DANHMUCBLOGs/Edit/5
+        // POST: Admin/ADMINs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MADANHMUCBLOG,TENDANHMUCBLOG")] DANHMUCBLOG dANHMUCBLOG)
+        public ActionResult Edit([Bind(Include = "ID,TENDN,MK,LOAITK,HOTEN,TRANGTHAI")] ADMIN aDMIN)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(dANHMUCBLOG).State = EntityState.Modified;
+                db.Entry(aDMIN).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(dANHMUCBLOG);
+            return View(aDMIN);
         }
 
-        // GET: Admin/DANHMUCBLOGs/Delete/5
+        // GET: Admin/ADMINs/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DANHMUCBLOG dANHMUCBLOG = db.DANHMUCBLOGs.Find(id);
-            if (dANHMUCBLOG == null)
+            ADMIN aDMIN = db.ADMINs.Find(id);
+            if (aDMIN == null)
             {
                 return HttpNotFound();
             }
-            return View(dANHMUCBLOG);
+            return View(aDMIN);
         }
 
-        // POST: Admin/DANHMUCBLOGs/Delete/5
+        // POST: Admin/ADMINs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            DANHMUCBLOG dANHMUCBLOG = db.DANHMUCBLOGs.Find(id);
-            db.DANHMUCBLOGs.Remove(dANHMUCBLOG);
+            ADMIN aDMIN = db.ADMINs.Find(id);
+            db.ADMINs.Remove(aDMIN);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

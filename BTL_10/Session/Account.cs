@@ -8,5 +8,6 @@ namespace BTL_10.Session
     public class Account
     {
         public static string ADMIN_SESSION = "ADMIN";
+        public static string NV_SESSION = "NHANVIEN";
     }
 }

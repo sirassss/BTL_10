@@ -23,13 +23,41 @@ namespace BTL_10.Areas.Admin.Controllers
         public ActionResult Login(string username, string password)
         {
             ADMIN ad = db.ADMINs.SingleOrDefault(x => x.TENDN == username && x.MK == password);
-            if (ad != null)
+            if (ad != null && ad.LOAITK.Trim() == "admin")
             {
                 Session[Account.ADMIN_SESSION] = ad;
+                return RedirectToAction("Index", "Home");
+            }else if(ad != null && ad.LOAITK.Trim() == "nhanvien")
+            {
+                Session[Account.NV_SESSION] = ad;
                 return RedirectToAction("Index", "Home");
             }
             ViewBag.Error = "Sai tên đăng nhập hoặc mật khẩu!";
             return View("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(string username, string password, string hovaten)
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[8];
+            var random = new Random();
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+            var idnv = new string(stringChars);
+            ADMIN ad = new ADMIN() { ID = idnv, TENDN = username, MK = password, HOTEN = hovaten, LOAITK = "nhanvien", TRANGTHAI = "on" };
+            db.ADMINs.Add(ad);
+            db.SaveChanges();
+            Session[Account.NV_SESSION] = ad;
+            return RedirectToAction("Index", "Home");
         }
     }
 }

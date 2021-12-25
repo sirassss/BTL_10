@@ -11,17 +11,13 @@ using BTL_10.Session;
 
 namespace BTL_10.Areas.Admin.Controllers
 {
-    public class PHUONGTIENsController : Controller
+    public class PHUONGTIENsController : BaseController
     {
         private TourStore db = new TourStore();
 
         // GET: Admin/PHUONGTIENs
         public ActionResult Index()
         {
-            if (Session[Account.ADMIN_SESSION] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
             return View(db.PHUONGTIENs.ToList());
         }
 
@@ -115,6 +111,12 @@ namespace BTL_10.Areas.Admin.Controllers
                     if (d != null)
                     {
                         db.DENs.Remove(d);
+                        db.SaveChanges();
+                    }
+                    DANGKY dk = db.DANGKies.Where(s => s.MATOUR == id).FirstOrDefault();
+                    if (dk != null)
+                    {
+                        db.DANGKies.Remove(dk);
                         db.SaveChanges();
                     }
                 }

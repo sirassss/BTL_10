@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace BTL_10.Controllers
 {
-    public class TourHanoiController : Controller
+    public class TourHanoiController : DefaultController
     {
         // GET: TourHanoi
         public ActionResult Index()

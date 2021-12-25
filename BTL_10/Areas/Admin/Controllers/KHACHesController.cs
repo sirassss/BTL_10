@@ -11,17 +11,13 @@ using BTL_10.Session;
 
 namespace BTL_10.Areas.Admin.Controllers
 {
-    public class KHACHesController : Controller
+    public class KHACHesController : BaseController
     {
         private TourStore db = new TourStore();
 
         // GET: Admin/KHACHes
         public ActionResult Index()
         {
-            if (Session[Account.ADMIN_SESSION] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
             return View(db.KHACHes.ToList());
         }
 

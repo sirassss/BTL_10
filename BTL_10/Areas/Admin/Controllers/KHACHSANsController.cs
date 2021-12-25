@@ -11,17 +11,13 @@ using BTL_10.Session;
 
 namespace BTL_10.Areas.Admin.Controllers
 {
-    public class KHACHSANsController : Controller
+    public class KHACHSANsController : BaseController
     {
         private TourStore db = new TourStore();
 
         // GET: Admin/KHACHSANs
         public ActionResult Index()
         {
-            if (Session[Account.ADMIN_SESSION] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
             return View(db.KHACHSANs.ToList());
         }
 
@@ -43,10 +39,6 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/KHACHSANs/Create
         public ActionResult Create()
         {
-            if (Session[Account.ADMIN_SESSION] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
             return View();
         }
 
@@ -115,6 +107,12 @@ namespace BTL_10.Areas.Admin.Controllers
                     if (d != null)
                     {
                         db.DENs.Remove(d);
+                        db.SaveChanges();
+                    }
+                    DANGKY dk = db.DANGKies.Where(s => s.MATOUR == id).FirstOrDefault();
+                    if (dk != null)
+                    {
+                        db.DANGKies.Remove(dk);
                         db.SaveChanges();
                     }
                 }

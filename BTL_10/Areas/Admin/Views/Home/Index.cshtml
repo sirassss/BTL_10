@@ -1,9 +1,6 @@
-﻿
+﻿@model BTL_10.Models.ADMIN
 @{
     ViewBag.Title = "Index";
-    BTL_10.Models.ADMIN admin = (BTL_10.Models.ADMIN) Session[BTL_10.Session.Account.ADMIN_SESSION];
 }
 
-<h2>Chào Anh Lam</h2>
-
-<h2>đây là: @admin.HOTEN</h2>
+<h2>Chào bố @Model.HOTEN</h2>
