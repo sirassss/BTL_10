@@ -22,6 +22,7 @@ namespace BTL_10.Models
         public virtual DbSet<PHUONGTIEN> PHUONGTIENs { get; set; }
         public virtual DbSet<TOUR> TOURs { get; set; }
         public virtual DbSet<DEN> DENs { get; set; }
+        public virtual DbSet<DANGKY> DANGKies { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -118,9 +119,9 @@ namespace BTL_10.Models
                 .HasPrecision(15, 0);
 
             modelBuilder.Entity<KHACH>()
-                .HasMany(e => e.TOURs)
-                .WithMany(e => e.KHACHes)
-                .Map(m => m.ToTable("DANGKY").MapLeftKey("MAKHACH").MapRightKey("MATOUR"));
+                .HasMany(e => e.DANGKies)
+                .WithRequired(e => e.KHACH)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KHACHSAN>()
                 .Property(e => e.MAKS)
@@ -172,6 +173,11 @@ namespace BTL_10.Models
 
             modelBuilder.Entity<TOUR>()
                 .HasMany(e => e.DENs)
+                .WithRequired(e => e.TOUR)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<TOUR>()
+                .HasMany(e => e.DANGKies)
                 .WithRequired(e => e.TOUR)
                 .WillCascadeOnDelete(false);
 

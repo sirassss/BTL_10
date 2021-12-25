@@ -35,28 +35,6 @@ namespace BTL_10.Areas.Admin.Controllers
             return View(kHACH);
         }
 
-        // GET: Admin/KHACHes/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Admin/KHACHes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAKHACH,TENKHACH,PHAI,DIACHI,CMND,SDT")] KHACH kHACH)
-        {
-            if (ModelState.IsValid)
-            {
-                db.KHACHes.Add(kHACH);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(kHACH);
-        }
 
         // GET: Admin/KHACHes/Edit/5
         public ActionResult Edit(string id)
@@ -78,10 +56,11 @@ namespace BTL_10.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MAKHACH,TENKHACH,PHAI,DIACHI,CMND,SDT")] KHACH kHACH)
+        public ActionResult Edit([Bind(Include = "MAKHACH,TENKHACH,PHAI,DIACHI,CMND,SDT")] KHACH kHACH, bool gioitinh)
         {
             if (ModelState.IsValid)
             {
+                kHACH.PHAI = gioitinh;
                 db.Entry(kHACH).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

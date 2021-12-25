@@ -55,11 +55,9 @@
                                                 <i class="zmdi zmdi-edit"></i>
                                             </button>
                                         </a>
-                                        <a href="/Admin/KHACHSANs/Delete/@item.MAKS">
-                                            <button class="btn mb-1 btn-rounded btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Xóa">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                        </a>
+                                        <button class="btn mb-1 btn-rounded btn-outline-dark" id="@item.MAKS" onclick="deleteks(id)" data-toggle="tooltip" data-placement="top" title="Xóa">
+                                            <i class="zmdi zmdi-delete"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             }
@@ -77,3 +75,5 @@
         </div>
     </div>
 </div>
+
+<script src="~/Areas/Admin/Content/js/anhlam/delete.js"></script>

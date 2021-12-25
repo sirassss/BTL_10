@@ -105,14 +105,27 @@ namespace BTL_10.Areas.Admin.Controllers
         }
 
         // POST: Admin/PHUONGTIENs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        [HttpPost]
+        public JsonResult DeleteConfirmed(string id)
         {
             PHUONGTIEN pHUONGTIEN = db.PHUONGTIENs.Find(id);
+            List<TOUR> lst = db.TOURs.Where(t => t.MAKS == id).ToList();
+            for (var i = 0; i < lst.Count; i++)
+            {
+                TOUR t = db.TOURs.Where(s => s.MAKS == id).FirstOrDefault();
+                List<DEN> lstdendl = db.DENs.Where(d => d.MATOUR == t.MATOUR).ToList();
+                for (var j = 0; j < lstdendl.Count; i++)
+                {
+                    DEN d = db.DENs.Where(s => s.MATOUR == t.MATOUR).FirstOrDefault();
+                    db.DENs.Remove(d);
+                    db.SaveChanges();
+                }
+                db.TOURs.Remove(t);
+                db.SaveChanges();
+            }
             db.PHUONGTIENs.Remove(pHUONGTIEN);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)

@@ -21,11 +21,6 @@ namespace BTL_10.Areas.Admin.Controllers
                                       select TOUR).Include("HUONGDANVIEN").Include("KHACHSAN").Include("PHUONGTIEN");
             //db.TOURs.Include("HUONGDANVIEN").Include("KHACHSAN").Include("PHUONGTIEN").Include("DEN").ToList();
             return View(tOURs);
-            //return Json(new
-            //{
-            //    data = tOURs.ToList(),
-            //    status = true
-            //}, JsonRequestBehavior.AllowGet) ;
         }
 
         // GET: Admin/TOURs/Details/5

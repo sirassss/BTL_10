@@ -9,6 +9,14 @@ namespace BTL_10.Models
     [Table("DANGKY")]
     public partial class DANGKY
     {
+        public DANGKY() { }
+
+        public DANGKY(string mATOUR, string mAK)
+        {
+            MATOUR = mATOUR;
+            MAKHACH = mAK;
+        }
+
         [Key]
         [Column(Order = 0)]
         [StringLength(10)]
@@ -18,5 +26,9 @@ namespace BTL_10.Models
         [Column(Order = 1)]
         [StringLength(10)]
         public string MAKHACH { get; set; }
+
+        public virtual TOUR TOUR { get; set; }
+
+        public virtual KHACH KHACH { get; set; }
     }
 }
