@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BTL_10.Models;
+using BTL_10.Session;
 
 namespace BTL_10.Areas.Admin.Controllers
 {
@@ -17,6 +18,10 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/DIEMTHAMQUANs
         public ActionResult Index()
         {
+            if (Session[Account.ADMIN_SESSION] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View(db.DIEMTHAMQUANs.ToList());
         }
 
@@ -38,6 +43,10 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/DIEMTHAMQUANs/Create
         public ActionResult Create()
         {
+            if (Session[Account.ADMIN_SESSION] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View();
         }
 
@@ -108,20 +117,6 @@ namespace BTL_10.Areas.Admin.Controllers
             return View(dIEMTHAMQUAN);
         }
 
-        // GET: Admin/DIEMTHAMQUANs/Delete/5
-        public ActionResult Delete(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DIEMTHAMQUAN dIEMTHAMQUAN = db.DIEMTHAMQUANs.Find(id);
-            if (dIEMTHAMQUAN == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dIEMTHAMQUAN);
-        }
 
         // POST: Admin/DIEMTHAMQUANs/Delete/5
         [HttpPost]
@@ -132,8 +127,11 @@ namespace BTL_10.Areas.Admin.Controllers
             for (var i = 0; i < dens.Count; i++)
             {
                 DEN x = db.DENs.Where(s => s.MADD == id).FirstOrDefault();
-                db.DENs.Remove(x);
-                db.SaveChanges();
+                if (x != null)
+                {
+                    db.DENs.Remove(x);
+                    db.SaveChanges();
+                }
             }
             db.DIEMTHAMQUANs.Remove(dIEMTHAMQUAN);
             db.SaveChanges();

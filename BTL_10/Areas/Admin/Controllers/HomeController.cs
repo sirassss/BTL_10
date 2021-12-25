@@ -13,7 +13,10 @@ namespace BTL_10.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.ssid = Session.SessionID;
+            if (Session[Account.ADMIN_SESSION] == null)
+            {
+                return RedirectToAction("Index","Login");
+            }
             return View();
         }
     }

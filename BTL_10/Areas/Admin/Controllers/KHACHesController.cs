@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BTL_10.Models;
+using BTL_10.Session;
 
 namespace BTL_10.Areas.Admin.Controllers
 {
@@ -17,6 +18,10 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/KHACHes
         public ActionResult Index()
         {
+            if (Session[Account.ADMIN_SESSION] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View(db.KHACHes.ToList());
         }
 
@@ -84,14 +89,23 @@ namespace BTL_10.Areas.Admin.Controllers
         }
 
         // POST: Admin/KHACHes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        [HttpPost]
+        public JsonResult DeleteConfirmed(string id)
         {
             KHACH kHACH = db.KHACHes.Find(id);
+            List<DANGKY> dks = db.DANGKies.Where(s => s.MATOUR == id).ToList();
+            for (var i = 0; i < dks.Count; i++)
+            {
+                DANGKY x = db.DANGKies.Where(s => s.MATOUR == id).FirstOrDefault();
+                if (x != null)
+                {
+                    db.DANGKies.Remove(x);
+                    db.SaveChanges();
+                }
+            }
             db.KHACHes.Remove(kHACH);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)

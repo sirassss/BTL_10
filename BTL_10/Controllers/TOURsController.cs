@@ -13,7 +13,7 @@ namespace BTL_10.Controllers
     {
         TourStore db = new TourStore();
         // GET: TOURs
-        public ActionResult Index(int? page,string sortOrder)
+        public ActionResult Index(int? page, string sortOrder)
         {
             ViewBag.CurrentSort = sortOrder;
             ViewBag.SapTheoTenAZ = "ten_asc";
@@ -45,10 +45,10 @@ namespace BTL_10.Controllers
         }
 
         // GET: TOURs/Details/5
-        
+
         public ActionResult Details(string id)
         {
-            TOUR tour = db.TOURs.Where(x=>x.MATOUR==id).FirstOrDefault();
+            TOUR tour = db.TOURs.Where(x => x.MATOUR == id).FirstOrDefault();
             ViewBag.diadiem = db.DIEMTHAMQUANs.Take(3).ToList();
             Session["tour"] = tour;
             return View(tour);
@@ -65,27 +65,30 @@ namespace BTL_10.Controllers
         {
             if (ModelState.IsValid)
             {
-                    KHACH s = new KHACH();
-                    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-                    var stringChars = new char[8];
-                    var random = new Random();
+                TOUR tourdat = (TOUR)Session["tour"];
+                KHACH s = new KHACH();
+                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var stringChars = new char[8];
+                var random = new Random();
 
-                    for (int i = 0; i < stringChars.Length; i++)
-                    {
-                        stringChars[i] = chars[random.Next(chars.Length)];
-                    }
-                    s.MAKHACH = new String(stringChars);
-                    s.TENKHACH = kHACH.TENKHACH;
-                    s.PHAI = kHACH.PHAI;
-                    s.DIACHI = kHACH.DIACHI;
-                    s.CMND = kHACH.CMND;
-                    s.SDT = kHACH.SDT;
-                    
-                    db.KHACHes.Add(s);
-                    db.SaveChanges();
-                    TOUR tour = db.TOURs.Where(x => x.MATOUR == id).FirstOrDefault();
-                    ViewBag.tour = tour;
-                    return RedirectToAction("XacNhan");
+                for (int i = 0; i < stringChars.Length; i++)
+                {
+                    stringChars[i] = chars[random.Next(chars.Length)];
+                }
+                s.MAKHACH = new String(stringChars);
+                DANGKY dk = new DANGKY() {MAKHACH= s.MAKHACH, MATOUR= tourdat.MATOUR };
+                db.DANGKies.Add(dk);
+                s.TENKHACH = kHACH.TENKHACH;
+                s.PHAI = kHACH.PHAI;
+                s.DIACHI = kHACH.DIACHI;
+                s.CMND = kHACH.CMND;
+                s.SDT = kHACH.SDT;
+
+                db.KHACHes.Add(s);
+                db.SaveChanges();
+                TOUR tour = db.TOURs.Where(x => x.MATOUR == id).FirstOrDefault();
+                ViewBag.tour = tour;
+                return RedirectToAction("XacNhan");
             }
             return View();
 

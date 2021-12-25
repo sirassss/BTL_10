@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BTL_10.Models;
+using BTL_10.Session;
 
 namespace BTL_10.Areas.Admin.Controllers
 {
@@ -17,6 +18,10 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/HUONGDANVIENs
         public ActionResult Index()
         {
+            if (Session[Account.ADMIN_SESSION] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View(db.HUONGDANVIENs.ToList());
         }
 
@@ -38,6 +43,10 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/HUONGDANVIENs/Create
         public ActionResult Create()
         {
+            if (Session[Account.ADMIN_SESSION] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View();
         }
 
