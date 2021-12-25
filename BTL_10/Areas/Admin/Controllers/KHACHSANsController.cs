@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BTL_10.Models;
+using BTL_10.Session;
 
 namespace BTL_10.Areas.Admin.Controllers
 {
@@ -17,6 +18,10 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/KHACHSANs
         public ActionResult Index()
         {
+            if (Session[Account.ADMIN_SESSION] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View(db.KHACHSANs.ToList());
         }
 
@@ -38,6 +43,10 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/KHACHSANs/Create
         public ActionResult Create()
         {
+            if (Session[Account.ADMIN_SESSION] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View();
         }
 
@@ -89,20 +98,6 @@ namespace BTL_10.Areas.Admin.Controllers
             return View(kHACHSAN);
         }
 
-        // GET: Admin/KHACHSANs/Delete/5
-        public ActionResult Delete(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            KHACHSAN kHACHSAN = db.KHACHSANs.Find(id);
-            if (kHACHSAN == null)
-            {
-                return HttpNotFound();
-            }
-            return View(kHACHSAN);
-        }
 
         // POST: Admin/KHACHSANs/Delete/5
         [HttpPost]
@@ -117,11 +112,17 @@ namespace BTL_10.Areas.Admin.Controllers
                 for (var j = 0; j < lstdendl.Count; i++)
                 {
                     DEN d = db.DENs.Where(s => s.MATOUR == t.MATOUR).FirstOrDefault();
-                    db.DENs.Remove(d);
+                    if (d != null)
+                    {
+                        db.DENs.Remove(d);
+                        db.SaveChanges();
+                    }
+                }
+                if (t != null)
+                {
+                    db.TOURs.Remove(t);
                     db.SaveChanges();
                 }
-                db.TOURs.Remove(t);
-                db.SaveChanges();
             }
             db.KHACHSANs.Remove(kHACHSAN);
             db.SaveChanges();

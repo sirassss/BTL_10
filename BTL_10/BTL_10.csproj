@@ -6159,7 +6159,6 @@
     <Content Include="Areas\Admin\Views\BLOGs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\BLOGs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHSANs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHSANs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHSANs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHSANs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHSANs\Index.cshtml" />
@@ -6168,7 +6167,6 @@
     <Content Include="Areas\Admin\Views\TOURs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TOURs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PHUONGTIENs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\PHUONGTIENs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\PHUONGTIENs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\PHUONGTIENs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PHUONGTIENs\Index.cshtml" />

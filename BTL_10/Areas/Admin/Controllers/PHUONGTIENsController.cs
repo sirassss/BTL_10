@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BTL_10.Models;
+using BTL_10.Session;
 
 namespace BTL_10.Areas.Admin.Controllers
 {
@@ -17,6 +18,10 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/PHUONGTIENs
         public ActionResult Index()
         {
+            if (Session[Account.ADMIN_SESSION] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View(db.PHUONGTIENs.ToList());
         }
 
@@ -38,6 +43,10 @@ namespace BTL_10.Areas.Admin.Controllers
         // GET: Admin/PHUONGTIENs/Create
         public ActionResult Create()
         {
+            if (Session[Account.ADMIN_SESSION] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View();
         }
 
@@ -89,39 +98,31 @@ namespace BTL_10.Areas.Admin.Controllers
             return View(pHUONGTIEN);
         }
 
-        // GET: Admin/PHUONGTIENs/Delete/5
-        public ActionResult Delete(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PHUONGTIEN pHUONGTIEN = db.PHUONGTIENs.Find(id);
-            if (pHUONGTIEN == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pHUONGTIEN);
-        }
 
         // POST: Admin/PHUONGTIENs/Delete/5
         [HttpPost]
         public JsonResult DeleteConfirmed(string id)
         {
             PHUONGTIEN pHUONGTIEN = db.PHUONGTIENs.Find(id);
-            List<TOUR> lst = db.TOURs.Where(t => t.MAKS == id).ToList();
+            List<TOUR> lst = db.TOURs.Where(t => t.MAPHUONGTIEN == id).ToList();
             for (var i = 0; i < lst.Count; i++)
             {
-                TOUR t = db.TOURs.Where(s => s.MAKS == id).FirstOrDefault();
+                TOUR t = db.TOURs.Where(s => s.MAPHUONGTIEN == id).FirstOrDefault();
                 List<DEN> lstdendl = db.DENs.Where(d => d.MATOUR == t.MATOUR).ToList();
                 for (var j = 0; j < lstdendl.Count; i++)
                 {
                     DEN d = db.DENs.Where(s => s.MATOUR == t.MATOUR).FirstOrDefault();
-                    db.DENs.Remove(d);
+                    if (d != null)
+                    {
+                        db.DENs.Remove(d);
+                        db.SaveChanges();
+                    }
+                }
+                if (t != null)
+                {
+                    db.TOURs.Remove(t);
                     db.SaveChanges();
                 }
-                db.TOURs.Remove(t);
-                db.SaveChanges();
             }
             db.PHUONGTIENs.Remove(pHUONGTIEN);
             db.SaveChanges();
