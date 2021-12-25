@@ -224,4 +224,4 @@ INSERT INTO DIEMTHAMQUAN(MADD, TENDD, DIACHI, MOTADIEMDEN, ANH) VALUES (N'DTQ24'
 INSERT INTO DIEMTHAMQUAN(MADD, TENDD, DIACHI, MOTADIEMDEN, ANH) VALUES (N'DTQ25',N'Ca Trù Thăng Long - Đền Quan Đế',N'Số 28 Hàng Buồm, Hoàn Kiếm Phường Hàng Trống , Quận Hoàn Kiếm',N'Ca trù là một bộ môn nghệ thuật truyền thống lâu đời, hết sức độc đáo và có ý nghĩa đặc biệt trong kho tàng âm nhạc Việt Nam, gắn liền với lễ hội, phong tục, tín ngưỡng, văn chương, âm nhạc, mang tư tưởng và triết lý sống của người Việt sâu sắc.',N'd25.jpg')
 go
 
-
+--Thêm dữ liệu bảng DEN

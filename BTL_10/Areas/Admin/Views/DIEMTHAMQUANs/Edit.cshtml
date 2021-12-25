@@ -59,7 +59,7 @@
         <div class="form-group">
             <div class="control-label col-md-10"><h5>Mô tả điểm tham quan</h5></div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MOTADIEMDEN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.MOTADIEMDEN, new { htmlAttributes = new { @class = "form-control",@id = "detaildd" } })
                 @Html.ValidationMessageFor(model => model.MOTADIEMDEN, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -84,4 +84,5 @@
         var image = document.getElementById('output');
         image.src = URL.createObjectURL(event.target.files[0]);
     }
+    CKEDITOR.replace('detaildd');
 </script>
