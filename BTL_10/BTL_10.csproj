@@ -6150,7 +6150,6 @@
     <Content Include="Areas\Admin\Content\vendor\slick\slick.less" />
     <Content Include="Areas\Admin\Content\vendor\slick\slick.scss" />
     <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Index.cshtml" />
