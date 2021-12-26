@@ -21,20 +21,6 @@ namespace BTL_10.Areas.Admin.Controllers
             return View(db.PHUONGTIENs.ToList());
         }
 
-        // GET: Admin/PHUONGTIENs/Details/5
-        public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PHUONGTIEN pHUONGTIEN = db.PHUONGTIENs.Find(id);
-            if (pHUONGTIEN == null)
-            {
-                return HttpNotFound();
-            }
-            return View(pHUONGTIEN);
-        }
 
         // GET: Admin/PHUONGTIENs/Create
         public ActionResult Create()

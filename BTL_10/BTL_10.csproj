@@ -6108,15 +6108,12 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DANHMUCBLOGs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHes\Details.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHes\Index.cshtml" />
     <Content Include="Areas\Admin\Views\HUONGDANVIENs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\HUONGDANVIENs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\HUONGDANVIENs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HUONGDANVIENs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
@@ -6156,12 +6153,10 @@
     <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DIEMTHAMQUANs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\BLOGs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\BLOGs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\BLOGs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\BLOGs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\BLOGs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHSANs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHSANs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHSANs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHSANs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TOURs\Create.cshtml" />
@@ -6169,7 +6164,6 @@
     <Content Include="Areas\Admin\Views\TOURs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TOURs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PHUONGTIENs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\PHUONGTIENs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\PHUONGTIENs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PHUONGTIENs\Index.cshtml" />
     <Content Include="Areas\Admin\Content\ckeditor\bender-runner.config.json" />
@@ -6192,8 +6186,6 @@
     <Content Include="Areas\Admin\Views\Login\Register.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Profile.cshtml" />
     <Content Include="Areas\Admin\Views\ADMINs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\ADMINs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\ADMINs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ADMINs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ADMINs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Error.cshtml" />

@@ -1,5 +1,5 @@
 ﻿
-
+//Xóa bảng TOUR
 function deletetour(id) {
     var jsData = "{Id : '" + id + "'}";
     swal({
@@ -31,7 +31,7 @@ function deletetour(id) {
             }
         })
 }
-
+//Xóa bảng DIEMTHAMQUAN
 function deletedd(id) {
     var jsData = "{Id : '" + id + "'}";
     swal({
@@ -64,7 +64,7 @@ function deletedd(id) {
         })
 }
 
-
+//Xóa bảng KHACHSAN
 function deleteks(id) {
     var jsData = "{Id : '" + id + "'}";
     swal({
@@ -96,7 +96,7 @@ function deleteks(id) {
             }
         })
 }
-
+//Xóa bảng PHUONGTIEN
 function deletept(id) {
     var jsData = "{Id : '" + id + "'}";
     swal({
@@ -129,7 +129,7 @@ function deletept(id) {
         })
 }
 
-
+//Xóa bảng HDV
 function deletehdv(id) {
     var jsData = "{Id : '" + id + "'}";
     swal({
@@ -162,7 +162,7 @@ function deletehdv(id) {
         })
 }
 
-
+//Xóa bảng kHACHHANG
 function deletekh(id) {
     var jsData = "{Id : '" + id + "'}";
     swal({
@@ -186,6 +186,105 @@ function deletekh(id) {
                     success: function (result) {
                         if (result == true) {
                             window.location = "/Admin/KHACHes/Index";
+                        }
+                    }
+                });
+            } else {
+                swal("Đã có lỗi xảy ra")
+            }
+        })
+}
+
+//Xóa bảng ADMIN
+function deletead(id) {
+    var jsData = "{Id : '" + id + "'}";
+    swal({
+        title: "Bạn có chắc muốn xóa ?",
+        text: "Sẽ không thể khôi phục lại !!",
+        type: "warning",
+        showCancelButton: true,
+        cancelButtonText: "Hủy",
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Xóa !!",
+        closeOnConfirm: !1
+    },
+        function (isconfirm) {
+            if (isconfirm) {
+                $.ajax({
+                    type: "POST",
+                    url: '/Admin/ADMINs/DeleteConfirmed',
+                    contentType: "application/json; charset=utf-8",
+                    data: jsData,
+                    dataType: "json",
+                    success: function (result) {
+                        if (result == true) {
+                            window.location = "/Admin/ADMINs/Index";
+                        }
+                    }
+                });
+            } else {
+                swal("Đã có lỗi xảy ra")
+            }
+        })
+}
+
+//Xóa bảng BLOG
+function deletebl(id) {
+    var jsData = "{Id : '" + id + "'}";
+    swal({
+        title: "Bạn có chắc muốn xóa ?",
+        text: "Sẽ không thể khôi phục lại !!",
+        type: "warning",
+        showCancelButton: true,
+        cancelButtonText: "Hủy",
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Xóa !!",
+        closeOnConfirm: !1
+    },
+        function (isconfirm) {
+            if (isconfirm) {
+                $.ajax({
+                    type: "POST",
+                    url: '/Admin/BLOGs/DeleteConfirmed',
+                    contentType: "application/json; charset=utf-8",
+                    data: jsData,
+                    dataType: "json",
+                    success: function (result) {
+                        if (result == true) {
+                            window.location = "/Admin/BLOGs/Index";
+                        }
+                    }
+                });
+            } else {
+                swal("Đã có lỗi xảy ra")
+            }
+        })
+}
+
+//Xóa bảng DANHMUCBLOG
+function deletedmbl(id) {
+    var jsData = "{Id : '" + id + "'}";
+    swal({
+        title: "Bạn có chắc muốn xóa ?",
+        text: "Sẽ không thể khôi phục lại !!",
+        type: "warning",
+        showCancelButton: true,
+        cancelButtonText: "Hủy",
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Xóa !!",
+        closeOnConfirm: !1
+    },
+        function (isconfirm) {
+            if (isconfirm) {
+                $.ajax({
+                    type: "POST",
+                    url: '/Admin/DANHMUCBLOGs/DeleteConfirmed',
+                    contentType: "application/json; charset=utf-8",
+                    data: jsData,
+                    dataType: "json",
+                    success: function (result) {
+                        if (result == true) {
+                            window.location = "/Admin/DANHMUCBLOGs/Index";
                         }
                     }
                 });

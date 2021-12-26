@@ -7,14 +7,6 @@
 
 <h2>Quản lý danh mục blog</h2>
 <div class="modal-footer">
-    <div class="btn-group mb-1" style="margin-right:900px">
-        <button type="button" class="btn btn-info">Sắp xếp</button>
-        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Theo ID</a> <a class="dropdown-item" href="#">Theo tên</a> <a class="dropdown-item" href="#">Theo giá</a>
-            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Separated link</a>
-        </div>
-    </div>
     <div class="text-right">
         <a href="@Url.Action("Create")">
             <button class="btn mb-1 btn-rounded btn-primary"><i class="zmdi zmdi-plus"></i> Thêm danh mục blog</button>
@@ -44,21 +36,14 @@
                                     <td>@item.MADANHMUCBLOG</td>
                                     <td>@item.TENDANHMUCBLOG</td>
                                     <td>
-                                        <a href="/Admin/DANHMUCBLOGs/Details/@item.MADANHMUCBLOG">
-                                            <button class="btn mb-1 btn-rounded btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Xem">
-                                                <i class="zmdi zmdi-eye"></i>
-                                            </button>
-                                        </a>
                                         <a href="/Admin/DANHMUCBLOGs/Edit/@item.MADANHMUCBLOG">
                                             <button class="btn mb-1 btn-rounded btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Sửa">
                                                 <i class="zmdi zmdi-edit"></i>
                                             </button>
                                         </a>
-                                        <a href="/Admin/DANHMUCBLOGs/Delete/@item.MADANHMUCBLOG">
-                                            <button class="btn mb-1 btn-rounded btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Xóa">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                        </a>
+                                        <button class="btn mb-1 btn-rounded btn-outline-dark" id="@item.MADANHMUCBLOG" onclick="deletedmbl(id)" data-toggle="tooltip" data-placement="top" title="Xóa">
+                                            <i class="zmdi zmdi-delete"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             }
@@ -76,3 +61,4 @@
         </div>
     </div>
 </div>
+<script src="~/Areas/Admin/Content/js/anhlam/delete.js"></script>
