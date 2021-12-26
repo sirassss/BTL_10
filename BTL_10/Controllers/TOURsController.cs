@@ -13,14 +13,28 @@ namespace BTL_10.Controllers
     {
         TourStore db = new TourStore();
         // GET: TOURs
-        public ActionResult Index(int? page, string sortOrder)
+        public ActionResult Index(int? page,string  SearchString, string sortOrder, string currentFilter)
         {
             ViewBag.CurrentSort = sortOrder;
             ViewBag.SapTheoTenAZ = "ten_asc";
             ViewBag.SapTheoTenZA = "ten_desc";
             ViewBag.GiaTangDan = "gia_asc";
             ViewBag.GiaGiamDan = "gia_desc";
+            if (SearchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                SearchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = SearchString;
+            
             var listtour = db.TOURs.ToList();
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                listtour = listtour.Where(p => p.TENTOUR.Contains(SearchString)).ToList();
+            }
             switch (sortOrder)
             {
                 case "ten_asc":
