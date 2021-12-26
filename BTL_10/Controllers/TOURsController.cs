@@ -13,28 +13,21 @@ namespace BTL_10.Controllers
     {
         TourStore db = new TourStore();
         // GET: TOURs
-        public ActionResult Index(int? page,string  SearchString, string sortOrder, string currentFilter)
+        public ActionResult Index(int? page,string SearchString, string sortOrder)
         {
+            
+            var listtour = db.TOURs.ToList();
+
+            if (SearchString!= null)
+            {
+                listtour = listtour.Where(p => p.TENTOUR.Contains(SearchString)).ToList();
+            }
             ViewBag.CurrentSort = sortOrder;
             ViewBag.SapTheoTenAZ = "ten_asc";
             ViewBag.SapTheoTenZA = "ten_desc";
             ViewBag.GiaTangDan = "gia_asc";
             ViewBag.GiaGiamDan = "gia_desc";
-            if (SearchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                SearchString = currentFilter;
-            }
-            ViewBag.CurrentFilter = SearchString;
-            
-            var listtour = db.TOURs.ToList();
-            if (!String.IsNullOrEmpty(SearchString))
-            {
-                listtour = listtour.Where(p => p.TENTOUR.Contains(SearchString)).ToList();
-            }
+
             switch (sortOrder)
             {
                 case "ten_asc":
@@ -53,7 +46,7 @@ namespace BTL_10.Controllers
                     listtour = listtour.OrderBy(s => s.TENTOUR).ToList();
                     break;
             }
-            int pageSize = 3;
+            int pageSize = 6;
             int pageNumber = (page ?? 1);
             return View(listtour.ToPagedList(pageNumber, pageSize));
         }
@@ -63,7 +56,8 @@ namespace BTL_10.Controllers
         public ActionResult Details(string id)
         {
             TOUR tour = db.TOURs.Where(x => x.MATOUR == id).FirstOrDefault();
-            ViewBag.diadiem = db.DIEMTHAMQUANs.Take(3).ToList();
+            ViewBag.TourKhac = db.TOURs.Where(x => x.MATOUR != id).Take(3);
+            //ViewBag.diadiem = db.DIEMTHAMQUANs.Take(3).ToList();
             Session["tour"] = tour;
             return View(tour);
         }
