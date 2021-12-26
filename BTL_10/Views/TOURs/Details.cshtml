@@ -6,29 +6,8 @@
 }
 
 <style>
-    .button_order{
-        width:100px;
-        height:50px;
-        background-color:#f7a32c;
-        border-radius:15px;
-        text-align:center;
-    }
-    .link_order{
-        color:white;
-        display:block;
-        margin:auto;
-    }
-    .link_order:hover{
-        color:white;
-    }
-    .btn{
-        color:white;
-        background-color: #dac3c3;
-        width:200px;
-    }
-        .btn:hover {
-            color: white;
-            background-color: #ffd800;
+        .gia_tour{
+            font-family:'Arial Rounded MT';
         }
 </style>
 
@@ -44,483 +23,115 @@
     </div>
 </div>
 
-    <section class="ftco-section ftco-degree-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 sidebar">
-                    <div class="sidebar-wrap ftco-animate">
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 sidebar">
+                <div class="sidebar-wrap ftco-animate">
 
-                        <div class="sidebar-box ftco-animate">
-                            <div class="categories">
-                                <h3>Categories</h3>
-                                <li><a href="/TOURs/Index">Tour <span></span></a></li>
-                                <li><a href="/Blog/Index">Blog <span></span></a></li>
-                                <li><a href="/Home/Index">Home <span></span></a></li>
-                                <li><a href="/Home/About">About <span></span></a></li>
-                                <li><a href="/Home/Contact">Contact <span></span></a></li>
-                            </div>
+                    <div class="sidebar-box ftco-animate">
+                        <div class="categories">
+                            <h3>Categories</h3>
+                            <li><a href="/TOURs/Index">Tour <span></span></a></li>
+                            <li><a href="/Blog/Index">Blog <span></span></a></li>
+                            <li><a href="/Home/Index">Home <span></span></a></li>
+                            <li><a href="/Home/About">About <span></span></a></li>
+                            <li><a href="/Home/Contact">Contact <span></span></a></li>
                         </div>
-
-
-                        @*<h3 class="heading mb-4">Find City</h3>
-        <form action="#">
-            <div class="fields">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Destination, City">
+                    </div>                
                 </div>
-                <div class="form-group">
-                    <div class="select-wrap one-third">
-                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="" class="form-control" placeholder="Keyword search">
-                            <option value="">Select Location</option>
-                            <option value="">San Francisco USA</option>
-                            <option value="">Berlin Germany</option>
-                            <option value="">Lodon United Kingdom</option>
-                            <option value="">Paris Italy</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="checkin_date" class="form-control" placeholder="Date from">
-                </div>
-                <div class="form-group">
-                    <input type="text" id="checkin_date" class="form-control" placeholder="Date to">
-                </div>
-                <div class="form-group">
-                    <div class="range-slider">
-                        <span>
-                            <input type="number" value="25000" min="0" max="120000" />	-
-                            <input type="number" value="50000" min="0" max="120000" />
-                        </span>
-                        <input value="1000" min="0" max="120000" step="500" type="range" />
-                        <input value="50000" min="0" max="120000" step="500" type="range" />
-                        <svg/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
-                </div>
+               
             </div>
-        </form>*@
-                    </div>
-                    @*<div class="sidebar-wrap ftco-animate">
-            <h3 class="heading mb-4">Star Rating</h3>
-            <form method="post" class="star-rating">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">
-                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">
-                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i></span></p>
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">
-                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">
-                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">
-                        <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
-                    </label>
-                </div>
-            </form>
-        </div>*@
-                </div>
-                <div class="col-lg-9">
-                    <div class="row">
-                        <div class="col-md-12 ftco-animate">
-                            <div class="single-slider owl-carousel">
-                                <div class="item">
-                                    @{ string imgpath = "~/Areas/Admin/Data/Tour/" + Model.ANH;}
-                                    <div class="hotel-img" style="background-image: url(@Url.Content(imgpath));"></div>
-                                </div>
-                                @*<div class="item">
-                <div class="hotel-img" style="background-image: url(../../Content/images/hotel-3.jpg);"></div>
-            </div>
-            <div class="item">
-                <div class="hotel-img" style="background-image: url(../../Content/images/hotel-4.jpg);"></div>
-            </div>*@
-                            </div>
-                            <div class="btn">
-                                <a class="link_order" href="/TOURs/DatTour/@Model.MATOUR">Đặt tour</a>
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-md-12 ftco-animate">
+                        <div class="single-slider owl-carousel">
+                            <div class="item">
+                                @{ string imgpath = "~/Areas/Admin/Data/Tour/" + Model.ANH;}
+                                <div class="hotel-img" style="background-image: url(@Url.Content(imgpath));"></div>
                             </div>
                             
                         </div>
-                        <div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
-                            <h2>@Model.TENTOUR</h2>
-                            <span>@String.Format("{0:dd/MM/yyyy}", Model.NGAYBD) - @String.Format("{0:dd/MM/yyyy}", Model.NGAYKT)</span>
-                            <p class="rate mb-5">
-                                <span class="loc"><h3>Giá tour: @String.Format("{0:0,0đ}", Model.GIA)</h3></span>
-                            <p>
+                        <a href="/TOURs/DatTour/@Model.MATOUR"><button class="btn btn-outline-success btn-lg btn-block">Đặt tour</button></a>
+                        
 
-                            </p>
-                            @*<span class="star">
-            <i class="icon-star"></i>
-            <i class="icon-star"></i>
-            <i class="icon-star"></i>
-            <i class="icon-star"></i>
-            <i class="icon-star-o"></i>
-            8 Rating
-        </span>*@
-                            </p>
-                            <p>Ngày khởi hành: @String.Format("{0:dd/MM/yyyy}", Model.NGAYBD)</p>
-                            <p>Ngày kết thúc: @String.Format("{0:dd/MM/yyyy}", Model.NGAYKT)</p>
-                            <p>Hướng dẫn viên: @Model.HUONGDANVIEN.TENHDV</p>
-                            <p>Phương tiện di chuyển: @Model.PHUONGTIEN.TENPHUONGTIEN</p>
-                            <p>Nơi ở: @Model.KHACHSAN.TENKS</p>
-                            <p>@Model.CHITIETTOUR</p>
-                            <h2>Các điểm đến của tour du lịch</h2>
-                            @foreach (var s in Model.DENs)
-                            {
-                                <div class="item">
-                                    @{ string imgpath2 = "~/Areas/Admin/Data/DiemThamQuan/" + s.DIEMTHAMQUAN.ANH;}
-                                    <div class="hotel-img" style="background-image: url(@Url.Content(imgpath2));"></div>
-                                </div>
-                                <h3>@s.DIEMTHAMQUAN.TENDD</h3>
-                                <p>@s.DIEMTHAMQUAN.DIACHI</p>
-                                <p>@s.DIEMTHAMQUAN.MOTADIEMDEN</p>
-                            }
+                    </div>
+                    <div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
+                        <h2>@Model.TENTOUR</h2>
+                        <span><span class="icon-calendar mr-1"></span>@String.Format("{0:dd/MM/yyyy}", Model.NGAYBD) - @String.Format("{0:dd/MM/yyyy}", Model.NGAYKT)</span>
+                        <p class="rate mb-5">
+                            <span class="loc"><h3><span class="gia_tour">Giá tour:</span><span class="badge badge-pill badge-primary">@String.Format("{0:0,0đ}", Model.GIA)</span></h3> </span>
+                        <p>
 
+                        </p>
+                        <span class="star">
+                            <i class="icon-star"></i>
+                            <i class="icon-star"></i>
+                            <i class="icon-star"></i>
+                            <i class="icon-star"></i>
+                            <i class="icon-star-o"></i>
 
+                        </span>
+                        </p>
+                        <p>Ngày khởi hành: @String.Format("{0:dd/MM/yyyy}", Model.NGAYBD)</p>
+                        <p>Ngày kết thúc: @String.Format("{0:dd/MM/yyyy}", Model.NGAYKT)</p>
+                        <p>Hướng dẫn viên: @Model.HUONGDANVIEN.TENHDV</p>
+                        <p>Phương tiện di chuyển: @Model.PHUONGTIEN.TENPHUONGTIEN</p>
+                        <p>Nơi ở: @Model.KHACHSAN.TENKS</p>
+                        <p>@Model.CHITIETTOUR</p>
+                        <h2>Các điểm đến của tour du lịch</h2>
+                        @foreach (var s in Model.DENs)
+                        {
+                            <div class="item">
+                                @{ string imgpath2 = "~/Areas/Admin/Data/DiemThamQuan/" + s.DIEMTHAMQUAN.ANH;}
+                                <div class="hotel-img" style="background-image: url(@Url.Content(imgpath2));"></div>
+                            </div>
+                            <h3>@s.DIEMTHAMQUAN.TENDD</h3>
+                            <p>@s.DIEMTHAMQUAN.DIACHI</p>
+                            <p>@s.DIEMTHAMQUAN.MOTADIEMDEN</p>
+                        }
 
+                    <a href="/TOURs/DatTour/@Model.MATOUR"><button class="btn btn-outline-success btn-lg btn-block">Đặt tour</button></a>
 
+                        <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
+                            <h2 >Có thể bạn quan tâm</h2>
+                            <div class="row">
+                                @foreach (var dd in ViewBag.TourKhac)
+                                {
+                                    <div class="col-md-4">
+                                        <div class="destination">
+                                            @{string linkanh = "~/Areas/Admin/Data/Tour/" + dd.ANH;}
+                                            <a href="/TOURs/Details/@dd.MATOUR" class="img img-2" style="background-image: url(@Url.Content(linkanh));"></a>
+                                            <div class="text p-3">
+                                                <h3><a href="/TOURs/Details/@dd.MATOUR"></a> @dd.TENTOUR</h3>
+                                                <div class="d-flex">
+                                                    <div class="one">
 
+                                                        <p class="rate">
+                                                            <i class="icon-star"></i>
+                                                            <i class="icon-star"></i>
+                                                            <i class="icon-star"></i>
+                                                            <i class="icon-star"></i>
+                                                            <i class="icon-star-o"></i>
+                                                            
+                                                        </p>
+                                                    </div>
 
-
-                            @*<div class="d-md-flex mt-5 mb-5">
-            <ul>
-                <li>The Big Oxmox advised her not to do so</li>
-                <li>When she reached the first hills of the Italic Mountains</li>
-                <li>She had a last view back on the skyline of her hometown </li>
-                <li>Bookmarksgrove, the headline of Alphabet </li>
-            </ul>
-            <ul class="ml-md-5">
-                <li>Question ran over her cheek, then she continued</li>
-                <li>Pityful a rethoric question ran</li>
-                <li>Mountains, she had a last view back on the skyline</li>
-                <li>Headline of Alphabet Village and the subline</li>
-            </ul>
-        </div>
-        <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-
-        </div>
-                                <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
-                                    <h4 class="mb-4"></h4>
-                                    <p>Địa chỉ: </p>
-                                    <div class="block-16">
-                                        <figure>
-                                            <div class="hotel-img" style="background-image: url();"></div>
-                                            <div class="hotel-img" style="background-image: url();"></div>
-                                        </figure>
-                                    </div>
-                                    <p></p>
-                                </div>*@
-
-                            <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
-                                <h4 class="mb-4">Địa điểm nổi bật</h4>
-                                <div class="row">
-                                    @foreach (var dd in ViewBag.diadiem)
-                                    {
-                                        <div class="col-md-4">
-                                            <div class="destination">
-                                                @{string linkanh = "~/Areas/Admin/Data/Diemthamquan/" + dd.ANH;}
-                                                <a href="hotel-single.html" class="img img-2" style="background-image: url(@Url.Content(linkanh));"></a>
-                                                <div class="text p-3">
-                                                    <h3><a href="#"></a> @dd.TENDD</h3>
-                                                    @*<div class="d-flex">
-                                    <div class="one">
-
-                                        <p class="rate">
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star"></i>
-                                            <i class="icon-star-o"></i>
-                                            <span>8 Rating</span>
-                                        </p>
-                                    </div>
-                                    <div class="two">
-                                        <span class="price per-price">$40<br><small>/night</small></span>
-                                    </div>
-                                </div>
-                                                                            <p>Far far away, behind the word mountains, far from the countries</p>*@
-                                                    <hr>
-                                                    <p class="bottom-area d-flex">
-                                                        <span><i class="icon-map-o"></i>@dd.DIACHI </span>
-                                                        @*<span class="ml-auto"><a href="#">Book Now</a></span>*@
-                                                    </p>
                                                 </div>
+
+                                                <hr>
+                                                <p class="bottom-area d-flex">
+                                                    <span><i class="icon-map-o"></i>@dd.TENTOUR </span>
+
+                                                </p>
                                             </div>
-                                        </div>}
-                                    @*
-                <div class="col-md-4">
-                    <div class="destination">
-                        <a href="hotel-single.html" class="img img-2" style="background-image: url(../../Content/images/room-5.jpg);"></a>
-                        <div class="text p-3">
-                            <div class="d-flex">
-                                <div class="one">
-                                    <h3><a href="hotel-single.html">Hotel, Italy</a></h3>
-                                    <p class="rate">
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star-o"></i>
-                                        <span>8 Rating</span>
-                                    </p>
-                                </div>
-                                <div class="two">
-                                    <span class="price per-price">$40<br><small>/night</small></span>
-                                </div>
+                                        </div>
+                                    </div>}
+
                             </div>
-                            <p>Far far away, behind the word mountains, far from the countries</p>
-                            <hr>
-                            <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> Miami, Fl</span>
-                                <span class="ml-auto"><a href="#">Book Now</a></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="destination">
-                        <a href="hotel-single.html" class="img img-2" style="background-image: url(../../Content/images/room-6.jpg);"></a>
-                        <div class="text p-3">
-                            <div class="d-flex">
-                                <div class="one">
-                                    <h3><a href="hotel-single.html">Hotel, Italy</a></h3>
-                                    <p class="rate">
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star-o"></i>
-                                        <span>8 Rating</span>
-                                    </p>
-                                </div>
-                                <div class="two">
-                                    <span class="price per-price">$40<br><small>/night</small></span>
-                                </div>
-                            </div>
-                            <p>Far far away, behind the word mountains, far from the countries</p>
-                            <hr>
-                            <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> Miami, Fl</span>
-                                <span class="ml-auto"><a href="#">Book Now</a></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>*@
-                                </div>
-                            </div>
-                            @*<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
-            <h4 class="mb-5">Check Availability &amp; Booking</h4>
-            <div class="fields">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Name">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control checkin_date" placeholder="Date from">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control checkout_date" placeholder="Date to">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="select-wrap one-third">
-                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                <select name="" id="" class="form-control" placeholder="Guest">
-                                    <option value="0">Guest</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="select-wrap one-third">
-                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                <select name="" id="" class="form-control" placeholder="Children">
-                                    <option value="0">Children</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <input type="submit" value="Check Availability" class="btn btn-primary py-3">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
-            <h4 class="mb-4">Review &amp; Ratings</h4>
-            <div class="row">
-                <div class="col-md-6">
-                    <form method="post" class="star-rating">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">
-                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i> 100 Ratings</span></p>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">
-                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i> 30 Ratings</span></p>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">
-                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 5 Ratings</span></p>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">
-                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 0 Ratings</span></p>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">
-                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i> 0 Ratings</span></p>
-                            </label>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
-            <h4 class="mb-4">Related Hotels</h4>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="destination">
-                        <a href="hotel-single.html" class="img img-2" style="background-image: url(../../Content/images/hotel-1.jpg);"></a>
-                        <div class="text p-3">
-                            <div class="d-flex">
-                                <div class="one">
-                                    <h3><a href="hotel-single.html">Hotel, Italy</a></h3>
-                                    <p class="rate">
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star-o"></i>
-                                        <span>8 Rating</span>
-                                    </p>
-                                </div>
-                                <div class="two">
-                                    <span class="price per-price">$40<br><small>/night</small></span>
-                                </div>
-                            </div>
-                            <p>Far far away, behind the word mountains, far from the countries</p>
-                            <hr>
-                            <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> Miami, Fl</span>
-                                <span class="ml-auto"><a href="#">Book Now</a></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="destination">
-                        <a href="hotel-single.html" class="img img-2" style="background-image: url(../../Content/images/hotel-2.jpg);"></a>
-                        <div class="text p-3">
-                            <div class="d-flex">
-                                <div class="one">
-                                    <h3><a href="hotel-single.html">Hotel, Italy</a></h3>
-                                    <p class="rate">
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star-o"></i>
-                                        <span>8 Rating</span>
-                                    </p>
-                                </div>
-                                <div class="two">
-                                    <span class="price per-price">$40<br><small>/night</small></span>
-                                </div>
-                            </div>
-                            <p>Far far away, behind the word mountains, far from the countries</p>
-                            <hr>
-                            <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> Miami, Fl</span>
-                                <span class="ml-auto"><a href="#">Book Now</a></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="destination">
-                        <a href="hotel-single.html" class="img img-2" style="background-image: url(../../Content/images/hotel-3.jpg);"></a>
-                        <div class="text p-3">
-                            <div class="d-flex">
-                                <div class="one">
-                                    <h3><a href="hotel-single.html">Hotel, Italy</a></h3>
-                                    <p class="rate">
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star-o"></i>
-                                        <span>8 Rating</span>
-                                    </p>
-                                </div>
-                                <div class="two">
-                                    <span class="price per-price">$40<br><small>/night</small></span>
-                                </div>
-                            </div>
-                            <p>Far far away, behind the word mountains, far from the countries</p>
-                            <hr>
-                            <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> Miami, Fl</span>
-                                <span class="ml-auto"><a href="#">Book Now</a></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
-                        </div>
 
                         </div>
-                </div> <!-- .col-md-8 -->
+                    </div> <!-- .col-md-8 -->
+                </div>
             </div>
-        </div>
-    </section> <!-- .section -->
+</section> <!-- .section -->
