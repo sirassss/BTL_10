@@ -150,19 +150,23 @@ namespace BTL_10.Areas.Admin.Controllers
         public JsonResult DeleteConfirmed(string id)
         {
             TOUR tOUR = db.TOURs.Find(id);
+            //Xóa bảng DEN
             List<DEN> dens = db.DENs.Where(s => s.MATOUR == id).ToList();
             for (var i = 0; i < dens.Count; i++)
             {
-                DEN x = db.DENs.Where(s => s.MATOUR == id).FirstOrDefault();
-                if (x != null)
+                if (dens.Count != 0)
                 {
-                    db.DENs.Remove(x);
+                    db.DENs.Remove(dens[i]);
                     db.SaveChanges();
                 }
-                DANGKY dk = db.DANGKies.Where(s => s.MATOUR == id).FirstOrDefault();
-                if (dk != null)
+            }
+            //Xóa bảng DANGKY
+            List<DANGKY> lstdk = db.DANGKies.Where(d => d.MATOUR == id).ToList();
+            for (var j = 0; j < lstdk.Count; j++)
+            {
+                if (lstdk.Count != 0)
                 {
-                    db.DANGKies.Remove(dk);
+                    db.DANGKies.Remove(lstdk[j]);
                     db.SaveChanges();
                 }
             }

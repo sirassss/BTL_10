@@ -100,29 +100,34 @@ namespace BTL_10.Areas.Admin.Controllers
         public JsonResult DeleteConfirmed(string id)
         {
             PHUONGTIEN pHUONGTIEN = db.PHUONGTIENs.Find(id);
+            //Xóa bảng tour
             List<TOUR> lst = db.TOURs.Where(t => t.MAPHUONGTIEN == id).ToList();
             for (var i = 0; i < lst.Count; i++)
             {
-                TOUR t = db.TOURs.Where(s => s.MAPHUONGTIEN == id).FirstOrDefault();
+                TOUR t = lst[0];
+                //Xóa bảng đến
                 List<DEN> lstdendl = db.DENs.Where(d => d.MATOUR == t.MATOUR).ToList();
-                for (var j = 0; j < lstdendl.Count; i++)
+                for (var j = 0; j < lstdendl.Count; j++)
                 {
-                    DEN d = db.DENs.Where(s => s.MATOUR == t.MATOUR).FirstOrDefault();
-                    if (d != null)
+                    if (lstdendl.Count != 0)
                     {
-                        db.DENs.Remove(d);
-                        db.SaveChanges();
-                    }
-                    DANGKY dk = db.DANGKies.Where(s => s.MATOUR == id).FirstOrDefault();
-                    if (dk != null)
-                    {
-                        db.DANGKies.Remove(dk);
+                        db.DENs.Remove(lstdendl[j]);
                         db.SaveChanges();
                     }
                 }
-                if (t != null)
+                //Xóa bảng đăng ký
+                List<DANGKY> lstdk = db.DANGKies.Where(d => d.MATOUR == t.MATOUR).ToList();
+                for (var j = 0; j < lstdk.Count; j++)
                 {
-                    db.TOURs.Remove(t);
+                    if (lstdk.Count != 0)
+                    {
+                        db.DANGKies.Remove(lstdk[j]);
+                        db.SaveChanges();
+                    }
+                }
+                if (lst.Count != 0)
+                {
+                    db.TOURs.Remove(lst[i]);
                     db.SaveChanges();
                 }
             }

@@ -89,13 +89,13 @@ namespace BTL_10.Areas.Admin.Controllers
         public JsonResult DeleteConfirmed(string id)
         {
             KHACH kHACH = db.KHACHes.Find(id);
-            List<DANGKY> dks = db.DANGKies.Where(s => s.MATOUR == id).ToList();
+            //Xóa bảng DANGKY
+            List<DANGKY> dks = db.DANGKies.Where(s => s.MAKHACH == id).ToList();
             for (var i = 0; i < dks.Count; i++)
             {
-                DANGKY x = db.DANGKies.Where(s => s.MATOUR == id).FirstOrDefault();
-                if (x != null)
+                if (dks.Count != 0)
                 {
-                    db.DANGKies.Remove(x);
+                    db.DANGKies.Remove(dks[i]);
                     db.SaveChanges();
                 }
             }

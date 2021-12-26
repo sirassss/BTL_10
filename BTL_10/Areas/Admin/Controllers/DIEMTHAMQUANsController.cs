@@ -115,13 +115,13 @@ namespace BTL_10.Areas.Admin.Controllers
         public JsonResult DeleteConfirmed(string id)
         {
             DIEMTHAMQUAN dIEMTHAMQUAN = db.DIEMTHAMQUANs.Find(id);
+            //Xóa bảng DEN
             List<DEN> dens = db.DENs.Where(s => s.MADD == id).ToList();
             for (var i = 0; i < dens.Count; i++)
             {
-                DEN x = db.DENs.Where(s => s.MADD == id).FirstOrDefault();
-                if (x != null)
+                if (dens.Count != 0)
                 {
-                    db.DENs.Remove(x);
+                    db.DENs.Remove(dens[i]);
                     db.SaveChanges();
                 }
             }

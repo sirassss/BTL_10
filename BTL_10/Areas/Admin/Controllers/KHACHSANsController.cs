@@ -96,31 +96,38 @@ namespace BTL_10.Areas.Admin.Controllers
         public JsonResult DeleteConfirmed(string id)
         {
             KHACHSAN kHACHSAN = db.KHACHSANs.Find(id);
+            //Xóa bảng TOUR
             List<TOUR> lst = db.TOURs.Where(t => t.MAKS == id).ToList();
             for (var i = 0; i < lst.Count; i++)
             {
-                TOUR t = db.TOURs.Where(s => s.MAKS == id).FirstOrDefault();
+                TOUR t = lst[0];
+                //Xóa bảng DEN
                 List<DEN> lstdendl = db.DENs.Where(d => d.MATOUR == t.MATOUR).ToList();
-                for (var j = 0; j < lstdendl.Count; i++)
+                for (var j = 0; j < lstdendl.Count; j++)
                 {
-                    DEN d = db.DENs.Where(s => s.MATOUR == t.MATOUR).FirstOrDefault();
-                    if (d != null)
+                    if (lstdendl.Count != 0)
                     {
-                        db.DENs.Remove(d);
+                        db.DENs.Remove(lstdendl[j]);
                         db.SaveChanges();
                     }
-                    DANGKY dk = db.DANGKies.Where(s => s.MATOUR == id).FirstOrDefault();
-                    if (dk != null)
+
+                }
+                //Xóa bảng DANGKY
+                List<DANGKY> lstdk = db.DANGKies.Where(d => d.MATOUR == t.MATOUR).ToList();
+                for (var j = 0; j < lstdk.Count; j++)
+                {
+                    if (lstdk.Count != 0)
                     {
-                        db.DANGKies.Remove(dk);
+                        db.DANGKies.Remove(lstdk[j]);
                         db.SaveChanges();
                     }
                 }
-                if (t != null)
+                if (lst.Count != 0)
                 {
-                    db.TOURs.Remove(t);
+                    db.TOURs.Remove(lst[i]);
                     db.SaveChanges();
                 }
+
             }
             db.KHACHSANs.Remove(kHACHSAN);
             db.SaveChanges();
