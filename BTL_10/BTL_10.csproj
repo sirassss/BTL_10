@@ -5817,7 +5817,6 @@
     <Folder Include="Areas\Admin\Data\Diemthamquan\" />
     <Folder Include="Areas\Admin\Data\Tour\" />
     <Folder Include="Scripts\" />
-    <Folder Include="Views\Base\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
