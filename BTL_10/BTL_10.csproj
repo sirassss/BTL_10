@@ -980,6 +980,7 @@
     <Content Include="Areas\Admin\Content\images\user\7.jpg" />
     <Content Include="Areas\Admin\Content\images\user\8.png" />
     <Content Include="Areas\Admin\Content\images\user\form-user.png" />
+    <Content Include="Areas\Admin\Content\js\anhlam\checkDN.js" />
     <Content Include="Areas\Admin\Content\js\anhlam\delete.js" />
     <Content Include="Areas\Admin\Content\js\anhlam\jquery-3.2.1.min.js" />
     <Content Include="Areas\Admin\Content\js\anhlam\jquery.unobtrusive-ajax.js" />

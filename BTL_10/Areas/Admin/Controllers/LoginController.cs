@@ -20,20 +20,27 @@ namespace BTL_10.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(string username, string password)
+        public JsonResult Login(string username, string password)
         {
             ADMIN ad = db.ADMINs.SingleOrDefault(x => x.TENDN == username && x.MK == password);
             if (ad != null && ad.LOAITK.Trim() == "admin")
             {
                 Session[Account.ADMIN_SESSION] = ad;
-                return RedirectToAction("Index", "Home");
-            }else if(ad != null && ad.LOAITK.Trim() == "nhanvien")
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+            else if (ad != null && ad.LOAITK.Trim() == "nhanvien")
             {
                 Session[Account.NV_SESSION] = ad;
-                return RedirectToAction("Index", "Home");
+                return Json(true, JsonRequestBehavior.AllowGet);
             }
-            ViewBag.Error = "Sai tên đăng nhập hoặc mật khẩu!";
-            return View("Index");
+            else if (ad == null)
+            {
+                return Json(false, JsonRequestBehavior.AllowGet);
+
+            }
+            return Json(false, JsonRequestBehavior.AllowGet);
+
+
         }
 
         [HttpGet]
