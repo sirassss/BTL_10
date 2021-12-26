@@ -21,20 +21,6 @@ namespace BTL_10.Areas.Admin.Controllers
             return View(db.DANHMUCBLOGs.ToList());
         }
 
-        // GET: Admin/DANHMUCBLOGs/Details/5
-        public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            DANHMUCBLOG dANHMUCBLOG = db.DANHMUCBLOGs.Find(id);
-            if (dANHMUCBLOG == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dANHMUCBLOG);
-        }
 
         // GET: Admin/DANHMUCBLOGs/Create
         public ActionResult Create()
@@ -106,14 +92,23 @@ namespace BTL_10.Areas.Admin.Controllers
         }
 
         // POST: Admin/DANHMUCBLOGs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        [HttpPost]
+        public JsonResult DeleteConfirmed(string id)
         {
             DANHMUCBLOG dANHMUCBLOG = db.DANHMUCBLOGs.Find(id);
+            //Xóa bảng BLOG
+            List<BLOG> blogs = db.BLOGs.Where(s => s.ID == id).ToList();
+            for (var i = 0; i < blogs.Count; i++)
+            {
+                if (blogs.Count != 0)
+                {
+                    db.BLOGs.Remove(blogs[i]);
+                    db.SaveChanges();
+                }
+            }
             db.DANHMUCBLOGs.Remove(dANHMUCBLOG);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)

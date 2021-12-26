@@ -21,20 +21,6 @@ namespace BTL_10.Areas.Admin.Controllers
             return View(db.HUONGDANVIENs.ToList());
         }
 
-        // GET: Admin/HUONGDANVIENs/Details/5
-        public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            HUONGDANVIEN hUONGDANVIEN = db.HUONGDANVIENs.Find(id);
-            if (hUONGDANVIEN == null)
-            {
-                return HttpNotFound();
-            }
-            return View(hUONGDANVIEN);
-        }
 
         // GET: Admin/HUONGDANVIENs/Create
         public ActionResult Create()

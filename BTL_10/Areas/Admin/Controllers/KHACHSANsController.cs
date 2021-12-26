@@ -21,20 +21,6 @@ namespace BTL_10.Areas.Admin.Controllers
             return View(db.KHACHSANs.ToList());
         }
 
-        // GET: Admin/KHACHSANs/Details/5
-        public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            KHACHSAN kHACHSAN = db.KHACHSANs.Find(id);
-            if (kHACHSAN == null)
-            {
-                return HttpNotFound();
-            }
-            return View(kHACHSAN);
-        }
 
         // GET: Admin/KHACHSANs/Create
         public ActionResult Create()

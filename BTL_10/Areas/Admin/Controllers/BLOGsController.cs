@@ -134,14 +134,13 @@ namespace BTL_10.Areas.Admin.Controllers
         }
 
         // POST: Admin/BLOGs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        [HttpPost]
+        public JsonResult DeleteConfirmed(string id)
         {
             BLOG bLOG = db.BLOGs.Find(id);
             db.BLOGs.Remove(bLOG);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)
