@@ -564,6 +564,10 @@
     <Content Include="Areas\Admin\Content\ckeditor\vendor\promise.js" />
     <Content Include="Areas\Admin\Content\css\index.css" />
     <Content Include="Areas\Admin\Content\css\style.css" />
+    <Content Include="Content\images\anhhanoi\anh-mua-thu-ha-noi-12.jpg" />
+    <Content Include="Content\images\anhhanoi\hinh-anh-ho-tay.jpg" />
+    <Content Include="Content\images\anhhanoi\hinh-nen-ha-noi-ve-ho-guom-mua-he-duoi-goc-cay-phuong.jpg" />
+    <Content Include="Content\images\anhhanoi\imager_12_2951_700.jpg" />
     <Content Include="Areas\Admin\Content\icons\cryptocoins\css\cryptocoins-colors.css" />
     <Content Include="Areas\Admin\Content\icons\cryptocoins\css\cryptocoins.css" />
     <Content Include="Areas\Admin\Content\icons\flag-icon-css\flag-icon.min.css" />
@@ -5627,8 +5631,6 @@
     <Content Include="Areas\Admin\Content\vendor\vector-map\jqvmap.min.css" />
     <Content Include="Areas\Admin\Content\vendor\wow\animate.css" />
     <Content Include="Areas\Admin\Content\vendor\wow\wow.min.js" />
-    <Content Include="Areas\Admin\Data\AnhLam\anhlam.jpg" />
-    <Content Include="Areas\Admin\Data\AnhLam\meo6.gif" />
     <Content Include="Content\css\ajax-loader.gif" />
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\aos.css" />
@@ -5680,6 +5682,9 @@
     <Content Include="Content\images\image_5.jpg" />
     <Content Include="Content\images\image_6.jpg" />
     <Content Include="Content\images\loc.png" />
+    <Content Include="Content\images\Members\anhlam.jpg" />
+    <Content Include="Content\images\Members\meo6.gif" />
+    <Content Include="Content\images\Members\tung.jpg" />
     <Content Include="Content\images\person_1.jpg" />
     <Content Include="Content\images\person_2.jpg" />
     <Content Include="Content\images\person_3.jpg" />
