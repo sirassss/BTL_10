@@ -562,6 +562,7 @@
     <Content Include="Areas\Admin\Content\ckeditor\skins\moono-lisa\images\spinner.gif" />
     <Content Include="Areas\Admin\Content\ckeditor\styles.js" />
     <Content Include="Areas\Admin\Content\ckeditor\vendor\promise.js" />
+    <Content Include="Areas\Admin\Content\css\index.css" />
     <Content Include="Areas\Admin\Content\css\style.css" />
     <Content Include="Areas\Admin\Content\icons\cryptocoins\css\cryptocoins-colors.css" />
     <Content Include="Areas\Admin\Content\icons\cryptocoins\css\cryptocoins.css" />
@@ -841,6 +842,7 @@
     <Content Include="Areas\Admin\Content\icons\themify-icons\themify-icons.css" />
     <Content Include="Areas\Admin\Content\icons\weather-icons\css\weather-icons.min.css" />
     <Content Include="Areas\Admin\Content\icons\weather-icons\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="Areas\Admin\Content\images\ffffff.jpg" />
     <Content Include="Areas\Admin\Content\images\noimage2.jpeg" />
     <Content Include="Areas\Admin\Content\images\user\admin.png" />
     <Content Include="Areas\Admin\Content\images\avatar\1.jpg" />

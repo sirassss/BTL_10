@@ -3,4 +3,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Há lu @Model.HOTEN</h2>
+<link href="~/Areas/Admin/Content/css/index.css" rel="stylesheet" />
+
+<div class="container">
+    <div style="height: 200px"></div>
+    <div class="stack" style="--stacks: 3;">
+        <span style="--index: 0;">@Model.HOTEN</span>
+        <span style="--index: 1;">@Model.HOTEN</span>
+        <span style="--index: 2;">@Model.HOTEN</span>
+    </div>
+    <span class="right"></span>
+</div>
