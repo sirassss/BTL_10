@@ -1,7 +1,7 @@
 ﻿
 //Xóa bảng TOUR
 function deletetour(id) {
-    var jsData = "{Id : '" + id + "'}";
+    var jsData = "{'id' : '" + id + "'}";
     swal({
         title: "Bạn có chắc muốn xóa ?",
         text: "Sẽ không thể khôi phục lại !!",
@@ -22,12 +22,14 @@ function deletetour(id) {
                     dataType: "json",
                     success: function (result) {
                         if (result == true) {
-                            window.location = "/Admin/TOURs/Index";
-                        }
+                            swal("Xóa thành công ","Đã xóa rồi nhé !!","success",);
+                            setTimeout(function () {
+                                window.location = "/Admin/TOURs/Index";
+                            }, 1000);
+                            //window.location = "/Admin/TOURs/Index";
+                        };
                     }
                 });
-            } else {
-                swal("Đã có lỗi xảy ra")
             }
         })
 }
@@ -54,12 +56,14 @@ function deletedd(id) {
                     dataType: "json",
                     success: function (result) {
                         if (result == true) {
-                            window.location = "/Admin/DIEMTHAMQUANs/Index";
+                            swal("Xóa thành công ", "Đã xóa rồi nhé !!", "success",);
+                            setTimeout(function () {
+                                window.location = "/Admin/DIEMTHAMQUANs/Index";
+                            }, 1000);
+                            
                         }
-                    }
+                    },
                 });
-            } else {
-                swal("Đã có lỗi xảy ra")
             }
         })
 }
@@ -87,7 +91,11 @@ function deleteks(id) {
                     dataType: "json",
                     success: function (result) {
                         if (result == true) {
-                            window.location = "/Admin/KHACHSANs/Index";
+                            swal("Xóa thành công ", "Đã xóa rồi nhé !!", "success",);
+                            setTimeout(function () {
+                                window.location = "/Admin/KHACHSANs/Index";
+                            }, 1000);
+                            
                         }
                     }
                 });
@@ -119,7 +127,11 @@ function deletept(id) {
                     dataType: "json",
                     success: function (result) {
                         if (result == true) {
-                            window.location = "/Admin/PHUONGTIENs/Index";
+                            swal("Xóa thành công ", "Đã xóa rồi nhé !!", "success",);
+                            setTimeout(function () {
+                                window.location = "/Admin/PHUONGTIENs/Index";
+                            }, 1000);
+                            
                         }
                     }
                 });
@@ -152,7 +164,11 @@ function deletehdv(id) {
                     dataType: "json",
                     success: function (result) {
                         if (result == true) {
-                            window.location = "/Admin/HUONGDANVIENs/Index";
+                            swal("Xóa thành công ", "Đã xóa rồi nhé !!", "success",);
+                            setTimeout(function () {
+                                window.location = "/Admin/HUONGDANVIENs/Index";
+                            }, 1000);
+                            
                         }
                     }
                 });
@@ -185,7 +201,11 @@ function deletekh(id) {
                     dataType: "json",
                     success: function (result) {
                         if (result == true) {
-                            window.location = "/Admin/KHACHes/Index";
+                            swal("Xóa thành công ", "Đã xóa rồi nhé !!", "success",);
+                            setTimeout(function () {
+                                window.location = "/Admin/KHACHes/Index";
+                            }, 1000);
+                            
                         }
                     }
                 });
@@ -218,7 +238,11 @@ function deletead(id) {
                     dataType: "json",
                     success: function (result) {
                         if (result == true) {
-                            window.location = "/Admin/ADMINs/Index";
+                            swal("Xóa thành công ", "Đã xóa rồi nhé !!", "success",);
+                            setTimeout(function () {
+                                window.location = "/Admin/ADMINs/Index";
+                            }, 1000);
+                            
                         }
                     }
                 });
@@ -251,7 +275,11 @@ function deletebl(id) {
                     dataType: "json",
                     success: function (result) {
                         if (result == true) {
-                            window.location = "/Admin/BLOGs/Index";
+                            swal("Xóa thành công ", "Đã xóa rồi nhé !!", "success",);
+                            setTimeout(function () {
+                                window.location = "/Admin/BLOGs/Index";
+                            }, 1000);
+                            
                         }
                     }
                 });
@@ -284,7 +312,11 @@ function deletedmbl(id) {
                     dataType: "json",
                     success: function (result) {
                         if (result == true) {
-                            window.location = "/Admin/DANHMUCBLOGs/Index";
+                            swal("Xóa thành công ", "Đã xóa rồi nhé !!", "success",);
+                            setTimeout(function () {
+                                window.location = "/Admin/DANHMUCBLOGs/Index";
+                            }, 1000);
+                            
                         }
                     }
                 });
