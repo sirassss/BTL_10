@@ -103,7 +103,9 @@
                                             @{string linkanh = "~/Areas/Admin/Data/Tour/" + dd.ANH;}
                                             <a href="/TOURs/Details/@dd.MATOUR" class="img img-2" style="background-image: url(@Url.Content(linkanh));"></a>
                                             <div class="text p-3">
-                                                <h3><a href="/TOURs/Details/@dd.MATOUR"></a> @dd.TENTOUR</h3>
+                                                <div style="height:100px">
+                                                    <h3><a href="/TOURs/Details/@dd.MATOUR"></a> @dd.TENTOUR</h3>
+                                                </div>
                                                 <div class="d-flex">
                                                     <div class="one">
 
@@ -121,7 +123,7 @@
 
                                                 <hr>
                                                 <p class="bottom-area d-flex">
-                                                    <span><i class="icon-map-o"></i>@dd.TENTOUR </span>
+                                                    <span><i class="icon-map-o"></i> @dd.TENTOUR </span>
 
                                                 </p>
                                             </div>
