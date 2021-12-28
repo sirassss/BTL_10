@@ -6,7 +6,7 @@
 
     if (!pass.value && !name.value) {
         toastr.error(
-            "Chưa nhập thông tin -.-!!",
+            "Đã nhập cái gì đâu bé -.-!!",
             "Lỗi nè",
             {
                 positionClass: "toast-top-right",
@@ -28,8 +28,8 @@
             })
     } else if (!name.value) {
         toastr.error(
-            "Tài khoản không được để trống",
-            "Lỗi !!!",
+            "Quên nhập tài khoản bé ơi!!",
+            "Lỗi nè",
             {
                 positionClass: "toast-top-right",
                 timeOut: 5e3,
@@ -50,8 +50,8 @@
             })
     } else if (!pass.value) {
         toastr.error(
-            "Quên nhập mật khẩu !!!",
-            "Lỗi !!!",
+            "Quên nhập mật khẩu bé ơi!!",
+            "Lỗi nè",
             {
                 positionClass: "toast-top-right",
                 timeOut: 5e3,
@@ -72,8 +72,8 @@
             })
     } else if (pass.value && name.value) {
         toastr.success(
-            "Đang xử lí vui lòng chờ đợi",
-            "OK", {
+            "Đợi một chút để anh xử lý nhé :3",
+            "Đủ rồi đó", {
             timeOut: 5e3,
             closeButton: !0,
             debug: !1,
@@ -103,8 +103,8 @@
                         window.location = "/Admin/Home/Index";
                     } else if (res.status == "not") {
                         toastr.error(
-                            "Nhập sai tài khoản hoặc mật khẩu",
-                            "Lỗi !!!",
+                            "Bé nhập sai tài khoản hoặc mật khẩu òi!!",
+                            "Lỗi nè",
                             {
                                 positionClass: "toast-top-right",
                                 timeOut: 5e3,
@@ -125,8 +125,8 @@
                             })
                     } else if (res.status == "lock") {
                         toastr.error(
-                            "Tài khoản của bạn đã bị khóa !!",
-                            "Khóa",
+                            "Tài khoản của bé bị khóa mất òi!!",
+                            "Khóa òi",
                             {
                                 positionClass: "toast-top-right",
                                 timeOut: 5e3,
@@ -161,8 +161,8 @@ function dangky() {
 
     if (!pass.value && !name.value && !hvt.value) {
         toastr.error(
-            "Chưa điền thông tin",
-            "Lỗi !!!",
+            "Đã nhập cái gì đâu bé -.-!!",
+            "Lỗi nè",
             {
                 positionClass: "toast-top-right",
                 timeOut: 5e3,
@@ -184,7 +184,7 @@ function dangky() {
     } else if (pass.value && !name.value && hvt.value) {
         toastr.error(
             "Thiếu tên đăng nhập rồi -.-!!",
-            "Lỗi !!!",
+            "Lỗi nè",
             {
                 positionClass: "toast-top-right",
                 timeOut: 5e3,
@@ -206,7 +206,7 @@ function dangky() {
     } else if (pass.value && name.value && !hvt.value) {
         toastr.error(
             "Thiếu họ và tên rồi :((",
-            "Lỗi !!!",
+            "Lỗi nè",
             {
                 positionClass: "toast-top-right",
                 timeOut: 5e3,
@@ -228,7 +228,7 @@ function dangky() {
     } else if (!pass.value && name.value && hvt.value) {
         toastr.error(
             "Thiếu mật khẩu rồi :((",
-            "Lỗi !!!",
+            "Lỗi nè",
             {
                 positionClass: "toast-top-right",
                 timeOut: 5e3,
@@ -250,7 +250,7 @@ function dangky() {
     } else if (!pass.value && !name.value && hvt.value) {
         toastr.error(
             "Thiếu tên đăng nhập và mật khẩu rồi :((",
-            "Lỗi !!!",
+            "Lỗi nè",
             {
                 positionClass: "toast-top-right",
                 timeOut: 5e3,
@@ -272,7 +272,7 @@ function dangky() {
     } else if (!pass.value && name.value && !hvt.value) {
         toastr.error(
             "Thiếu họ và tên và mật khẩu rồi :((",
-            "Lỗi !!!",
+            "Lỗi nè",
             {
                 positionClass: "toast-top-right",
                 timeOut: 5e3,
@@ -294,7 +294,7 @@ function dangky() {
     } else if (pass.value && !name.value && !hvt.value) {
         toastr.error(
             "Thiếu tên đăng nhập và họ và tên rồi :((",
-            "Lỗi !!1",
+            "Lỗi nè",
             {
                 positionClass: "toast-top-right",
                 timeOut: 5e3,
@@ -315,8 +315,8 @@ function dangky() {
             })
     } else if (pass.value && name.value && hvt.value) {
         toastr.success(
-            "Đang xử lí, vui lòng chờ :3",
-            "OK", {
+            "Đợi một chút để anh xử lý nhé :3",
+            "Đủ rồi đó", {
             timeOut: 5e3,
             closeButton: !0,
             debug: !1,
@@ -347,7 +347,7 @@ function dangky() {
                     } else if (res.status == "not") {
                         toastr.error(
                             "Tài khoản này đã có người đăng ký mất òi :((",
-                            "Lỗi !!!",
+                            "Lỗi nè",
                             {
                                 positionClass: "toast-top-right",
                                 timeOut: 5e3,
