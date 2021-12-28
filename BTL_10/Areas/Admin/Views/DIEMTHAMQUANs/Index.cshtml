@@ -38,7 +38,24 @@
                                 <tr>
                                     <td>@item.TENDD</td>
                                     <td>@item.DIACHI</td>
-                                    <td>@item.MOTADIEMDEN</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#dd-@item.MADD.Trim()">More</button>
+                                        <div class="modal fade" id="dd-@item.MADD.Trim()">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Mô tả điểm đến</h5>
+                                                        <button type="button" class="close" data-dismiss="modal">
+                                                            <span>&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @item.MOTADIEMDEN
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>
                                         @{
                                             string imgpath = "~/Areas/Admin/Data/Diemthamquan/" + item.ANH;
