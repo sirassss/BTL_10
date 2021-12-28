@@ -5683,7 +5683,9 @@
     <Content Include="Content\images\image_6.jpg" />
     <Content Include="Content\images\loc.png" />
     <Content Include="Content\images\Members\anhlam.jpg" />
+    <Content Include="Content\images\Members\doan.png" />
     <Content Include="Content\images\Members\meo6.gif" />
+    <Content Include="Content\images\Members\tri.jpg" />
     <Content Include="Content\images\Members\tung.jpg" />
     <Content Include="Content\images\person_1.jpg" />
     <Content Include="Content\images\person_2.jpg" />
