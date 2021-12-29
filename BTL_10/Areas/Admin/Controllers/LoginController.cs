@@ -23,7 +23,13 @@ namespace BTL_10.Areas.Admin.Controllers
         public JsonResult Login(string username, string password)
         {
             ADMIN ad = db.ADMINs.SingleOrDefault(x => x.TENDN == username && x.MK == password);
-            if (ad.TRANGTHAI.Trim() == "off")
+            if (ad == null)
+            {
+                var data = new { status = "not" };
+                return Json(data, JsonRequestBehavior.AllowGet);
+
+            }
+            else if (ad.TRANGTHAI.Trim() == "off")
             {
                 var data = new { status = "lock" };
                 return Json(data, JsonRequestBehavior.AllowGet);
@@ -40,12 +46,7 @@ namespace BTL_10.Areas.Admin.Controllers
                 var data = new { status = "ok"};
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
-            else if (ad == null)
-            {
-                var data = new { status = "not" };
-                return Json(data, JsonRequestBehavior.AllowGet);
-
-            }
+            
             
             return Json(new { status = "nots"}, JsonRequestBehavior.AllowGet);
 
