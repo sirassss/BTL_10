@@ -6,7 +6,7 @@
 
     if (!pass.value && !name.value) {
         toastr.error(
-            "Đã nhập cái gì đâu bé -.-!!",
+            "Chưa nhập thông tin -.-!!",
             "Lỗi nè",
             {
                 positionClass: "toast-top-right",
@@ -28,7 +28,7 @@
             })
     } else if (!name.value) {
         toastr.error(
-            "Quên nhập tài khoản bé ơi!!",
+            "Chưa nhập thông tin tài khoản!!",
             "Lỗi nè",
             {
                 positionClass: "toast-top-right",
@@ -50,7 +50,7 @@
             })
     } else if (!pass.value) {
         toastr.error(
-            "Quên nhập mật khẩu bé ơi!!",
+            "Chưa nhập thông tin mật khẩu!!",
             "Lỗi nè",
             {
                 positionClass: "toast-top-right",
@@ -72,7 +72,7 @@
             })
     } else if (pass.value && name.value) {
         toastr.success(
-            "Đợi một chút để anh xử lý nhé :3",
+            "Đang xử lý :3",
             "Đủ rồi đó", {
             timeOut: 5e3,
             closeButton: !0,
@@ -103,7 +103,7 @@
                         window.location = "/Admin/Home/Index";
                     } else if (res.status == "not") {
                         toastr.error(
-                            "Bé nhập sai tài khoản hoặc mật khẩu òi!!",
+                            "Nhập sai tài khoản hoặc mật khẩu!!",
                             "Lỗi nè",
                             {
                                 positionClass: "toast-top-right",
@@ -161,7 +161,7 @@ function dangky() {
 
     if (!pass.value && !name.value && !hvt.value) {
         toastr.error(
-            "Đã nhập cái gì đâu bé -.-!!",
+            "Chưa nhập thông tin -.-!!",
             "Lỗi nè",
             {
                 positionClass: "toast-top-right",
@@ -183,7 +183,7 @@ function dangky() {
             })
     } else if (pass.value && !name.value && hvt.value) {
         toastr.error(
-            "Thiếu tên đăng nhập rồi -.-!!",
+            "Chưa nhập thông tin tên đăng nhập -.-!!",
             "Lỗi nè",
             {
                 positionClass: "toast-top-right",
@@ -205,7 +205,7 @@ function dangky() {
             })
     } else if (pass.value && name.value && !hvt.value) {
         toastr.error(
-            "Thiếu họ và tên rồi :((",
+            "Chưa nhập thông tin họ và tên :((",
             "Lỗi nè",
             {
                 positionClass: "toast-top-right",
@@ -227,7 +227,7 @@ function dangky() {
             })
     } else if (!pass.value && name.value && hvt.value) {
         toastr.error(
-            "Thiếu mật khẩu rồi :((",
+            "Chưa nhập thông tin mật khẩu :((",
             "Lỗi nè",
             {
                 positionClass: "toast-top-right",
@@ -249,7 +249,7 @@ function dangky() {
             })
     } else if (!pass.value && !name.value && hvt.value) {
         toastr.error(
-            "Thiếu tên đăng nhập và mật khẩu rồi :((",
+            "Chưa nhập thông tên đăng nhập và mật khẩu :((",
             "Lỗi nè",
             {
                 positionClass: "toast-top-right",
@@ -271,7 +271,7 @@ function dangky() {
             })
     } else if (!pass.value && name.value && !hvt.value) {
         toastr.error(
-            "Thiếu họ và tên và mật khẩu rồi :((",
+            "Chưa nhập thông tin họ tên và mật khẩu :((",
             "Lỗi nè",
             {
                 positionClass: "toast-top-right",
@@ -293,7 +293,7 @@ function dangky() {
             })
     } else if (pass.value && !name.value && !hvt.value) {
         toastr.error(
-            "Thiếu tên đăng nhập và họ và tên rồi :((",
+            "Chưa nhập thông tin tên đăng nhập và họ tên :((",
             "Lỗi nè",
             {
                 positionClass: "toast-top-right",
@@ -315,7 +315,7 @@ function dangky() {
             })
     } else if (pass.value && name.value && hvt.value) {
         toastr.success(
-            "Đợi một chút để anh xử lý nhé :3",
+            "Đang xử lý :3",
             "Đủ rồi đó", {
             timeOut: 5e3,
             closeButton: !0,
@@ -346,7 +346,7 @@ function dangky() {
                         window.location = "/Admin/Home/Index";
                     } else if (res.status == "not") {
                         toastr.error(
-                            "Tài khoản này đã có người đăng ký mất òi :((",
+                            "Tài khoản này đã có người đăng ký :((",
                             "Lỗi nè",
                             {
                                 positionClass: "toast-top-right",

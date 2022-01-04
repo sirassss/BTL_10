@@ -12,11 +12,15 @@
                 <div class="col-lg-7 col-md-7 col-sm-6">
                     <h4 class="box-title mt-5">Chi tiết khách hàng</h4>
                     <div>
-                        <p><strong>Giới tính:  </strong>@Model.PHAI</p>
+                        <p><strong>Giới tính:  </strong>@if (Model.PHAI == true)
+                        { <span>Nam</span>}
+                        else if (Model.PHAI == false)
+                        { <span>Nữ</span>}
+                        else { <span>Không xác định</span>}</p>
                         <p><strong>Chứng minh nhân dân: </strong> @Model.CMND</p>
                         <p><strong>Số điện thoại: </strong>@Model.SDT</p>
                         <p><strong>Địa chỉ: </strong>@Model.DIACHI</p>
-                    <a href="/Admin/TOURs/Edit/@Model.MAKHACH">
+                    <a href="/Admin/KHACHes/Edit/@Model.MAKHACH">
                         <button class="btn btn-outline-dark btn-rounded mr-1">Sửa</button>
                     </a>
                     <a href="@Url.Action("Index")">
