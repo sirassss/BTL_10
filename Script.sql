@@ -225,3 +225,13 @@ INSERT INTO DIEMTHAMQUAN(MADD, TENDD, DIACHI, MOTADIEMDEN, ANH) VALUES (N'DTQ25'
 go
 
 --Thêm dữ liệu bảng DEN
+--Thêm dữ liệu bảng DANHMUCBLOG
+Insert Into DANHMUCBLOG(MADANHMUCBLOG, TENDANHMUCBLOG)values ('DM01',N'Hà Nội 36 phố phường: Nét đẹp ngàn năm giữa lòng thủ đô hoa lệ')
+Insert Into DANHMUCBLOG(MADANHMUCBLOG, TENDANHMUCBLOG)values ('DM02',N'Hà Nội')
+Insert Into DANHMUCBLOG(MADANHMUCBLOG, TENDANHMUCBLOG)values ('DM03',N'Hà Nội nghìn năm văn hiến')
+go
+--Thêm dữ liệu bảng BLOG
+Insert Into BLOG(MABAIVIET, TIEUDE, ANH, TOMTAT, NOIDUNG, NGAYKHOITAO, MADANHMUCBLOG, ID) values ('BV01',N'Hà Nội 36 Phố Phường','1.jpg','',N'Lịch sử Hà Nội gắn liền với 36 Phố Phường: Phố Hàng Bồ, Hàng Vôi, Hàng Thiếc, Hàng Mã,... với nếp nhà cổ kính rêu phong bên những con đường quanh co đầy chất thơ, với không gian thanh bình êm ả. Khu phố ngày xưa đó trong con mắt của nhà văn không hề ồn ào, sôi động mà có nhiều cảnh đời, số phận khác nhau, có những người lao động vất vả, lam lũ lo cơm áo gạo tiền nuôi gia đình, những hoàn cảnh vô cùng éo le vì cuộc sống nghèo túng lúc bấy giờ. Nhưng sự nghèo khó đó không làm lu mờ được những vẻ đẹp tâm hồn con, chính những câu chuyện bình dị chân thật về con người ấy là những mảnh ghép tạo nên cho Hà Nội nét thanh tao, quyễn rũ thơ mộng đến lạ kỳ.','2021-12-12','DM01','1')
+Insert Into BLOG(MABAIVIET, TIEUDE, ANH, TOMTAT, NOIDUNG, NGAYKHOITAO, MADANHMUCBLOG, ID) values ('BV02',N'Hà Nội mùi hương hoa sữa','2.jpg','',N'Với người Hà Nội, hoa sữa từ lâu đã rất thân quen. Hoa sữa xuất hiện trong nhiều bài ca bất hủ về Hà Nội. Mỗi độ thu về, hoa sẽ nở và tỏa hương ngào ngạt. Blogger du lịch Nguyễn Khải Trung chia sẻ: "Hoa sữa là một phần của Hà Nội. Nó gần gũi, thân thuộc. Không ít người cứ mỗi độ hoa nở, lại thong thả đếm bước chân mình trên hè phố...".','2021-12-11','DM01','1')
+Insert Into BLOG(MABAIVIET, TIEUDE, ANH, TOMTAT, NOIDUNG, NGAYKHOITAO, MADANHMUCBLOG, ID) values ('BV03',N'Mùa thu Hà Nội','3.jpg','',N'Tiết trời Hà Nội trong những ngày giao mùa đẹp lắm, những tia nắng nhẹ, trong mắt và đẹp mơ màng len lỏi qua từng kẽ lá khiến bạn muốn bật dậy khỏi giường và bước ra ngoài tận hưởng nắng thu. Những con gió heo may se se lạnh khiến không khí của thủ đô vốn dĩ nhộn nhịp bỗng trở nên hiền hòa, nhẹ nhàng hơn bao giờ hết.','2021-12-12','DM02','1')
+go
